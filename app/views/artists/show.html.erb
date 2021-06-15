@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-between">
+  <div class="card-profile">
+    <div class="personal">
+      <h1><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h1>
+      <h2><%= @artist.location %></h2>
+      <p>
+        <% @artist.genres.each do |genre| %>
+        <%= genre %>
+        <% end %>
+      </p>
+    </div class="button">
+    <button type='button'>Connect</button> <button type='button'>Save</button>
+    <div class="bio text-wrap" style="width: 500px;">
+      <h2>About me</h2>
+      <p> <%= @artist.bio %> </p>
+    </div>
+    <div class="influences">
+
+    </div>
+  </div>
+
+  <div class="card-links">
+    <div class="tabs">
+      <button class="tablinks" onclick="#">My lists</button>
+      <button class="tablinks" onclick="#">My songs</button>
+      <button class="tablinks" onclick="#">Events</button>
+    </div>
+    <div class="sound-cloud">
+
+    </div>
+    <div class="youtube">
+
+    </div>
+    <div class="instagram">
+
+    </div>
+  </div>
+</div>
