@@ -1,15 +1,15 @@
 /* Navbar */
-.navbar-lewagon {
+.navbar-main {
   justify-content: space-between;
   height: 90px;
   background: linear-gradient(180deg, rgba(219, 82, 244, 0.5) 0%, rgba(108, 124, 235, 0.5) 100%);
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-main .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-main .navbar-brand img {
   width: 40px;
 }
 
@@ -75,3 +75,51 @@
 .footer-small .fa-heart {
   color: #D23333;
 }
+
+
+/* Button */
+.btn-blue {
+  color: white;
+  padding: 12px 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  background: #6C7CEB;
+  transition: background 0.3s ease;
+}
+
+.btn-blue:hover {
+  background: #5663BC;
+  color: white;
+}
+
+.btn-gradient {
+  color: white;
+  padding: 13px 17px; /* it has to be bigger than the other buttons because we removed the border*/
+  font-weight: 600;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #DB52F4 0%, #6C7CEB 100%);
+  transition: background 0.3s ease;
+  border: none;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(180deg, rgba(219, 82, 244, 0.5) 0%, rgba(108, 124, 235, 0.5) 100%);
+  color: white;
+}
+
+.btn-white {
+  color: black;
+  padding: 12px 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
+
+.btn-white:hover {
+  background: #D9E4FF;
+  color: white;
+}
+
+
