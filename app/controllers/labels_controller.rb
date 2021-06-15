@@ -2,7 +2,7 @@ class LabelsController < ApplicationController
   before_action :set_label, only: %i[show edit update]
 
   def new
-    @label = Label.new(label_params)
+    @label = Label.new
   end
 
   def create
