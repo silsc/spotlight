@@ -1,11 +1,11 @@
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [ :show, :edit, :update]
+  before_action :set_artist, only: %i[show edit update]
 
   def show
   end
 
   def new
-    @artist = Artist.new(artist_params)
+    @artist = Artist.new
   end
 
   def create
@@ -30,8 +30,10 @@ class ArtistsController < ApplicationController
   end
 
   private
+
   def artist_params
-    params.require(:artist).permit(:name, :age, :location, :bio, :influences, :genres, :soundcloud_url, :website_url, :youtube_url, :instagram_url)
+    params.require(:artist).permit(:name, :age, :location, :bio, :influences, :genres, :soundcloud_url, :website_url,
+                                   :youtube_url, :instagram_url)
   end
 
   def set_artist
