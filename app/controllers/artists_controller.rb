@@ -10,7 +10,10 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
+
     @artist.user = current_user
+    authorize @artist
+
     if @artist.save!
       redirect_to artist_path(@artist)
     else
@@ -22,10 +25,10 @@ class ArtistsController < ApplicationController
   end
 
   def update
-    if @artist = Artist.update(artist_params)
+    if @artist.update(artist_params)
       redirect_to artist_path(@artist)
     else
-      render :edit
+      render :show
     end
   end
 
@@ -38,5 +41,6 @@ class ArtistsController < ApplicationController
 
   def set_artist
     @artist = Artist.find(params[:id])
+    authorize @artist
   end
 end
