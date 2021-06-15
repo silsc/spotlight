@@ -1,0 +1,12 @@
+<div>
+  <h1 class="text-center">Edit your information</h1>
+</div>
+<div class="container col-6 col-lg-4">
+  <%= simple_form_for(@label) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :bio %>
+    <%= f.input :website_url %>
+    <%= f.submit "Update" %>
+  <% end %>
+</div>
