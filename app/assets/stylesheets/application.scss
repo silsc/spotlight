@@ -12,3 +12,7 @@
 @import "components/index";
 @import "pages/index";
 
+body {
+  min-height: calc(100vh - 100px);
+}
+
