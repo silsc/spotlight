@@ -1,26 +1,63 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="">Spotlight</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#home">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#about">About us</a>
-      </li>
-      <li class="nav-item mr-3 active">
-        <%= link_to "Log in", new_user_session_path, class: "btn btn-flat btn-landing" %>
-      </li>
-       <li class="nav-item active">
-       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-flat btn-landing" %>
-      </li>
-    </ul>
+<div class="colored-landing">
+  <div class="container-fluid">
+
+    <!-- Navbar -->
+    <div class="navbar navbar-expand-sm navbar-light navbar-landing">
+      <a class="navbar-brand" href="#">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-blue" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-blue" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main section -->
+    <div class="row">
+      <div class="big-heading col-lg-6 m-auto">
+        <h1>Welcome to <strong>your music community</strong></h1>
+        <%= link_to "Get Started", new_user_registration_path, class: "btn btn-gradient" %>
+      </div>
+      <div class="small-heading col-lg-6">
+        <%= image_tag "girls.png", class: "img-fluid big-logo" %>
+        <h2>Connect with people who can help you shine</h2>
+      </div>
+    </div>
   </div>
-</nav>
+</div>
 
 
-
+<!-- About us -->
+<h1 class="about-title">About us</h1>
+<div class="about-us">
+  <div class="container d-flex justify-content-around mr-5 my-5 w-50">
+    <div class="row">
+      <div class="feature-box col-lg-6">
+        <i class="icon-landing" style='background-image: url("https://image.flaticon.com/icons/png/512/1765/1765668.png")'></i>
+        <h3 class="feature-title">Connect</h3>
+        <p>Easily connect with the major players of the industry</p>
+      </div>
+      <div class="feature-box col-lg-6">
+        <h3 class="feature-title">Share</h3>
+        <p>Showcase your music and maximise your chances to be seen</p>
+      </div>
+      <div class="feature-box col-lg-6">
+        <h3 class="feature-title">Find the talent</h3>
+        <p>The most talented emerging artists, all in the same place</p>
+      </div>
+       <div class="feature-box col-lg-6">
+        <h3 class="feature-title">Break the rules</h3>
+        <p>No more tradicional processes, all you need in one page</p>
+      </div>
+    </div>
+  </div>
+</div>
