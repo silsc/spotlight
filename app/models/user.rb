@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum user_type: %i[label artist]
+  enum user_type: %i[Label Artist]
 
   has_one :artist, dependent: :destroy
   has_one :label, dependent: :destroy
