@@ -1,4 +1,9 @@
 /* Card */
+
+.basic-info {
+  align-items: center;
+}
+
 .profile-card {
   width: 690px;
   height: 804px;
@@ -30,6 +35,11 @@
   top: 100px;
   left: 250px;
 }
+
+#avatar-profile-2 {
+  visibility: hidden;
+}
+
 
 /* Profile tabs */
 

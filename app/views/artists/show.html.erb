@@ -51,54 +51,53 @@
 
 <!-- Cards -->
 
-  <div class="container basic-info d-flex">
-    <div>
-
+<div class="container basic-info d-flex">
+  <div>
     <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" id="avatar-profile" height="200" width="200">
-
-
-    <div class="profile-card my-5">
-      <div class="text-center pb-3">
-        <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
-        <h4><%= @artist.location %></h4>
-      </div>
-      <div class="d-flex justify-content-around pb-3 px-5">
-        <p>
-          <% @artist.roles.each do |role| %>
-            <span class="badge badge-pill badge-info"><%= role %></span>
-          <% end %>
-        </p>
-        <p>
-          <% @artist.genres.each do |genre| %>
-            <span class="badge badge-pill badge-light">#<%= genre %></span>
-          <% end %>
-        </p>
-      </div>
-      <div class="d-flex justify-content-around px-5">
-        <%= link_to "Connect", "#", class: "btn btn-gradient px-5" %>
-        <%= link_to "Message", "#", class: "btn btn-gradient px-5" %>
-      </div>
-      <div class="pl-5 pt-4">
-        <h4 class="pt-3">About me</h4>
-        <p><%= @artist.bio %></p>
-        <h4 class="pt-3">My influences</h4>
-       </div>
-      <div class="d-flex justify-content-around mt-5">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-      </div>
-      <div class="d-flex justify-content-around mt-5">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-      </div>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Edit
-      </button>
+  <div class="profile-card my-5">
+    <div class="text-center pb-3">
+      <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
+      <h4><%= @artist.location %></h4>
     </div>
+  <div class="d-flex justify-content-around pb-3 px-5">
+    <p>
+      <% @artist.roles.each do |role| %>
+        <span class="badge badge-pill badge-info"><%= role %></span>
+      <% end %>
+    </p>
+    <p>
+      <% @artist.genres.each do |genre| %>
+        <span class="badge badge-pill badge-light">#<%= genre %></span>
+      <% end %>
+    </p>
+  </div>
+  <div class="d-flex justify-content-around px-5">
+    <%= link_to "Connect", "#", class: "btn btn-gradient px-5" %>
+    <%= link_to "Message", "#", class: "btn btn-gradient px-5" %>
+  </div>
+  <div class="pl-5 pt-4">
+    <h4 class="pt-3">About me</h4>
+    <p><%= @artist.bio %></p>
+    <h4 class="pt-3">My influences</h4>
+   </div>
+  <div class="d-flex justify-content-around mt-5">
+    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+  </div>
+  <div class="d-flex justify-content-around mt-5">
+    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+  </div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Edit
+  </button>
+  </div>
   </div>
 
+  <div class="m-5">
+    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" id="avatar-profile-2" height="200" width="200">
     <div class="profile-card-links py-5 my-5">
       <ul class="nav nav-tabs nav-profile">
         <li class="active"><a data-toggle="tab" href="#links">My links</a></li>
@@ -119,11 +118,13 @@
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
         </div>
       </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-      <span>Edit</span>
-    </button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <span>Edit</span>
+      </button>
     </div>
   </div>
+</div>
+
 
   <!-- Modal -->
 
