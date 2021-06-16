@@ -1,15 +1,18 @@
-<h1>Create your profile</h1>
-
-<%= simple_form_for @artist do |f| %>
-  <%= f.input :name %>
-  <%= f.input :age %>
-  <%= f.input :location %>
-  <%= f.input :bio %>
-  <%= f.input :influences %>
-  <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
-  <%= f.input :soundcloud_url %>
-  <%= f.input :website_url %>
-  <%= f.input :youtube_url %>
-  <%= f.input :instagram_url %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container col-6 col-lg-4">
+  <h1 class='text-center'>Create your profile</h1>
+  <%= simple_form_for @artist do |f| %>
+    <%= f.input :name %>
+    <%= f.input :age %>
+    <%= f.input :location %>
+    <%= f.input :bio %>
+    <%= f.input :influences %>
+    <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
+    <%= f.input :soundcloud_url %>
+    <%= f.input :website_url %>
+    <%= f.input :youtube_url %>
+    <%= f.input :instagram_url %>
+    <div class="container text-center">
+      <%= f.submit "Create", class: 'btb btn-gradient py-2' %>
+    </div>
+  <% end %>
+</div>
