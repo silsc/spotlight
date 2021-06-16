@@ -12,7 +12,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
 
     @artist.user = current_user
-    authorize @artist
+    # authorize @artist
 
     if @artist.save!
       redirect_to artist_path(@artist)
@@ -41,6 +41,6 @@ class ArtistsController < ApplicationController
 
   def set_artist
     @artist = Artist.find(params[:id])
-    authorize @artist
+    # authorize @artist
   end
 end

@@ -10,7 +10,7 @@ class LabelsController < ApplicationController
     @label = Label.new(label_params)
 
     @label.user = current_user
-    authorize @label
+    # authorize @label
 
     if label.save!
       redirect_to label_path(@label)
@@ -41,6 +41,6 @@ class LabelsController < ApplicationController
 
   def set_label
     @label = Label.find(params[:id])
-    authorize @label
+    # authorize @label
   end
 end

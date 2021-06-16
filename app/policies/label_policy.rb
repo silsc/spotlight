@@ -14,10 +14,10 @@ class LabelPolicy < ApplicationPolicy
   end
 
   def update?
-    @record.user == user
+    record.user == user
   end
 
   # def destroy?
-  #   @record.user == user
+  #   update?
   # end
 end
