@@ -1,55 +1,73 @@
-<div class="container d-flex justify-content-between">
-  <div class="card-profile">
-    <div class="personal">
-      <h1><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h1>
-      <h2><%= @artist.location %></h2>
+<div class="container basic-info">
+  <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" id="avatar-profile" height="200" width="200">
+
+  <div class="profile-card">
+    <div class="text-center pb-3">
+      <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
+      <h4><%= @artist.location %></h4>
+    </div>
+    <div class="d-flex justify-content-around pb-3 px-5">
       <p>
-        <% @artist.genres.each do |genre| %>
-          #<%= genre %>
+        <% @artist.roles.each do |role| %>
+          <span class="badge badge-pill badge-info"><%= role %></span>
         <% end %>
       </p>
-    </div class="button">
-    <button type='button'>Connect</button> <button type='button'>Save</button>
-    <div class="bio text-wrap" style="width: 500px;">
-      <h2>About me</h2>
-      <p> <%= @artist.bio %> </p>
+      <p>
+        <% @artist.genres.each do |genre| %>
+          <span class="badge badge-pill badge-light">#<%= genre %></span>
+        <% end %>
+      </p>
     </div>
-    <div class="influences">
+    <div class="d-flex justify-content-around px-5">
+      <%= link_to "Connect", "#", class: "btn btn-gradient px-5" %>
+      <%= link_to "Message", "#", class: "btn btn-gradient px-5" %>
+    </div>
+    <div class="pl-5 pt-4">
+      <h4 class="pt-3">About me</h4>
+      <p><%= @artist.bio %></p>
+      <h4 class="pt-3">My influences</h4>
+     </div>
+    <div class="d-flex justify-content-around mt-5">
+      <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+      <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+      <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+    </div>
+    <div class="d-flex justify-content-around mt-5">
+      <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+      <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+      <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
     </div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
       Edit
     </button>
   </div>
-  <div class="card-links">
-    <ul class="nav nav-tabs">
+
+
+  <div class="profile-card-links py-5">
+    <ul class="nav nav-tabs nav-profile">
       <li class="active"><a data-toggle="tab" href="#links">My links</a></li>
       <li><a data-toggle="tab" href="#songs">My songs</a></li>
       <li><a data-toggle="tab" href="#events">Events</a></li>
     </ul>
-    <div class="tab-content">
+    <div class="tab-content pt-5">
       <div id="links" class="tab-pane fade in active">
         <h3>LINKS</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
       <div id="songs" class="tab-pane fade">
-        <h3>SONGS</h3>
+        <h3>My latests releases</h3>
         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div>
       <div id="events" class="tab-pane fade">
-        <h3>EVENTS</h3>
+        <h3>My calendar</h3>
         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
       </div>
     </div>
-    <div class="sound-cloud">
-    </div>
-    <div class="youtube">
-    </div>
-    <div class="instagram">
-    </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-      <span>Edit</span>
-    </button>
   </div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    <span>Edit</span>
+  </button>
+
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -65,6 +83,7 @@
             <%= f.input :name %>
             <%= f.input :age %>
             <%= f.input :location %>
+            <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
             <%= f.input :bio %>
             <%= f.input :influences %>
             <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
