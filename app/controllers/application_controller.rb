@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :set_user_type
   before_action :authenticate_user!
   include Pundit
 
@@ -16,5 +17,10 @@ class ApplicationController < ActionController::Base
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
+
+  def set_user_type
+    session[:user_type] = 'Artist' if controller_name == 'artists'
+    session[:user_type] = 'Label' if controller_name == 'labels'
   end
 end
