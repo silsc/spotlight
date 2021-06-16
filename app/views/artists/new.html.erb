@@ -1,5 +1,4 @@
 <h1>Create your profile</h1>
-
 <%= simple_form_for @artist do |f| %>
   <%= f.input :name %>
   <%= f.input :age %>
@@ -11,5 +10,5 @@
   <%= f.input :website_url %>
   <%= f.input :youtube_url %>
   <%= f.input :instagram_url %>
-  <%= f.button :submit %>
+  <%= f.submit "Create", class: 'btb btn-gradient p-2' %>
 <% end %>
