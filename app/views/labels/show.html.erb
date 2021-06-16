@@ -8,8 +8,8 @@
       <div class="container">
         <h3>About us</h3>
         <p><%= @label.bio %></p>
-        <%# <%= link_to 'Edit', edit_label_path@label %>
       </div>
+      <!-- Modal button-->
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         <span>Edit</span>
       </button>
@@ -29,7 +29,7 @@
                 <%= f.input :location %>
                 <%= f.input :bio %>
                 <%= f.input :website_url %>
-                <%= f.submit "Update" %>
+                <%= f.submit "Update", class: 'btn btn-blue p-2' %>
               <% end %>
             </div>
           </div>
