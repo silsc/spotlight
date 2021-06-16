@@ -161,5 +161,20 @@
 /* Profile tabs */
 .nav {
   justify-content: space-around;
-
+  a{
+    text-decoration: none;
+    color: darkgrey;
+  }
+  a:hover {
+    color: black;
+  }
 }
+
+.nav-profile {
+  border-bottom: none;
+}
+
+.tab-content h3, p {
+  padding: 10px 50px;
+}
+
