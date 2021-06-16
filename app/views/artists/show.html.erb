@@ -5,7 +5,7 @@
       <h2><%= @artist.location %></h2>
       <p>
         <% @artist.genres.each do |genre| %>
-         #<%= genre %>
+          #<%= genre %>
         <% end %>
       </p>
     </div class="button">
@@ -15,7 +15,6 @@
       <p> <%= @artist.bio %> </p>
     </div>
     <div class="influences">
-
     </div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
       Edit
@@ -42,19 +41,15 @@
       </div>
     </div>
     <div class="sound-cloud">
-
     </div>
     <div class="youtube">
-
     </div>
     <div class="instagram">
-
     </div>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        <span>Edit</span>
-      </button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+      <span>Edit</span>
+    </button>
   </div>
-
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -77,11 +72,10 @@
             <%= f.input :website_url %>
             <%= f.input :youtube_url %>
             <%= f.input :instagram_url %>
-            <%= f.button :submit %>
+            <%= f.submit "Update", class: 'btn btn-blue p-2' %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
