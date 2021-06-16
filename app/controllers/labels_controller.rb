@@ -12,7 +12,7 @@ class LabelsController < ApplicationController
     @label.user = current_user
     # authorize @label
 
-    if label.save!
+    if @label.save!
       redirect_to label_path(@label)
     else
       render :new
