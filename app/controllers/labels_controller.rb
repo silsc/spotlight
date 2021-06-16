@@ -1,4 +1,5 @@
 class LabelsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_label, only: %i[show edit update]
 
   def new
@@ -7,7 +8,9 @@ class LabelsController < ApplicationController
 
   def create
     @label = Label.new(label_params)
+
     @label.user = current_user
+    # authorize @label
 
     if label.save!
       redirect_to label_path(@label)
@@ -26,7 +29,7 @@ class LabelsController < ApplicationController
     if @label.update(label_params)
       redirect_to label_path(@label)
     else
-      render :edit
+      render :show
     end
   end
 
@@ -38,6 +41,6 @@ class LabelsController < ApplicationController
 
   def set_label
     @label = Label.find(params[:id])
-    # authorize @label when we add pundit
+    # authorize @label
   end
 end
