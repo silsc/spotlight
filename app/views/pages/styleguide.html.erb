@@ -3,12 +3,9 @@
   <%= link_to "#", class: "navbar-brand ml-4" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
   <% end %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item mr-5">
@@ -47,13 +44,11 @@
     </ul>
   </div>
 </div>
-
 <h1>Footer with info</h1>
-
 <div class="footer pb-5">
   <div class="d-flex mx-5">
     <h1 class="footer-nav pr-5 align-self-center font-weight-bold">SpotLight</h1>
-    <ul class="list-unstyled ml-5 mt-1">
+    <ul class="list-unstyled ml-5 mt-3">
       <li><h4 class="pt-5">Company</h4></li>
       <li><p>About us</p></li>
     </ul>
@@ -71,33 +66,27 @@
     </div>
   </div>
 </div>
-
 <h1>Basic footer no info</h1>
-
 <div class="footer-small ">
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <div class="footer-copyright">
-      This footer is made with <i class="fas fa-heart"></i> by SpotLight
-    </div>
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> by SpotLight
   </div>
 </div>
-
+</div>
 <h1>Buttons</h1>
 <%= link_to "Button", "#", class: "btn btn-blue" %>
 <%= link_to "Button", "#", class: "btn btn-gradient" %>
 <%= link_to "Button", "#", class: "btn btn-white" %>
-
 <h1>Profile basic info card</h1>
-
 <div class="container basic-info">
   <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" id="avatar-profile" height="200" width="200">
-
   <div class="profile-card">
     <div class="text-center pb-3">
       <h2>Name(age)</h2>
@@ -115,7 +104,7 @@
       <h4 class="pt-3">About me</h4>
       <p>text</p>
       <h4 class="pt-3">My influences</h4>
-     </div>
+    </div>
     <div class="d-flex justify-content-around mt-5">
       <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
       <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
@@ -127,31 +116,26 @@
       <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
     </div>
   </div>
-
-<h1>Song cards</h1>
-
-<div data-controller="flipcard">
-  <div class="flip-card container song-card p-0" data-action="click->flipcard#flip">
-    <div class="front gradient-back p-0">
+  <h1>Song cards</h1>
+  <div data-controller="flipcard">
+    <div class="flip-card container song-card p-0" data-action="click->flipcard#flip">
+      <div class="front gradient-back p-0">
         <div class="song-info p-3">
           <h4>FRONT</h4>
           <h6></h6>
         </div>
         <div class="pl-3">
           <p >released on May 2021</p>
+        </div>
+      </div>
+      <div class="back">
+        <h1>Back</h1>
+        <p></p>
       </div>
     </div>
-    <div class="back">
-      <h1>Back</h1>
-      <p></p>
-    </div>
   </div>
-</div>
-
-<h1>Profile</h1>
-  
-<h1>Profile tabs</h1>
-
+  <h1>Profile</h1>
+  <h1>Profile tabs</h1>
   <div class="profile-card-links py-5">
     <ul class="nav nav-tabs nav-profile">
       <li class="active"><a data-toggle="tab" href="#links">My links</a></li>
@@ -174,4 +158,4 @@
     </div>
   </div>
 </div>
-
+<%= render "shared/calendar" %>

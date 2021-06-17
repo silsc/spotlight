@@ -1,15 +1,11 @@
 <!-- Navbar -->
-
 <div class="navbar navbar-expand-sm navbar-light navbar-main">
   <%= link_to "#", class: "navbar-brand ml-4" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
   <% end %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item mr-5">
@@ -48,12 +44,9 @@
     </ul>
   </div>
 </div>
-
 <!-- Basic info card -->
-
 <div class="container basic-info d-flex">
   <div class="position-relative">
-
     <%= cl_image_tag @artist.photo.key, alt:"avatar profile", id:"avatar-profile", height:"200", width:"200" %>
       <i class="far fa-edit edit-btn" data-toggle="modal" data-target="#infoModal"></i>
     <div class="profile-card my-5">
@@ -94,9 +87,7 @@
       </div >
     </div>
   </div>
-
 <!-- links card -->
-
   <div class="m-5">
     <div class="profile-card-links py-5 my-5">
      <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
@@ -137,7 +128,6 @@
   </div>
 </div>
 <!-- Info Modal -->
-
 <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -164,9 +154,7 @@
     </div>
   </div>
 </div>
-
 <!-- Links Modal -->
-
 <div class="modal fade" id="linksModal" tabindex="-1" aria-labelledby="linksModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -190,9 +178,7 @@
     </div>
   </div>
 </div>
-
 <!-- Songs Modal -->
-
 <div class="modal fade" id="songsModal" tabindex="-1" aria-labelledby="songsModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -216,9 +202,7 @@
     </div>
   </div>
 </div>
-
 <!-- Events Modal -->
-
 <div class="modal fade" id="eventsModal" tabindex="-1" aria-labelledby="eventsModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
