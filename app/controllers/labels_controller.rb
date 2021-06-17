@@ -36,7 +36,7 @@ class LabelsController < ApplicationController
   private
 
   def label_params
-    params.require(:label).permit(:name, :location, :bio, :website_url)
+    params.require(:label).permit(:name, :location, :bio, :photo, :website_url)
   end
 
   def set_label
