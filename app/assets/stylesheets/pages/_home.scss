@@ -18,7 +18,7 @@ font-size: 64px;
 }
 
 
-// about-us
+// About us
 
 .about-title {
   color: #2B325E;
@@ -44,7 +44,6 @@ font-size: 64px;
   left: -46px;
   border-radius: 10px;
 }
-
 
 .panel-text {
   text-align: justify;
@@ -75,17 +74,22 @@ font-size: 64px;
   margin-bottom: 16px;
 }
 
+// Footer
+
 .footer {
     background: linear-gradient(180deg, rgba(219, 82, 244, 0.6) 0%, rgba(108, 124, 235, 0.3) 100%);
     height: 270px;
     color: white;
+    position: absolute;
+    bottom: -1080px;
+    width: 100%;
     h4 {
       color: #6170D4;
       font-weight: 500;
     }
-    position: absolute;
-    bottom: -1080px;
-    width: 100%;
+    p {
+      padding: 0px;
+    }
   }
   
   .footer-links a {
@@ -106,4 +110,5 @@ font-size: 64px;
    border-right: 3px solid white;
   }
   
+
 
