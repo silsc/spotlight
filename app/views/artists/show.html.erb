@@ -53,47 +53,46 @@
 
 <div class="container basic-info d-flex">
   <div class="position-relative">
-    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" id="avatar-profile" height="200" width="200">
-  <div class="profile-card my-5">
-    <div class="text-center pb-3">
-      <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
-      <h4><%= @artist.location %></h4>
+
+    <%= cl_image_tag @artist.photo.key, alt:"avatar profile", id:"avatar-profile", height:"200", width:"200" %>
+      <i class="far fa-edit edit-btn" data-toggle="modal" data-target="#infoModal"></i>
+    <div class="profile-card my-5">
+      <div class="text-center pb-3">
+        <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
+        <h4><%= @artist.location %></h4>
+      </div>
+      <div class="d-flex justify-content-around pb-3 px-5">
+        <p>
+          <% @artist.roles.each do |role| %>
+            <span class="badge badge-pill badge-info"><%= role %></span>
+          <% end %>
+        </p>
+        <p>
+          <% @artist.genres.each do |genre| %>
+            <span class="badge badge-pill badge-light">#<%= genre %></span>
+          <% end %>
+        </p>
+      </div>
+      <div class="d-flex justify-content-around px-5">
+        <%= link_to "Connect", "#", class: "btn btn-gradient px-5" %>
+        <%= link_to "Message", "#", class: "btn btn-gradient px-5" %>
+      </div>
+      <div class="pl-5 pt-4">
+        <h4 class="pt-3">About me</h4>
+        <p><%= @artist.bio %></p>
+        <h4 class="pt-3">My influences</h4>
+      </div>
+      <div class="d-flex justify-content-around mt-5">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+      </div>
+      <div class="d-flex justify-content-around mt-5">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+      </div >
     </div>
-  <div class="d-flex justify-content-around pb-3 px-5">
-    <p>
-      <% @artist.roles.each do |role| %>
-        <span class="badge badge-pill badge-info"><%= role %></span>
-      <% end %>
-    </p>
-    <p>
-      <% @artist.genres.each do |genre| %>
-        <span class="badge badge-pill badge-light">#<%= genre %></span>
-      <% end %>
-    </p>
-  </div>
-  <div class="d-flex justify-content-around px-5">
-    <%= link_to "Connect", "#", class: "btn btn-gradient px-5" %>
-    <%= link_to "Message", "#", class: "btn btn-gradient px-5" %>
-  </div>
-  <div class="pl-5 pt-4">
-    <h4 class="pt-3">About me</h4>
-    <p><%= @artist.bio %></p>
-    <h4 class="pt-3">My influences</h4>
-   </div>
-  <div class="d-flex justify-content-around mt-5">
-    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-  </div>
-  <div class="d-flex justify-content-around mt-5">
-    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-  </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal">
-      Edit
-    </button>
-  </div>
   </div>
 
 <!-- links card -->
@@ -113,30 +112,30 @@
       </ul>
       <div class="tab-content pt-5" id="myTabContent">
         <div class="tab-pane fade show active" id="links" role="tabpanel" aria-labelledby="links-tab">
-          <h3>LINKS</h3>
+          <div class="position-relative">
+            <h3>LINKS</h3>
+            <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#linksModal"></i>
+          </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#linksModal">
-            Edit
-          </button>
         </div>
         <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab">
-          <h3>My latests releases</h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#songsModal">
-            Edit
-          </button>
+          <div class="position-relative">
+            <h3>My latests releases</h3>
+            <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#songsModal"></i>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
         </div>
         <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
-          <h3>My calendar</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eventsModal">
-            Edit
-          </button>
+          <div class="position-relative">
+            <h3>My calendar</h3>
+            <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
+</div>
 <!-- Info Modal -->
 
 <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
@@ -159,7 +158,6 @@
             <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <%= f.submit "Update", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>
@@ -186,7 +184,6 @@
             <%= f.input :instagram_url %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <%= f.submit "Update", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>
@@ -213,7 +210,6 @@
             <%= f.input :instagram_url %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <%= f.submit "Update", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>
@@ -240,7 +236,6 @@
             <%= f.input :instagram_url %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <%= f.submit "Update", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>

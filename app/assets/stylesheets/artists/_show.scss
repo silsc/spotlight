@@ -47,6 +47,7 @@
   }
   a:hover {
     color: black;
+    border: none;
   }
 }
 
@@ -54,4 +55,21 @@
   padding: 10px 50px;
 }
 
+.edit-btn {
+  position: absolute;
+  top: calc(50px + 5%);
+  right: 5%;
+}
 
+.edit-btn:hover:hover {
+    color: darkgrey;
+  }
+
+.edit-btn-links {
+  position: absolute;
+  top: calc(10px + 5%);
+  right: 5%;
+}
+.edit-btn-links:hover:hover {
+    color: darkgrey;
+  }
