@@ -11,6 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/navbar-home";
+@import "artists/index";
 
 body {
   min-height: calc(100vh - 100px);

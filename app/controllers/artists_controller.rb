@@ -35,7 +35,7 @@ class ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:name, :age, :location, :bio, :influences, :soundcloud_url, :website_url, :youtube_url, :instagram_url, genres: [])
+    params.require(:artist).permit(:name, :age, :location, :bio, :influences, :soundcloud_url, :website_url, :youtube_url, :instagram_url, genres: [], roles: [])
   end
 
   def set_artist

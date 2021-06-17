@@ -1,5 +1,6 @@
 class Artist < ApplicationRecord
-  GENRES = %W(Jazz Rock Indie Pop)
+  GENRES = %w(Jazz Rock Indie Pop Blues Punk Funk Reggae)
+  ROLES = %w(Singer Guitarist Drummer Bassist Keyboardist)
 
   belongs_to :user
   belongs_to :label, optional: true
@@ -7,11 +8,17 @@ class Artist < ApplicationRecord
   has_many :songs
 
   validate :valid_genre_list
+  validate :valid_role_list
 
   private
 
   def valid_genre_list
     diff = genres - GENRES
+    diff.empty?
+  end
+
+  def valid_role_list
+    diff = roles - ROLES
     diff.empty?
   end
 end

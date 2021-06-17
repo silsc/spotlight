@@ -4,6 +4,7 @@
     <%= f.input :name %>
     <%= f.input :age %>
     <%= f.input :location %>
+    <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
     <%= f.input :bio %>
     <%= f.input :influences %>
     <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
