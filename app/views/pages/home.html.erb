@@ -1,16 +1,19 @@
 <div class="colored-landing">
-  <div class="container-fluid">
+  <div class="container-fluid mb-5">
     <!-- Navbar -->
-    <div class="navbar navbar-expand-sm navbar-light navbar-landing">
-      <a class="navbar-brand" href="#">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-      </a>
+    <div class="navbar navbar-expand-sm navbar-light navbar-landing mb-5 pt-3">
+      <div class="d-flex">
+        <a class="navbar-brand" href="#">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+        </a>
+        <h1 class="align-self-center pt-2">SpotLight</h1>
+      </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active mr-3">
+          <li class="nav-item active mr-4">
             <%= link_to "Log in", new_user_session_path, class: "btn btn-blue" %>
           </li>
           <li class="nav-item">
@@ -22,71 +25,71 @@
     <!-- Main section -->
     <div class="row">
       <div class="big-heading col-lg-6 m-auto">
-        <h1>Welcome to <strong>your music community</strong></h1>
+        <h1>Welcome to your</h1>
+        <h1 class="strong-heading">music community</h1>
         <%= link_to "Get Started", redirect_path, class: "btn btn-gradient" %>
       </div>
       <div class="small-heading col-lg-6">
-        <%= image_tag "girls.png", class: "img-fluid big-logo" %>
-        <h2>Connect with people who can help you shine</h2>
+        <%= image_tag "girls.png", class: "img-fluid big-logo", style: 'height:100%;width:auto;'%>
+        <h2>Connect with people</h2>
+        <h2 class="special-heading">who can help you shine</h2>
       </div>
     </div>
   </div>
 </div>
 <!-- About us -->
-<h1 class="about-title">About us</h1>
-<div class="about-us">
-  <div class="panel">
-    <div class="panel-text">
-      <h4 class="panel-title">Be part of the community</h4>
-      <h1 class="panel-title">What is SpotLight?</h1>
-      <br>
-      <br>
-      <p>A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in. I am not in danger, Skyler. I AM the danger! A guy opens his door and gets shot and you think that of me? No. I am the one who knocks!</p>
+<div class="about-container">
+  <h1 class="about-title mb-4 pl-4">About us</h1>
+  <div class="about-us">
+    <div class="panel p-4">
+      <div class="panel-text">
+        <h4 class="panel-title mt-3 mx-4">Be part of the community</h4>
+        <h1 class="panel-title mt-3 mx-4">What is SpotLight?</h1>
+        <br>
+        <p class="mx-4">A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in. I am not in danger, Skyler. I AM the danger! A guy opens his door and gets shot and you think that of me? No. I am the one who knocks!</p>
+      </div>
+      <div class="button-panel mt-3 mx-4">
+        <%= link_to "Join now", redirect_path, class: "btn btn-blue" %>
+      </div>
     </div>
-    <div class="button-panel">
-      <%= link_to "Join now", redirect_path, class: "btn btn-blue" %>
-    </div>
-  </div>
-  <div class="container d-flex justify-content-around mr-5 my-5 w-50">
-    <div class="row">
-      <div class="feature-box col-lg-6">
-        <%= image_tag "chat.png", class: "card-about" %>
-        <h3 class="feature-title">Connect</h3>
-        <p>Easily connect with the major players of the industry</p>
-      </div>
-      <div class="feature-box col-lg-6">
-        <%= image_tag "music-note.png", class: "card-about" %>
-        <h3 class="feature-title">Share</h3>
-        <p>Showcase your music and maximise your chances to be seen</p>
-      </div>
-      <div class="feature-box col-lg-6">
-        <%= image_tag "user.png", class: "card-about" %>
-        <h3 class="feature-title">Find the talent</h3>
-        <p>The most talented emerging artists, all in the same place</p>
-      </div>
-      <div class="feature-box col-lg-6">
-        <%= image_tag "users.png", class: "card-about" %>
-        <h3 class="feature-title">Break the rules</h3>
-        <p>No more tradicional processes, all you need in one page</p>
+    <div class="container d-flex justify-content-around mr-5 my-5 w-50">
+      <div class="row mr-2">
+        <div class="feature-box col-lg-6 mt-2 ">
+          <%= image_tag "chat.png", class: "card-about" %>
+          <h3 class="feature-title">Connect</h3>
+          <p>Easily connect with the major players of the industry</p>
+        </div>
+        <div class="feature-box col-lg-6 mt-2">
+          <%= image_tag "music-note.png", class: "card-about" %>
+          <h3 class="feature-title">Share</h3>
+          <p>Showcase your music and maximise your chances to be seen</p>
+        </div>
+        <div class="feature-box col-lg-6 mt-5">
+          <%= image_tag "user.png", class: "card-about" %>
+          <h3 class="feature-title">Find the talent</h3>
+          <p>The most talented emerging artists, all in the same place</p>
+        </div>
+        <div class="feature-box col-lg-6 mt-5">
+          <%= image_tag "users.png", class: "card-about" %>
+          <h3 class="feature-title">Break the rules</h3>
+          <p>No more tradicional processes, all you need in one page</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 <!-- Footer -->
 <div class="footer">
-  <div class="d-flex mx-5">
-    <h1 class="footer-nav pr-5 align-self-center font-weight-bold">SpotLight</h1>
-    <ul class="list-unstyled ml-5 mt-1">
-      <li>
-        <h4 class="pt-5">Company</h4>
-      </li>
-      <li>
-        <p>About us</p>
-      </li>
+  <div class="d-flex mx-5 mt-3">
+    <h1 class="footer-nav pr-5 align-self-center pb-2 font-weight-bold">SpotLight</h1>
+    <ul class="list-unstyled ml-5 mt-5">
+      <li><h4 class="">Company</h4></li>
+      <li><p class="">About us</p></li>
     </ul>
   </div>
-  <div class="d-flex justify-content-between pb-0">
-    <div class="footer-links d-flex align-items-center pb-0">
+  <div class="d-flex justify-content-between px-5 pt-5">
+    <div class="footer-links d-flex align-items-center">
       <a href="#"><i class="fab fa-github"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-facebook"></i></a>
