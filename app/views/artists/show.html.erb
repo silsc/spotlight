@@ -75,16 +75,11 @@
         <p><%= @artist.bio %></p>
         <h4 class="pt-3">My influences</h4>
       </div>
-      <div class="d-flex justify-content-around mt-5">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+      <div class= "d-flex justify-content-around">
+        <% @artist.influences.each do |influence| %>
+            <%= image_tag @artist.influence_image(influence), class:"influences-avatar" %>
+        <% end %>
       </div>
-      <div class="d-flex justify-content-around mt-5">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
-      </div >
     </div>
   </div>
 <!-- links card -->
@@ -144,7 +139,7 @@
             <%= f.input :location %>
             <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
             <%= f.input :bio %>
-            <%= f.input :influences %>
+            <%= f.input :influences, collection: Artist::INFLUENCES.map {|influence| influence[:name]}, include_hidden: false, input_html: { multiple: true, max: 4 } %>
             <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
       </div>
       <div class="modal-footer">
