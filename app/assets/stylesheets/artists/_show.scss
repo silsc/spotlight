@@ -54,8 +54,13 @@
   }
 }
 
-.tab-content h3, p {
-  padding: 10px 50px;
+.tab-content {
+  h3 {
+    padding: 10px 50px;
+  }
+  p {
+    padding: 10px 50px;
+}
 }
 
 .edit-btn {

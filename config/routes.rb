@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :labels, only: [:show, :new, :create, :edit, :update]
-  resources :artists, only: [:show, :new, :create, :edit, :update]
+  resources :artists, only: [:show, :new, :create, :edit, :update] do
+    resources :reviews, only: [:new, :create]
+  end
   resources :chatrooms, only: [:show] do
     resources :messages, only: [:create]
   end
