@@ -3,6 +3,7 @@
   background: $gradient-light;
   color: white;
   padding-bottom: 72px;
+  border-radius: 0px 0px 0px 299px;
 }
 
 .small-heading {
@@ -21,17 +22,56 @@ font-size: 64px;
 
 .about-title {
   color: #2B325E;
+  margin-top: 32px;
+  margin-left: 80px;
 }
 .about-us {
   background: $gradient-light;
+  position: relative;
+  float: right;
+  width: 1800px;
+  height: 640px;
+  border-radius: 0 0 0 30px;
+  top: 104px;
 }
 
+.panel {
+position: absolute;
+width: 680px;
+height: 616px;
+background: white;
+top: -58px;
+left: -40px;
+border-radius: 10px;
+}
+
+
+.panel-text {
+  text-align: justify;
+  padding: 20px;
+}
+
+.button-panel {
+  padding: 20px;
+}
 .feature-title {
   color: #6170D4;
   font-family: "Fira Sans";
+  text-align: center;
 }
 
 .feature-box p {
   font-family: "Fira Sans";
   color: #686868;
+  font-size: 20px;
+  text-align: center;
 }
+
+.card-about {
+  width: 104px;
+  margin-left: 160px;
+  margin-bottom: 16px;
+  border-radius: 10%;
+}
+
+
