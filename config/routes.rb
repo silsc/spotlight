@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   end
 
   get '/styleguide', to: 'pages#styleguide'
-
+  get '/redirect', to: 'pages#redirect'
 end

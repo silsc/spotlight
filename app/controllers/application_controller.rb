@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_type
-    session[:user_type] = 'Artist' if controller_name == 'artists'
-    session[:user_type] = 'Label' if controller_name == 'labels'
+    session[:user_type] = 'Artist' if controller_name == 'artists' && action_name == 'new'
+    session[:user_type] = 'Label' if controller_name == 'labels' && action_name == 'new'
   end
 end
