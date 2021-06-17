@@ -24,6 +24,7 @@ class Artist < ApplicationRecord
   belongs_to :label, optional: true
   has_many :events, as: :organizable
   has_many :songs
+  has_one_attached :photo
 
   validate :valid_genre_list
   validate :valid_role_list
