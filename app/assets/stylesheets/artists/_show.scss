@@ -2,10 +2,13 @@
 
 .basic-info {
   align-items: center;
+  padding: 0px;
+  margin-left: 100px;
+  margin-top: 50px;
 }
 
 .profile-card {
-  width: 690px;
+  width: 600px;
   height: 804px;
   overflow: hidden;
   background: white;
@@ -18,7 +21,7 @@
   }
 }
 .profile-card-links {
-  width: 690px;
+  width: 600px;
   height: 804px;
   overflow: hidden;
   background: white;
@@ -33,7 +36,7 @@
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.15));
   position: absolute;
   top: -54px;
-  left: 250px;
+  left: 200px;
 }
 
 /* Profile tabs */
