@@ -10,3 +10,19 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+
+// landing page
+
+.navbar-landing {
+  justify-content: space-between;
+  background: transparent;
+}
+
+.navbar-landing .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-landing .navbar-brand img {
+  width: 56px;
+}

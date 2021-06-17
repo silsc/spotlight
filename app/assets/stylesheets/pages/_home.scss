@@ -1,1 +1,79 @@
 // Specific CSS for your home-page
+.colored-landing {
+  background: $gradient-light;
+  color: white;
+  padding-bottom: 72px;
+  border-radius: 0px 0px 0px 299px;
+}
+
+.small-heading {
+  font-size:48px;
+}
+
+.big-heading {
+text-align: center;
+color: #FFFFFF;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+font-size: 64px;
+}
+
+
+// about-us
+
+.about-title {
+  color: #2B325E;
+  margin-top: 32px;
+  margin-left: 80px;
+}
+.about-us {
+  background: $gradient-light;
+  position: relative;
+  float: right;
+  width: 1120px;
+  height: 569px;
+  border-radius: 0 0 0 30px;
+  top: 76px;
+}
+
+.panel {
+  position: absolute;
+  width: 460px;
+  height: 580px;
+  background: white;
+  top: -64px;
+  left: -46px;
+  border-radius: 10px;
+}
+
+
+.panel-text {
+  text-align: justify;
+  padding: 20px;
+}
+
+.button-panel {
+  padding: 20px;
+}
+.feature-title {
+  color: #6170D4;
+  font-family: "Fira Sans";
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.feature-box p {
+  font-family: "Fira Sans";
+  color: #686868;
+  font-size: 14px;
+  text-align: center;
+}
+
+.card-about {
+  width: 64px;
+  height: 64px;
+  margin-left: 88px;
+  margin-bottom: 16px;
+}
+
+
+

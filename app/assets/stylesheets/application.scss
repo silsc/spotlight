@@ -15,5 +15,6 @@
 @import "artists/index";
 
 body {
-  background-color: #E5EAFA;
+  min-height: calc(100vh - 100px);
 }
+
