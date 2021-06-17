@@ -17,6 +17,21 @@ class Artist < ApplicationRecord
   },
   {
     name: 'Paramore', image:'https://indiehoy.com/wp-content/uploads/2018/09/paramore.jpg'
+  },
+  {
+    name: 'Cranberries', image:'https://loff.it/wp-content/uploads/2018/01/loffit-muere-dolores-oriordan-cantante-de-the-cranberries-02.jpg'
+  },
+  {
+    name: 'PJ Harvey', image:'https://img.discogs.com/TTbGEo9x9D31sKJSeYi6_GcscU0=/600x600/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-36052-1606316026-8044.jpeg.jpg'
+  },
+  {
+    name: 'Patti Smith', image:'https://note-store.es/upload/resize_cache/iblock/4ba/325_380_2/Patti-Smith.png'
+  },
+  {
+    name: 'Fleetwood Mac', image:'https://upload.wikimedia.org/wikipedia/commons/f/fe/Fleetwood_Mac_Billboard_1977.jpg'
+  }
+  {
+    name: 'Radiohead', image:'https://mixfm.mx/wp-content/uploads/2018/07/creep-radiohead-video.jpg'
   }
 ]
 
