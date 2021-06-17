@@ -1,31 +1,31 @@
 <!-- Navbar -->
 <div class="navbar navbar-expand-sm navbar-light navbar-main">
   <%= link_to "#", class: "navbar-brand ml-4" do %>
-  <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item mr-5">
         <%= link_to "#", class: "nav-link" do %>
-        <i class="fas fa-search fa-lg"></i>
+          <i class="fas fa-search fa-lg"></i>
         <% end %>
       </li>
       <li class="nav-item mr-5">
         <%= link_to "#", class: "nav-link" do %>
-        <i class="fas fa-home fa-lg"></i>
+          <i class="fas fa-home fa-lg"></i>
         <% end %>
       </li>
       <li class="nav-item mr-5">
         <%= link_to "#", class: "nav-link" do %>
-        <i class="far fa-comment-alt fa-lg"></i>
+          <i class="far fa-comment-alt fa-lg"></i>
         <% end %>
       </li>
       <li class="nav-item mr-5">
         <%= link_to "#", class: "nav-link" do %>
-        <i class="far fa-bell fa-lg"></i>
+          <i class="far fa-bell fa-lg"></i>
         <% end %>
       </li>
       <li class="nav-item dropdown mr-4">
@@ -34,21 +34,21 @@
           <%= link_to "My profile", "#" , class: "dropdown-item mt-2" %>
           <%= link_to "Settings", "#" , class: "dropdown-item my-2" %>
           <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item logout-item" do %>
-          <div class="d-flex align-self-center my-2 mx-3">
-            <i class="fas fa-sign-out-alt logout-icon mr-2 align-self-center"></i>
-            <p class="m-0">Log out</p>
-          </div>
+            <div class="d-flex align-self-center my-2 mx-3">
+              <i class="fas fa-sign-out-alt logout-icon mr-2 align-self-center"></i>
+              <p class="m-0">Log out</p>
+            </div>
           <% end %>
         </div>
       </li>
     </ul>
   </div>
 </div>
-
-<!-- Cards -->
+<!-- Basic info card -->
 <div class="container basic-info d-flex">
   <div class="position-relative">
-    <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" id="avatar-profile" height="200" width="200">
+    <%= cl_image_tag @artist.photo.key, alt:"avatar profile", id:"avatar-profile", height:"200", width:"200" %>
+      <i class="far fa-edit edit-btn" data-toggle="modal" data-target="#infoModal"></i>
     <div class="profile-card my-5">
       <div class="text-center pb-3">
         <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
@@ -57,12 +57,12 @@
       <div class="d-flex justify-content-around pb-3 px-5">
         <p>
           <% @artist.roles.each do |role| %>
-          <span class="badge badge-pill badge-info"><%= role %></span>
+            <span class="badge badge-pill badge-info"><%= role %></span>
           <% end %>
         </p>
         <p>
           <% @artist.genres.each do |genre| %>
-          <span class="badge badge-pill badge-light">#<%= genre %></span>
+            <span class="badge badge-pill badge-light">#<%= genre %></span>
           <% end %>
         </p>
       </div>
@@ -75,69 +75,152 @@
         <p><%= @artist.bio %></p>
         <h4 class="pt-3">My influences</h4>
       </div>
-      <div class= "d-flex justify-content-around">
-        <% @artist.influences.each do |influence| %>
-          <!-- < --><!-- div class="influence_avatar d-flex justify-content-around mt-5"> -->
-            <%= image_tag @artist.influence_image(influence), class:"influences-avatar" %>
-          <!-- </div> -->
-        <% end %>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Edit
-        </button>
+      <div class="d-flex justify-content-around mt-5">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+      </div>
+      <div class="d-flex justify-content-around mt-5">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+        <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
+      </div >
     </div>
   </div>
+<!-- links card -->
   <div class="m-5">
     <div class="profile-card-links py-5 my-5">
-      <ul class="nav nav-tabs nav-profile">
-        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#links">My links</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#songs">My songs</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#events">Events</a></li>
+     <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="true">My links</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="songs-tab" data-toggle="tab" href="#songs" role="tab" aria-controls="songs" aria-selected="false">My songs</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
+        </li>
       </ul>
-      <div class="tab-content pt-5">
-        <div id="links" class="tab-pane fade in active">
-          <h3>LINKS</h3>
+      <div class="tab-content pt-5" id="myTabContent">
+        <div class="tab-pane fade show active" id="links" role="tabpanel" aria-labelledby="links-tab">
+          <div class="position-relative">
+            <h3>LINKS</h3>
+            <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#linksModal"></i>
+          </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
-        <div id="songs" class="tab-pane fade">
-          <h3>My latests releases</h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab">
+          <div class="position-relative">
+            <h3>My latests releases</h3>
+            <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#songsModal"></i>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
         </div>
-        <div id="events" class="tab-pane fade">
-          <h3>My calendar</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+          <div class="position-relative">
+            <h3>My calendar</h3>
+            <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          </div>
         </div>
       </div>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-      <span>Edit</span>
-      </button>
     </div>
   </div>
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<!-- Info Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Edit your information</h5>
+        <h5 class="modal-title" id="infoModalLabel">Edit your details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @artist do |f| %>
-        <%= f.input :name %>
-        <%= f.input :age %>
-        <%= f.input :location %>
-        <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
-        <%= f.input :bio %>
-        <%= f.input :influences, collection: Artist::INFLUENCES.map {|influence| influence[:name]}, include_hidden: false, input_html: { multiple: true, max: 4 } %>
-        <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
-        <%= f.input :soundcloud_url %>
-        <%= f.input :website_url %>
-        <%= f.input :youtube_url %>
-        <%= f.input :instagram_url %>
-        <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+          <%= simple_form_for @artist do |f| %>
+            <%= f.input :name %>
+            <%= f.input :age %>
+            <%= f.input :location %>
+            <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
+            <%= f.input :bio %>
+            <%= f.input :influences %>
+            <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
+      </div>
+      <div class="modal-footer">
+          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Links Modal -->
+<div class="modal fade" id="linksModal" tabindex="-1" aria-labelledby="linksModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="linksModalLabel">Edit your links</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <%= simple_form_for @artist do |f| %>
+            <%= f.input :soundcloud_url %>
+            <%= f.input :website_url %>
+            <%= f.input :youtube_url %>
+            <%= f.input :instagram_url %>
+      </div>
+      <div class="modal-footer">
+          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Songs Modal -->
+<div class="modal fade" id="songsModal" tabindex="-1" aria-labelledby="songsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="songsModalLabel">Edit your songs</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <%= simple_form_for @artist do |f| %>
+            <%= f.input :soundcloud_url %>
+            <%= f.input :website_url %>
+            <%= f.input :youtube_url %>
+            <%= f.input :instagram_url %>
+      </div>
+      <div class="modal-footer">
+          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Events Modal -->
+<div class="modal fade" id="eventsModal" tabindex="-1" aria-labelledby="eventsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eventsModalLabel">Edit your events</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <%= simple_form_for @artist do |f| %>
+            <%= f.input :soundcloud_url %>
+            <%= f.input :website_url %>
+            <%= f.input :youtube_url %>
+            <%= f.input :instagram_url %>
+      </div>
+      <div class="modal-footer">
+          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>
     </div>
