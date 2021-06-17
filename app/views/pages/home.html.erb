@@ -39,22 +39,37 @@
 <!-- About us -->
 <h1 class="about-title">About us</h1>
 <div class="about-us">
+  <div class="panel">
+    <div class="panel-text">
+      <h4 class="panel-title">Be part of the community</h4>
+      <h1 class="panel-title">What is SpotLight?</h1>
+      <br>
+      <br>
+      <p>A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in. I am not in danger, Skyler. I AM the danger! A guy opens his door and gets shot and you think that of me? No. I am the one who knocks!</p>
+    </div>
+    <div class="button-panel">
+    <%= link_to "Join now", new_user_registration_path, class: "btn btn-blue" %>
+  </div>
+  </div>
   <div class="container d-flex justify-content-around mr-5 my-5 w-50">
     <div class="row">
       <div class="feature-box col-lg-6">
-        <i class="icon-landing" style='background-image: url("https://image.flaticon.com/icons/png/512/1765/1765668.png")'></i>
+        <%= image_tag "chat.png", class: "card-about" %>
         <h3 class="feature-title">Connect</h3>
         <p>Easily connect with the major players of the industry</p>
       </div>
       <div class="feature-box col-lg-6">
+        <%= image_tag "music-note.png", class: "card-about" %>
         <h3 class="feature-title">Share</h3>
         <p>Showcase your music and maximise your chances to be seen</p>
       </div>
       <div class="feature-box col-lg-6">
+        <%= image_tag "user.png", class: "card-about" %>
         <h3 class="feature-title">Find the talent</h3>
         <p>The most talented emerging artists, all in the same place</p>
       </div>
        <div class="feature-box col-lg-6">
+        <%= image_tag "users.png", class: "card-about" %>
         <h3 class="feature-title">Break the rules</h3>
         <p>No more tradicional processes, all you need in one page</p>
       </div>
@@ -63,7 +78,7 @@
 </div>
 
 <!-- Footer -->
-
+<div>
 <div class="footer pb-5">
   <div class="d-flex mx-5">
     <h1 class="footer-nav pr-5 align-self-center font-weight-bold">SpotLight</h1>
@@ -84,4 +99,5 @@
       This footer is made with <i class="fas fa-heart"></i> by SpotLight
     </div>
   </div>
+</div>
 </div>
