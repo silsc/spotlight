@@ -29,7 +29,7 @@ class Artist < ApplicationRecord
   },
   {
     name: 'Fleetwood Mac', image:'https://upload.wikimedia.org/wikipedia/commons/f/fe/Fleetwood_Mac_Billboard_1977.jpg'
-  }
+  },
   {
     name: 'Radiohead', image:'https://mixfm.mx/wp-content/uploads/2018/07/creep-radiohead-video.jpg'
   }
