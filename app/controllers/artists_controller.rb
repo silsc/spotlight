@@ -2,6 +2,7 @@ class ArtistsController < ApplicationController
   before_action :set_artist, only: %i[show edit update]
 
   def show
+
   end
 
   def new
@@ -13,7 +14,6 @@ class ArtistsController < ApplicationController
 
     @artist.user = current_user
     # authorize @artist
-
     if @artist.save!
       redirect_to artist_path(@artist)
     else
@@ -35,7 +35,7 @@ class ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:name, :age, :location, :bio, :influences, :soundcloud_url, :website_url, :youtube_url, :instagram_url, genres: [], roles: [])
+    params.require(:artist).permit(:name, :age, :location, :bio, :soundcloud_url, :website_url, :youtube_url, :instagram_url, genres: [], roles: [], influences: [])
   end
 
   def set_artist
