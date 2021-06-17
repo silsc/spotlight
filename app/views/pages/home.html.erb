@@ -17,7 +17,7 @@
             <%= link_to "Log in", new_user_session_path, class: "btn btn-blue" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-blue" %>
+            <%= link_to "Sign up", redirect_path, class: "btn btn-blue" %>
           </li>
         </ul>
       </div>
@@ -27,7 +27,7 @@
       <div class="big-heading col-lg-6 m-auto">
         <h1>Welcome to your</h1>
         <h1 class="strong-heading">music community</h1>
-        <%= link_to "Get Started", new_user_registration_path, class: "btn btn-gradient" %>
+        <%= link_to "Get Started", redirect_path, class: "btn btn-gradient" %>
       </div>
       <div class="small-heading col-lg-6">
         <%= image_tag "girls.png", class: "img-fluid big-logo", style: 'height:100%;width:auto;'%>
@@ -49,7 +49,7 @@
         <p class="mx-4">A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in. I am not in danger, Skyler. I AM the danger! A guy opens his door and gets shot and you think that of me? No. I am the one who knocks!</p>
       </div>
       <div class="button-panel mt-3 mx-4">
-        <%= link_to "Join now", new_user_registration_path, class: "btn btn-blue" %>
+        <%= link_to "Join now", redirect_path, class: "btn btn-blue" %>
       </div>
     </div>
     <div class="container d-flex justify-content-around mr-5 my-5 w-50">
