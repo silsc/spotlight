@@ -91,7 +91,7 @@
     <img src="https://source.unsplash.com/random/200x200" alt="avatar profile" height="60" width="60">
   </div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal">
-      Launch demo modal
+      Edit
     </button>
   </div>
   </div>
@@ -100,27 +100,33 @@
 
   <div class="m-5">
     <div class="profile-card-links py-5 my-5">
-      <ul class="nav nav-tabs nav-profile">
-        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#links">My links</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#songs">My songs</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#events">Events</a></li>
+     <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="true">My links</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="songs-tab" data-toggle="tab" href="#songs" role="tab" aria-controls="songs" aria-selected="false">My songs</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
+        </li>
       </ul>
-      <div class="tab-content pt-5">
-        <div id="links" class="tab-pane fade in active">
+      <div class="tab-content pt-5" id="myTabContent">
+        <div class="tab-pane fade show active" id="links" role="tabpanel" aria-labelledby="links-tab">
           <h3>LINKS</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#linksModal">
             Edit
           </button>
         </div>
-        <div id="songs" class="tab-pane fade">
+        <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab">
           <h3>My latests releases</h3>
           <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#songsModal">
             Edit
           </button>
         </div>
-        <div id="events" class="tab-pane fade">
+        <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
           <h3>My calendar</h3>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eventsModal">
@@ -130,7 +136,6 @@
       </div>
     </div>
   </div>
-</div>
 
 <!-- Info Modal -->
 
