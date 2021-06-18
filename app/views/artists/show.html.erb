@@ -29,12 +29,12 @@
         <% end %>
       </li>
       <li class="nav-item dropdown mr-4">
-      <% if @artist.photo.attached? %>
-        <%= cl_image_tag @artist.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
-      <% else %>
-        <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
-      <% end %>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <% if @artist.photo.attached? %>
+          <%= cl_image_tag @artist.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+        <% else %>
+          <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+        <% end %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "My profile", "#" , class: "dropdown-item mt-2" %>
           <%= link_to "Settings", "#" , class: "dropdown-item my-2" %>
           <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item logout-item" do %>
@@ -52,11 +52,11 @@
 <div class="container basic-info d-flex ">
   <div class="position-relative">
     <% if @artist.photo.attached? %>
-        <%= cl_image_tag @artist.photo.key, alt:"avatar profile", class:"avatar-profile", height:"200", width:"200" %>
+      <%= cl_image_tag @artist.photo.key, alt:"avatar profile", class:"avatar-profile", height:"200", width:"200" %>
     <% else %>
-        <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class:"avatar-profile", height: "200", width:"200"%>
+      <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class:"avatar-profile", height: "200", width:"200"%>
     <% end %>
-      <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#infoModal"></i>
+    <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#infoModal"></i>
     <div class="profile-card my-5">
       <div class="text-center pb-3">
         <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
@@ -85,15 +85,15 @@
       </div>
       <div class= "d-flex justify-content-around">
         <% @artist.influences.each do |influence| %>
-            <%= image_tag @artist.influence_image(influence), class:"influences-avatar mt-4", data: { toggle: 'tooltip', placement: 'top', title: 'Facebook' } %>
+          <%= image_tag @artist.influence_image(influence), class:"influences-avatar mt-4", data: { toggle: 'tooltip', placement: 'top', title: 'Facebook' } %>
         <% end %>
       </div>
     </div>
   </div>
-<!-- links card -->
+  <!-- links card -->
   <div class="m-5">
     <div class="profile-card-links py-5 my-5">
-     <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
+      <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="nav-link active nav-link-artist" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="true">My links</a>
         </li>
@@ -114,22 +114,21 @@
             <iframe width="280" height="fit-content" src="https://www.youtube.com/embed/dqJ8oud7l2Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <iframe width="280" height="fit-content" src="https://www.youtube.com/embed/6MPm2F8Mi7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
+          <div class="container d-block">
+            <h4 class="insta-h p-4">Instagram</h4>
+            <div class="container d-flex justify-content-around">
+              <iframe class="instagram-img" src="https://www.instagram.com/p/CFb02LtBn9O/embed" width="150" height="240" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+              <iframe class="instagram-img" src="https://www.instagram.com/p/Bqe2BqMA4PN/embed" width="150" height="240" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+            </div>
+          </div>
         </div>
         <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab">
           <div class="position-relative">
             <h3>My latests releases</h3>
             <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#songsModal"></i>
-              <% @songs.each do |song| %>
-                <%= song.title %>
-                <%= song.artist_name %>
-                <%= song.released %>
-                <% if song.track.attached? %>
-                <audio controls>
-                  <source src="<%= cl_video_path song.track.key %>" type="audio/mpeg">
-                  Your browser does not support the audio tag.
-                </audio>
-                <% end %>
-              <% end %>
+            <% @songs.each do |song| %>
+              <%= song.title %>
+            <% end %>
           </div>
         </div>
         <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
@@ -153,16 +152,16 @@
           </button>
         </div>
         <div class="modal-body">
-            <%= simple_form_for @artist do |f| %>
-              <%= f.input :name %>
-              <%= f.input :age %>
-              <%= f.input :location %>
-              <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
-              <%= f.input :bio %>
-              <%= f.input :influences, collection: Artist::INFLUENCES.map {|influence| influence[:name]}, include_hidden: false, input_html: { multiple: true, max: 4 } %>
-              <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
-        </div>
-        <div class="modal-footer">
+          <%= simple_form_for @artist do |f| %>
+            <%= f.input :name %>
+            <%= f.input :age %>
+            <%= f.input :location %>
+            <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
+            <%= f.input :bio %>
+            <%= f.input :influences, collection: Artist::INFLUENCES.map {|influence| influence[:name]}, include_hidden: false, input_html: { multiple: true, max: 4 } %>
+            <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
+          </div>
+          <div class="modal-footer">
             <%= f.submit "Update", class: 'btn btn-blue p-2' %>
           <% end %>
         </div>
@@ -180,13 +179,13 @@
           </button>
         </div>
         <div class="modal-body">
-            <%= simple_form_for @artist do |f| %>
-              <%= f.input :soundcloud_url %>
-              <%= f.input :website_url %>
-              <%= f.input :youtube_url %>
-              <%= f.input :instagram_url %>
-        </div>
-        <div class="modal-footer">
+          <%= simple_form_for @artist do |f| %>
+            <%= f.input :soundcloud_url %>
+            <%= f.input :website_url %>
+            <%= f.input :youtube_url %>
+            <%= f.input :instagram_url %>
+          </div>
+          <div class="modal-footer">
             <%= f.submit "Update", class: 'btn btn-blue p-2' %>
           <% end %>
         </div>
@@ -209,9 +208,8 @@
             <%= f.input :artist_name %>
             <%= f.input :released %>
             <%= f.input :song_description %>
-            <%= f.input :track, as: :file  %>
-        </div>
-        <div class="modal-footer">
+          </div>
+          <div class="modal-footer">
             <%= f.submit "Update", class: 'btn btn-blue p-2' %>
           <% end %>
         </div>
@@ -229,13 +227,13 @@
           </button>
         </div>
         <div class="modal-body">
-            <%= simple_form_for @artist do |f| %>
-              <%= f.input :soundcloud_url %>
-              <%= f.input :website_url %>
-              <%= f.input :youtube_url %>
-              <%= f.input :instagram_url %>
-        </div>
-        <div class="modal-footer">
+          <%= simple_form_for @artist do |f| %>
+            <%= f.input :soundcloud_url %>
+            <%= f.input :website_url %>
+            <%= f.input :youtube_url %>
+            <%= f.input :instagram_url %>
+          </div>
+          <div class="modal-footer">
             <%= f.submit "Update", class: 'btn btn-blue p-2' %>
           <% end %>
         </div>
@@ -243,6 +241,4 @@
     </div>
   </div>
 </div>
-
 <%= render 'shared/footer' %>
-
