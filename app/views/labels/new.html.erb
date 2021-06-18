@@ -1,13 +1,15 @@
-<div>
+<%= render "shared/simpletop" %>
+<div class="container col-6 col-lg-4 my-5">
   <h1 class="text-center">Create a profile</h1>
-</div>
-<div class="container col-6 col-lg-4">
   <%= simple_form_for(@label) do |f| %>
     <%= f.input :name %>
     <%= f.input :location %>
     <%= f.input :bio %>
     <%= f.input :website_url %>
     <%= f.input :photo, as: :file  %>
-    <%= f.submit "Create", class: 'btb btn-gradient p-2' %>
+    <div class="container text-center">
+      <%= f.submit "Create", class: 'btb btn-gradient p-2 px-4' %>
+    </div>
   <% end %>
 </div>
+<%= render "shared/footer" %>
