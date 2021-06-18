@@ -91,8 +91,8 @@
     </div>
   </div>
 <!-- links card -->
-  <div class="m-5">
-    <div class="profile-card-links py-5 my-5">
+  <div class="container mx-5">
+    <div class="profile-card-links py-4 my-5">
      <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="nav-link active nav-link-artist" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="true">My links</a>
@@ -117,15 +117,25 @@
             <h3>My latests releases</h3>
             <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#songsModal"></i>
               <% @songs.each do |song| %>
-                <%= song.title %>
-                <%= song.artist_name %>
-                <%= song.released %>
-                <% if song.track.attached? %>
-                <audio controls>
-                  <source src="<%= cl_video_path song.track.key %>" type="audio/mpeg">
-                  Your browser does not support the audio tag.
-                </audio>
-                <% end %>
+                <div class="flip-card-wrapper mb-3">
+                  <div id="flip-card">
+                    <div class="flip-card-front">
+                      <div class="flip-card-info">
+                        <h5><%= song.title %></h5>
+                        <p><%= song.artist_name %></p>
+                        <p class="text-right">released on <%= song.released %></p>
+                      </div>
+                      <% if song.track.attached? %>
+                      <div class="pl-2">
+                        <audio controls>
+                          <source src="<%= cl_video_path song.track.key %>" type="audio/mpeg">
+                          Your browser does not support the audio tag.
+                        </audio>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               <% end %>
           </div>
         </div>
@@ -240,6 +250,7 @@
     </div>
   </div>
 </div>
+
 
 <%= render 'shared/footer' %>
 
