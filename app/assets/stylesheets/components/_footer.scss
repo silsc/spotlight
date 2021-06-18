@@ -1,0 +1,17 @@
+.footer-small {
+  background: $gradient-light;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: white;
+  position: absolute;
+  width: 100%;
+}
+
+.footer-small .fa-heart {
+  color: #D23333;
+}
+

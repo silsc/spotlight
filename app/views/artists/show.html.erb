@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <div class="navbar navbar-expand-sm navbar-light navbar-main">
-  <%= link_to "#", class: "navbar-brand ml-4" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+  <%= link_to "#", class: "navbar-brand ml-2" do %>
+    <%= image_tag "logo.png", class:"rounded-circle", style: 'height:50px;width:auto;'%>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,8 +29,12 @@
         <% end %>
       </li>
       <li class="nav-item dropdown mr-4">
-        <%= image_tag "https://image.flaticon.com/icons/png/512/1772/1772607.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <% if @artist.photo.attached? %>
+        <%= cl_image_tag @artist.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+      <% else %>
+        <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+      <% end %>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "My profile", "#" , class: "dropdown-item mt-2" %>
           <%= link_to "Settings", "#" , class: "dropdown-item my-2" %>
           <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item logout-item" do %>
@@ -45,24 +49,28 @@
   </div>
 </div>
 <!-- Basic info card -->
-<div class="container basic-info d-flex">
+<div class="container basic-info d-flex ">
   <div class="position-relative">
-    <%= cl_image_tag @artist.photo.key, alt:"avatar profile", id:"avatar-profile", height:"200", width:"200" %>
-      <i class="far fa-edit edit-btn" data-toggle="modal" data-target="#infoModal"></i>
+    <% if @artist.photo.attached? %>
+        <%= cl_image_tag @artist.photo.key, alt:"avatar profile", class:"avatar-profile", height:"200", width:"200" %>
+    <% else %>
+        <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class:"avatar-profile", height: "200", width:"200"%>
+    <% end %>
+      <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#infoModal"></i>
     <div class="profile-card my-5">
       <div class="text-center pb-3">
         <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
         <h4><%= @artist.location %></h4>
       </div>
-      <div class="d-flex justify-content-around pb-3 px-5">
+      <div class="d-flex justify-content-around pb-2 px-5">
         <p>
           <% @artist.roles.each do |role| %>
-            <span class="badge badge-pill badge-info"><%= role %></span>
+            <span class="badge badge-pill badge-info p-2"><%= role %></span>
           <% end %>
         </p>
         <p>
           <% @artist.genres.each do |genre| %>
-            <span class="badge badge-pill badge-light">#<%= genre %></span>
+            <span class="badge badge-pill badge-light p-2">#<%= genre %></span>
           <% end %>
         </p>
       </div>
@@ -70,14 +78,14 @@
         <%= link_to "Connect", "#", class: "btn btn-gradient px-5" %>
         <%= link_to "Message", "#", class: "btn btn-gradient px-5" %>
       </div>
-      <div class="pl-5 pt-4">
+      <div class="pl-5">
         <h4 class="pt-3">About me</h4>
         <p><%= @artist.bio %></p>
         <h4 class="pt-3">My influences</h4>
       </div>
       <div class= "d-flex justify-content-around">
         <% @artist.influences.each do |influence| %>
-            <%= image_tag @artist.influence_image(influence), class:"influences-avatar" %>
+            <%= image_tag @artist.influence_image(influence), class:"influences-avatar mt-4", data: { toggle: 'tooltip', placement: 'top', title: 'Facebook' } %>
         <% end %>
       </div>
     </div>
@@ -87,13 +95,13 @@
     <div class="profile-card-links py-5 my-5">
      <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="nav-link active" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="true">My links</a>
+          <a class="nav-link active nav-link-artist" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="true">My links</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link" id="songs-tab" data-toggle="tab" href="#songs" role="tab" aria-controls="songs" aria-selected="false">My songs</a>
+          <a class="nav-link nav-link-artist" id="songs-tab" data-toggle="tab" href="#songs" role="tab" aria-controls="songs" aria-selected="false">My songs</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
+          <a class="nav-link nav-link-artist" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
         </li>
       </ul>
       <div class="tab-content pt-5" id="myTabContent">
@@ -108,7 +116,9 @@
           <div class="position-relative">
             <h3>My latests releases</h3>
             <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#songsModal"></i>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <% @songs.each do |song| %>
+            <%= song.title %>
+            <% end %>
           </div>
         </div>
         <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
@@ -121,103 +131,106 @@
       </div>
     </div>
   </div>
-</div>
-<!-- Info Modal -->
-<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="infoModalLabel">Edit your details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <!-- Info Modal -->
+  <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="infoModalLabel">Edit your details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <%= simple_form_for @artist do |f| %>
+              <%= f.input :name %>
+              <%= f.input :age %>
+              <%= f.input :location %>
+              <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
+              <%= f.input :bio %>
+              <%= f.input :influences, collection: Artist::INFLUENCES.map {|influence| influence[:name]}, include_hidden: false, input_html: { multiple: true, max: 4 } %>
+              <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
+        </div>
+        <div class="modal-footer">
+            <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+          <% end %>
+        </div>
       </div>
-      <div class="modal-body">
-          <%= simple_form_for @artist do |f| %>
-            <%= f.input :name %>
-            <%= f.input :age %>
-            <%= f.input :location %>
-            <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
-            <%= f.input :bio %>
-            <%= f.input :influences, collection: Artist::INFLUENCES.map {|influence| influence[:name]}, include_hidden: false, input_html: { multiple: true, max: 4 } %>
-            <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
+    </div>
+  </div>
+  <!-- Links Modal -->
+  <div class="modal fade" id="linksModal" tabindex="-1" aria-labelledby="linksModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="linksModalLabel">Edit your links</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <%= simple_form_for @artist do |f| %>
+              <%= f.input :soundcloud_url %>
+              <%= f.input :website_url %>
+              <%= f.input :youtube_url %>
+              <%= f.input :instagram_url %>
+        </div>
+        <div class="modal-footer">
+            <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+          <% end %>
+        </div>
       </div>
-      <div class="modal-footer">
-          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
-        <% end %>
+    </div>
+  </div>
+  <!-- Songs Modal -->
+  <div class="modal fade" id="songsModal" tabindex="-1" aria-labelledby="songsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="songsModalLabel">Edit your songs</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for [@artist, @song] do |f| %>
+            <%= f.input :title %>
+            <%= f.input :artist_name %>
+            <%= f.input :released %>
+            <%= f.input :song_description %>
+        </div>
+        <div class="modal-footer">
+            <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Events Modal -->
+  <div class="modal fade" id="eventsModal" tabindex="-1" aria-labelledby="eventsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="eventsModalLabel">Edit your events</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <%= simple_form_for @artist do |f| %>
+              <%= f.input :soundcloud_url %>
+              <%= f.input :website_url %>
+              <%= f.input :youtube_url %>
+              <%= f.input :instagram_url %>
+        </div>
+        <div class="modal-footer">
+            <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<!-- Links Modal -->
-<div class="modal fade" id="linksModal" tabindex="-1" aria-labelledby="linksModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="linksModalLabel">Edit your links</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <%= simple_form_for @artist do |f| %>
-            <%= f.input :soundcloud_url %>
-            <%= f.input :website_url %>
-            <%= f.input :youtube_url %>
-            <%= f.input :instagram_url %>
-      </div>
-      <div class="modal-footer">
-          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Songs Modal -->
-<div class="modal fade" id="songsModal" tabindex="-1" aria-labelledby="songsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="songsModalLabel">Edit your songs</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <%= simple_form_for @artist do |f| %>
-            <%= f.input :soundcloud_url %>
-            <%= f.input :website_url %>
-            <%= f.input :youtube_url %>
-            <%= f.input :instagram_url %>
-      </div>
-      <div class="modal-footer">
-          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Events Modal -->
-<div class="modal fade" id="eventsModal" tabindex="-1" aria-labelledby="eventsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="eventsModalLabel">Edit your events</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <%= simple_form_for @artist do |f| %>
-            <%= f.input :soundcloud_url %>
-            <%= f.input :website_url %>
-            <%= f.input :youtube_url %>
-            <%= f.input :instagram_url %>
-      </div>
-      <div class="modal-footer">
-          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+
+<%= render 'shared/footer' %>
+
