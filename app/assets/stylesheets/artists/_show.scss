@@ -87,7 +87,6 @@
     color: darkgrey;
   }
 
-
 /* Flip card */
 .flip-card-wrapper {
   width: 480px;
@@ -123,5 +122,7 @@
   }
 }
 
-
-
+.instagram-img {
+  object-fit: contain;
+  overflow: hidden;
+}
