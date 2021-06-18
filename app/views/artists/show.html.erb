@@ -116,9 +116,17 @@
           <div class="position-relative">
             <h3>My latests releases</h3>
             <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#songsModal"></i>
-            <% @songs.each do |song| %>
-            <%= song.title %>
-            <% end %>
+              <% @songs.each do |song| %>
+                <%= song.title %>
+                <%= song.artist_name %>
+                <%= song.released %>
+                <% if song.track.attached? %>
+                <audio controls>
+                  <source src="<%= cl_video_path song.track.key %>" type="audio/mpeg">
+                  Your browser does not support the audio tag.
+                </audio>
+                <% end %>
+              <% end %>
           </div>
         </div>
         <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
@@ -198,6 +206,7 @@
             <%= f.input :artist_name %>
             <%= f.input :released %>
             <%= f.input :song_description %>
+            <%= f.input :track, as: :file  %>
         </div>
         <div class="modal-footer">
             <%= f.submit "Update", class: 'btn btn-blue p-2' %>
