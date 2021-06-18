@@ -124,7 +124,7 @@
       <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab">
         <div class="position-relative">
           <h3>My latests releases</h3>
-          <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#songsModal"></i>
+          <i class="fas fa-plus edit-btn-links" data-toggle="modal" data-target="#songsModal"></i>
             <% @songs.each do |song| %>
               <div class="flip-card-wrapper mb-3">
                 <div id="flip-card">
@@ -151,7 +151,7 @@
       <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
         <div class="position-relative">
           <h3>My calendar</h3>
-          <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
+          <i class="fas fa-plus edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
         </div>
       </div>
@@ -223,13 +223,12 @@
       <div class="modal-body">
         <%= simple_form_for [@artist, @song] do |f| %>
           <%= f.input :title %>
-          <%= f.input :artist_name %>
           <%= f.input :released %>
           <%= f.input :song_description %>
           <%= f.input :track, as: :file  %>
         </div>
         <div class="modal-footer">
-          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+          <%= f.submit "Upload", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>
     </div>
