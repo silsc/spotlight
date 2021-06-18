@@ -62,6 +62,10 @@
     padding: 10px 50px;
 }
 }
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  background: white;
+  border-radius: 10px;
+}
 
 .edit-btn {
   position: absolute;
@@ -69,7 +73,7 @@
   right: 5%;
 }
 
-.edit-btn:hover:hover {
+.edit-btn:hover {
     color: darkgrey;
   }
 
@@ -78,6 +82,8 @@
   top: calc(10px + 5%);
   right: 5%;
 }
-.edit-btn-links:hover:hover {
+
+.edit-btn-links:hover {
     color: darkgrey;
   }
+

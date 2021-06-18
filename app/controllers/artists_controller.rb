@@ -2,7 +2,8 @@ class ArtistsController < ApplicationController
   before_action :set_artist, only: %i[show edit update]
 
   def show
-
+    @song = Song.new
+    @songs = Song.all
   end
 
   def new

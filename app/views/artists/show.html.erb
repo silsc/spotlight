@@ -56,7 +56,7 @@
     <% else %>
         <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class:"avatar-profile", height: "200", width:"200"%>
     <% end %>
-      <i class="far fa-edit edit-btn" data-toggle="modal" data-target="#infoModal"></i>
+      <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#infoModal"></i>
     <div class="profile-card my-5">
       <div class="text-center pb-3">
         <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
@@ -85,7 +85,7 @@
       </div>
       <div class= "d-flex justify-content-around">
         <% @artist.influences.each do |influence| %>
-            <%= image_tag @artist.influence_image(influence), class:"influences-avatar" %>
+            <%= image_tag @artist.influence_image(influence), class:"influences-avatar mt-4", data: { toggle: 'tooltip', placement: 'top', title: 'Facebook' } %>
         <% end %>
       </div>
     </div>
@@ -95,13 +95,13 @@
     <div class="profile-card-links py-5 my-5">
      <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="nav-link active" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="true">My links</a>
+          <a class="nav-link active nav-link-artist" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="true">My links</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link" id="songs-tab" data-toggle="tab" href="#songs" role="tab" aria-controls="songs" aria-selected="false">My songs</a>
+          <a class="nav-link nav-link-artist" id="songs-tab" data-toggle="tab" href="#songs" role="tab" aria-controls="songs" aria-selected="false">My songs</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
+          <a class="nav-link nav-link-artist" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
         </li>
       </ul>
       <div class="tab-content pt-5" id="myTabContent">
@@ -116,7 +116,9 @@
           <div class="position-relative">
             <h3>My latests releases</h3>
             <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#songsModal"></i>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <% @songs.each do |song| %>
+            <%= song.title %>
+            <% end %>
           </div>
         </div>
         <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
@@ -181,7 +183,7 @@
     </div>
   </div>
   <!-- Songs Modal -->
-   <div class="modal fade" id="songsModal" tabindex="-1" aria-labelledby="songsModalLabel" aria-hidden="true">
+  <div class="modal fade" id="songsModal" tabindex="-1" aria-labelledby="songsModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -191,11 +193,11 @@
           </button>
         </div>
         <div class="modal-body">
-            # <%= simple_form_for [@artist, @song] do |f| %>
-            #  <%= f.input :title %>
-              <%= f.input :artist_name %>
-              <%= f.input :released %>
-              <%= f.input :song_description %>
+          <%= simple_form_for [@artist, @song] do |f| %>
+            <%= f.input :title %>
+            <%= f.input :artist_name %>
+            <%= f.input :released %>
+            <%= f.input :song_description %>
         </div>
         <div class="modal-footer">
             <%= f.submit "Update", class: 'btn btn-blue p-2' %>
