@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
 
   def show
     @song = Song.new
-    @songs = Song.all
+    @songs = current_user.artist.songs
   end
 
   def new
