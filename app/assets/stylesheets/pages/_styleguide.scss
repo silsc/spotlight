@@ -26,10 +26,10 @@
 }
 
 .logout-item {
-  border-top: 1px solid #C4C4C4;
+  border-top: 1px solid #c4c4c4;
   padding-left: 50px;
   .logout-icon {
-    color: #6170D4;
+    color: #6170d4;
   }
 }
 
@@ -80,19 +80,18 @@
 //   color: #D23333;
 // }
 
-
 /* Button */
 .btn-blue {
   color: white;
   padding: 12px 16px;
   font-weight: 600;
   border-radius: 4px;
-  background: #6C7CEB;
+  background: #6c7ceb;
   transition: background 0.3s ease;
 }
 
 .btn-blue:hover {
-  background: #5663BC;
+  background: #5663bc;
   color: white;
 }
 
@@ -122,7 +121,7 @@
 }
 
 .btn-white:hover {
-  background: #D9E4FF;
+  background: #d9e4ff;
   color: white;
 }
 
@@ -164,7 +163,6 @@
   -webkit-transform: rotateY(180deg);
 }
 
-
 .front,
 .back {
   -webkit-backface-visibility: hidden;
@@ -180,7 +178,7 @@
 /* Profile tabs */
 .nav {
   justify-content: space-around;
-  a{
+  a {
     text-decoration: none;
     color: darkgrey;
   }
@@ -196,10 +194,7 @@
 .tab-content {
   h3 {
     padding: 10px 50px;
-}
-  p {
-    padding: 10px 50px;
-}
+  }
 }
 
 .back {
