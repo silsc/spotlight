@@ -225,7 +225,6 @@
       <div class="modal-body">
         <%= simple_form_for [@artist, @song] do |f| %>
           <%= f.input :title %>
-          <%= f.input :artist_name %>
           <%= f.input :released %>
           <%= f.input :song_description %>
           <%= f.input :track, as: :file  %>
