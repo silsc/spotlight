@@ -125,3 +125,21 @@
   object-fit: contain;
   overflow: hidden;
 }
+
+.upload-song {
+  position: absolute;
+  top: calc(10px + 5%);
+  right: 5%;
+  font-size: 140%;
+  padding: 0px 8px;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+  background: $primary00;
+  transition: background 0.3s ease;
+  border: none;
+    &:hover {
+      background: $primary20;
+      color: white;
+    }
+}
