@@ -90,6 +90,7 @@
   </div>
   <!-- links card -->
   <div class="profile-card-links py-5 my-5">
+    <%# TAB NAVIGATION %>
     <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <a class="nav-link active nav-link-artist" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="true">My links</a>
@@ -101,7 +102,8 @@
         <a class="nav-link nav-link-artist" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
       </li>
     </ul>
-    <div class="tab-content pt-5" id="myTabContent">
+    <div class="tab-content pt-5">
+      <%# LINKS TAB %>
       <div class="tab-pane fade show active" id="links" role="tabpanel" aria-labelledby="links-tab">
         <div class="position-relative">
           <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#linksModal"></i>
@@ -119,6 +121,7 @@
           </div>
         </div>
       </div>
+      <%# SONGS TAB %>
       <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab">
         <div class="position-relative">
           <h3>My latests releases</h3>
@@ -138,14 +141,15 @@
                         <source src="<%= cl_video_path song.track.key %>" type="audio/mpeg">
                         Your browser does not support the audio tag.
                       </audio>
-                    <% end %>
-                  </div>
+                    </div>
+                  <% end %>
                 </div>
               </div>
             </div>
           <% end %>
         </div>
       </div>
+      <%# EVENTS TAB %>
       <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
         <div class="position-relative">
           <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
