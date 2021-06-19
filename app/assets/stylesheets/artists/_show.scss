@@ -127,8 +127,8 @@
 
 .upload-song {
   position: absolute;
-  top: calc(10px + 5%);
-  right: 5%;
+  top: calc(10px + 0%);
+  right: 2%;
   font-size: 140%;
   padding: 0px 8px;
   text-align: center;
@@ -137,6 +137,7 @@
   background: $primary00;
   transition: background 0.3s ease;
   border: none;
+  box-shadow: 1px 1px 1px rgba(206, 206, 206, 0.781);
   &:hover {
     background: $primary20;
     color: white;
