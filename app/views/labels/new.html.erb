@@ -1,15 +1,21 @@
-<%= render "shared/simpletop" %>
-<div class="container col-6 col-lg-4 my-5">
-  <h1 class="text-center">Create a profile</h1>
-  <%= simple_form_for(@label) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :location %>
-    <%= f.input :bio %>
-    <%= f.input :website_url %>
-    <%= f.input :photo, as: :file  %>
-    <div class="container text-center">
-      <%= f.submit "Create", class: 'btb btn-gradient p-2 px-4' %>
-    </div>
-  <% end %>
+<div class="main d-flex">
+  <div class="d-block full-width">
+    <%= render "shared/simpletop" %>
+  </div>
+  <div class="container col-6 col-lg-4 my-5">
+    <h1 class="text-center">Create a profile</h1>
+    <%= simple_form_for(@label) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :location %>
+      <%= f.input :bio %>
+      <%= f.input :website_url %>
+      <%= f.input :photo, as: :file  %>
+      <div class="container text-center">
+        <%= f.submit "Create", class: 'btb btn-gradient p-2 px-4' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="d-block full-width">
+    <%= render "shared/footer" %>
+  </div>
 </div>
-<%= render "shared/footer" %>
