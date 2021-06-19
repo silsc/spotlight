@@ -28,3 +28,25 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+//redirect avatar
+
+.singer-redirect {
+  img {
+    width: 56%;
+    border-radius: 16%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    padding-top: 20px;
+    position: relative;
+    left: 40px;
+  }
+}
+
+.singer-redirect:hover {
+  img {
+    border-radius: 12%;
+    filter: none;
+  }
+}
+
