@@ -8,10 +8,12 @@
   color: white;
   padding-bottom: 72px;
   border-radius: 0px 0px 0px 299px;
+  width: 100%;
 }
 
 .small-heading {
   font-size: 48px;
+  padding-bottom: 5%;
   h2 {
     margin-left: 100px;
     font-weight: lighter;
@@ -36,6 +38,7 @@
 
 .about-container {
   margin-top: 100px;
+  width: 100%;
 }
 
 .about-title {
@@ -92,7 +95,7 @@
 .feature-box {
   p {
     font-family: "Fira Sans";
-    color: #686868;
+    color: #2b325e;
     font-size: 14px;
     text-align: center;
   }
