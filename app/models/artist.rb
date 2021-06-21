@@ -44,6 +44,13 @@ class Artist < ApplicationRecord
   validate :valid_genre_list
   validate :valid_role_list
 
+  # include PgSearch::Model
+  # pg_search_scope :artist_search
+  # multisearchable against: [:name, :genres, :location, :roles],
+  # using: {
+  #   tsearch: { prefix: true }
+  # }
+
   def influences_list
     INFLUENCES.map { |influence| influence[:name] }
   end
