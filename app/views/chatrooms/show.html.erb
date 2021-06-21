@@ -3,7 +3,7 @@
   <% @chatroom.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
       <i class="author">
-        <span><%= message.user.nickname %></span>
+        <span><%= message.user.email.split("@")[0].capitalize %></span>
         <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
       </i>
       <p><%= message.content %></p>
@@ -12,5 +12,6 @@
 </div>
 
 <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message from ##{@user}" %>
+  <%= f.input :content, label: false, placeholder: "Message from #{@user}" %>
+  <%= f.submit %>
 <% end %>

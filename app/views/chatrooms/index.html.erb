@@ -1,0 +1,7 @@
+<div class="p-5">
+  <% @chatrooms.each do |chatroom|  %>
+  <%=  chatroom %>
+  <%= link_to "Open chat", chatroom_path(chatroom) %>
+  <% end %>
+</div>
+<%= render "shared/footer" %>
