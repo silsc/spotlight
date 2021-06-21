@@ -9,4 +9,11 @@ class PagesController < ApplicationController
 
   def redirect
   end
+
+  def spotify
+    artists = RSpotify::Artist.search(params[:query])
+    respond_to do |format|
+      format.json {render json: artists}
+    end
+  end
 end
