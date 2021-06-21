@@ -43,13 +43,10 @@ class Artist < ApplicationRecord
 
   validate :valid_genre_list
   validate :valid_role_list
-
-  # include PgSearch::Model
-  # pg_search_scope :artist_search
-  # multisearchable against: [:name, :genres, :location, :roles],
-  # using: {
-  #   tsearch: { prefix: true }
-  # }
+  scope :filter_by_genre, ->(search_genre) { where("'#{search_genre}' = Any(genres)") }
+  scope :filter_by_genres, ->(search_genres) { where("genres @> ARRAY[?]::varchar[]", search_genres) } # it will match only if all slected genres are present
+  scope :filter_by_role, ->(search_role) { where("'#{search_role}' = Any(roles)") }
+  scope :filter_by_location, ->(search_location) { where location: search_location }
 
   def influences_list
     INFLUENCES.map { |influence| influence[:name] }
