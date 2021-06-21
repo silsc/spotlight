@@ -5,8 +5,11 @@ class ResultsController < ApplicationController
       @artists = Artist.where('name ilike ?', "%#{params[:query]}%")
       @labels = Label.where('name ilike ?', "%#{params[:query]}%")
     end
-    @artists = Artist.filter_by_genres(params[:filter][:genres])
-    raise
+    if params[:filter]
+      @artists = Artist.filter_by_genres(params[:filter][:genres])
+      @artists = Artist.filter_by_roles(params[:filter][:roles])
+      @artists = Artist.filter_by_location(params[:filter][:location])
+    end
   end
 
 
