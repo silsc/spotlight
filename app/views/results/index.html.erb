@@ -39,6 +39,8 @@
 
 <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
   <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
+  <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
+  <%= f.input :location, placeholder: 'Type the location' %>
   <%= f.submit 'Submit' %>
 <% end %>
 
