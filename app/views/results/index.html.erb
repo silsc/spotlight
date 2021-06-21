@@ -36,3 +36,10 @@
     </div>
   </div>
 </div>
+
+<%= form_tag results_path(:, method: :get do %>
+  <%= check_box_tag('Genres', value = '1', checked = false, options = %w[Jazz Rock Indie Pop Blues Punk Funk Reggae])
+    params[:genres]
+  %>
+<% end %>
+

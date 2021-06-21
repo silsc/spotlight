@@ -3,11 +3,6 @@ class Label < ApplicationRecord
   has_many :events, as: :organizable
   has_many :artists
   has_one_attached :photo
+  scope :filter_by_location, -> { where location: location }
 
-  # include PgSearch::Model
-  # pg_search_scope :label_search
-  # multisearchable against: [:name, :location],
-  # using: {
-  #   tsearch: { prefix: true }
-  # }
 end

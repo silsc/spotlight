@@ -6,4 +6,6 @@ class ResultsController < ApplicationController
       @labels = Label.where('name ilike ?', "%#{params[:query]}%")
     end
   end
+
+
 end
