@@ -37,9 +37,8 @@
   </div>
 </div>
 
-<%= form_tag results_path(:, method: :get do %>
-  <%= check_box_tag('Genres', value = '1', checked = false, options = %w[Jazz Rock Indie Pop Blues Punk Funk Reggae])
-    params[:genres]
-  %>
+<%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
+  <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
+  <%= f.submit 'Submit' %>
 <% end %>
 
