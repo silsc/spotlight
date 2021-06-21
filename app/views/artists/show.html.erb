@@ -155,8 +155,13 @@
           <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
           <div class="container d-block">
             <h4 class="cal-h p-2">My calendar</h4>
-            <div class="d-flex justify-content-center">
-              <%= render 'shared/calendar' %>
+            <div class="d-flex flex-column">
+              <div class="d-flex justify-content-center">
+                <%= render 'shared/calendar' %>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div id="artist-events"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -245,21 +250,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="eventsModalLabel">Edit your events</h5>
+        <h5 class="modal-title" id="eventsModalLabel">Create an Event</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @artist do |f| %>
-          <%= f.input :soundcloud_url %>
-          <%= f.input :website_url %>
-          <%= f.input :youtube_url %>
-          <%= f.input :instagram_url %>
-        </div>
-        <div class="modal-footer">
-          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
-        <% end %>
+        <%= render partial: "events/new", locals: {organizable: @artist} %>
       </div>
     </div>
   </div>

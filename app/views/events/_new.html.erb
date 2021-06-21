@@ -1,0 +1,9 @@
+<%= simple_form_for [organizable, Event.new] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :date, as: :date, html5: true %>
+  <%= f.input :event_url %>
+  <div class="container text-center">
+    <%= f.submit "Create", class: 'btn btn-gradient p-2 px-4' %>
+  </div>
+<% end %>
