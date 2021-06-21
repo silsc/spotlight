@@ -1,14 +1,11 @@
 class EventsController < ApplicationController
   def create
-    @event = @organizable.events.new(event_params)
+    @event = Event.new(event_params)
+    @organizable = params[:label_id].nil? ? Artist.find(params[:artist_id]) : Label.find(params[:label_id])
+    @event.organizable = @organizable
     @event.save
     redirect_to @organizable, notice: "Your event was successfully created."
   end
-
-  # def index
-  #   @events = Event.where(organizable_name: current_user.artist.name)
-  #   raise
-  # end
 
   private
 
