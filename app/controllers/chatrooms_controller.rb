@@ -4,11 +4,16 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @artist = Artist.find(params[:artist_id])
-    @chatroom = current_user.chatroom_with(@artist.user)
+    raise
+    if params[:user_type] == :artist
+      @profile = Artist.find(params[:profile_id])
+    else
+      @profile = Label.find(params[:profile_id])
+    end
+    @chatroom = current_user.chatroom_with(@profile.user)
     unless @chatroom
       @chatroom = Chatroom.create(user: current_user)
-      @conversation = Conversation.create(chatroom: @chatroom, user: @artist.user)
+      @conversation = Conversation.create(chatroom: @chatroom, user: @profile.user)
     end
     redirect_to chatroom_path(@chatroom)
   end

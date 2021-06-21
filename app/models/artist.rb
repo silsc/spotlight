@@ -37,7 +37,7 @@ class Artist < ApplicationRecord
 
   belongs_to :user
   belongs_to :label, optional: true
-  has_many :events, as: :organizable
+  has_many :events, as: :organizable, dependent: :destroy
   has_many :songs, dependent: :destroy
   has_one_attached :photo
 

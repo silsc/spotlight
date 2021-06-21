@@ -3,6 +3,7 @@ puts "Destroying all"
 User.destroy_all
 Artist.destroy_all
 Label.destroy_all
+Chatroom.destroy_all
 
 puts "Creating artist influences"
 
@@ -26,17 +27,42 @@ puts "Creating artist influences"
 
 puts "Creating users, artist and label"
 
-user = User.create!(email:'user_one@emailcom', password:'password', username: 'user1')
+user = User.create!(email:'user_one@email.com', password:'password', username: 'user1')
 puts 'user created'
-user_2 = User.create!(email:'user_otwo@emailcom', password:'password', username: 'user2')
+user_2 = User.create!(email:'user_otwo@email.com', password:'password', username: 'user2')
 puts 'user-2 created'
+user_3 = User.create!(email:'user_three@email.com', password:'password', username: 'user3')
+puts 'user-3 created'
+user_4 = User.create!(email:'user_four@email.com', password:'password', username: 'user4')
+puts 'user-4 created'
 
 
-label = Label.create!(user: user_2, name: 'Sony', location: 'Brussels', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', website_url: 'www.sony.com')
-puts 'label Sony created'
+label_1 = Label.create!(user: user_2, name: 'Sony', location: 'Brussels', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', website_url: 'www.sony.com')
+puts 'label created'
+label_2 = Label.create!(user: user_3, name: 'Universal', location: 'Brussels', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', website_url: 'www.universal.com')
+puts 'label created'
 
-artist = Artist.create!(name: 'Biig Piig', age: 21, location: 'Dublin', user: user, label: label, genres: "Rock")
+artist_1 = Artist.create!(user: user, name: 'Biig Piig', age: 21, location: 'Dublin', label: label_1, genres: "Rock")
 puts 'artist created'
+artist_2 = Artist.create!(user: user_4, name: 'Silvia', age: 26, location: 'Barcelona', label: label_2, genres: "Rock")
+puts 'artist created'
+
+puts "Creating chatrooms and conversations"
+
+chatroom_1 = Chatroom.create!(user: user)
+puts 'Chatroom1 created'
+chatroom_2 = Chatroom.create!(user: user_2)
+puts 'Chatroom2 created'
+chatroom_3 = Chatroom.create!(user: user)
+puts 'Chatroom2 created'
+
+conversation_1 = Conversation.create!(chatroom: chatroom_1 , user: user_4) #artist-artist chat
+puts 'Conversation1 created'
+conversation_2 = Conversation.create!(chatroom: chatroom_2 , user: user_3) #label-label chat
+puts 'Conversation2 created'
+conversation_3 = Conversation.create!(chatroom: chatroom_3 , user: user_2) #artist-label chat
+puts 'Conversation3 created'
+
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])

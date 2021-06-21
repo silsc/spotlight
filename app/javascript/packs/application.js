@@ -38,10 +38,4 @@ document.addEventListener('turbolinks:load', () => {
 
 
 
-const initCardflip = () => {
-
-}
-
-
-
 
