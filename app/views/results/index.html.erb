@@ -2,7 +2,6 @@
   <div class="row justify-content-center">
     <div class="col-sm-8">
 
-
       <%= form_tag results_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -14,23 +13,27 @@
 
       <% if @artists %>
         <h2>Artists</h2>
-        <ul>
           <% @artists.each do |artist| %>
-            <li>
-              <%= artist.name %>
-            </li>
+              <h5><%= artist.name %></h5  >
+              <p><%= artist.location %></p>
+              <p>
+                <% artist.roles.each do |role| %>
+                  <span class="badge badge-pill badge-info p-2"><%= role %></span>
+                <% end %>
+              </p>
+              <p>
+                <% artist.genres.each do |genre| %>
+                  <span class="badge badge-pill badge-light p-2">#<%= genre %></span>
+                <% end %>
+              </p>
           <% end %>
-        </ul>
       <% end %>
+
       <% if @labels %>
         <h2>Labels</h2>
-        <ul>
           <% @labels.each do |label| %>
-            <li>
-              <%= label.name %>
-            </li>
+            <h5><%= label.name %></h5>
           <% end %>
-        </ul>
       <% end %>
 
     </div>
@@ -38,9 +41,9 @@
 </div>
 
 <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
-  <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
-  <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
-  <%= f.input :location, placeholder: 'Type the location' %>
+  <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true } %>
+  <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true } %>
+  <%= f.input :location, required: false, placeholder: 'Type the location'%>
   <%= f.submit 'Submit' %>
 <% end %>
 
