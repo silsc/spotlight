@@ -42,6 +42,8 @@
 .nav-profile {
   border-bottom: none;
   justify-content: space-around;
+  position: sticky;
+  top: 0;
   a {
     text-decoration: none;
     color: darkgrey;
@@ -74,6 +76,7 @@
 
 .edit-btn:hover {
   color: darkgrey;
+  cursor: pointer;
 }
 
 .edit-btn-links {
@@ -84,6 +87,7 @@
 
 .edit-btn-links:hover {
   color: darkgrey;
+  cursor: pointer;
 }
 
 /* Flip card */
