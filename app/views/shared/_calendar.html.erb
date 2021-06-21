@@ -1,5 +1,5 @@
 <div data-controller="calendar" class="d-flex flex-column">
-  <div data-calendar-target="calendar" class="d-flex justify-content-center">
+  <div data-calendar-target="calendar" data-events="<%= @events.to_json %>" data-grouped-events="<%= @grouped_events.to_json %>" class="d-flex justify-content-center">
     <%# data-events="" %>
   </div>
   <div data-calendar-target="output" class="mt-4">
