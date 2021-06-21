@@ -20,6 +20,27 @@ class LabelsController < ApplicationController
   end
 
   def show
+    @event = Event.new
+    @events = @label.events.map do |event|
+      {
+        year: event.date.year,
+        month: event.date.month,
+        day: event.date.day,
+        Date: [event.date.year, event.date.month, event.date.day],
+        Title: event.name,
+        Link: event.event_url,
+        html: render_to_string(partial: "events/event_card", locals: { event: event })
+      }
+    end
+
+    @grouped_events = {}
+    @events.each do |event|
+      @grouped_events[event[:year]] = @grouped_events[event[:year]] || {}
+      @grouped_events[event[:year]][event[:month]] = @grouped_events[event[:year]][event[:month]] || {}
+      @grouped_events[event[:year]][event[:month]][event[:day]] =
+        @grouped_events[event[:year]][event[:month]][event[:day]] || []
+      @grouped_events[event[:year]][event[:month]][event[:day]].push(event)
+    end
   end
 
   def edit

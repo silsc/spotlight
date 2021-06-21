@@ -48,10 +48,9 @@
     </ul>
   </div>
 </div>
-
 <!-- Basic info card -->
 <div class="container basic-info d-flex justify-content-between">
-    <div class="profile-card position-relative px-5">
+  <div class="profile-card position-relative px-5">
     <% if @label.photo.attached? %>
       <%= cl_image_tag @label.photo.key, alt:"avatar profile", class:"avatar-profile", height:"200", width:"200" %>
     <% else %>
@@ -97,7 +96,7 @@
         <div class="position-relative">
           <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#labellinksModal"></i>
         </div>
-          <h4>Official website</h4>
+        <h4>Official website</h4>
       </div>
       <%# EVENTS TAB %>
       <div class="tab-pane fade  px-5" id="events" role="tabpanel" aria-labelledby="events-tab">
@@ -106,7 +105,7 @@
         </div>
         <div class="container d-block">
           <h4 class="cal-h">Our calendar</h4>
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-center mt-4">
             <%= render 'shared/calendar' %>
           </div>
         </div>
@@ -115,8 +114,6 @@
   </div>
 </div>
 </div>
-
-
 <!-- Basic info Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -129,17 +126,16 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for(@label) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :location %>
-        <%= f.input :bio %>
-        <%= f.input :website_url %>
-        <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+          <%= f.input :name %>
+          <%= f.input :location %>
+          <%= f.input :bio %>
+          <%= f.input :website_url %>
+          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
 <!-- Artist list Modal -->
 <div class="modal fade" id="artistlistModal" tabindex="-1" role="dialog" aria-labelledby="artistlistModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -152,17 +148,16 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for(@label) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :location %>
-        <%= f.input :bio %>
-        <%= f.input :website_url %>
-        <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+          <%= f.input :name %>
+          <%= f.input :location %>
+          <%= f.input :bio %>
+          <%= f.input :website_url %>
+          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
 <!-- Links Modal -->
 <div class="modal fade" id="labellinksModal" tabindex="-1" role="dialog" aria-labelledby="labellinksModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -175,12 +170,26 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for(@label) do |f| %>
-        <%= f.input :website_url %>
-        <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+          <%= f.input :website_url %>
+          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
+<%# Events modal %>
+<div class="modal fade" id="eventsModal" tabindex="-1" aria-labelledby="eventsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eventsModalLabel">Create an Event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render partial: "events/new", locals: {organizable: @label} %>
+      </div>
+    </div>
+  </div>
+</div>
