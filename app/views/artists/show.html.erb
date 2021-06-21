@@ -75,7 +75,7 @@
     </div>
     <div class="d-flex justify-content-around">
       <%= link_to "Connect", "#", class: "btn btn-gradient px-5" %>
-      <%= link_to "Message", "#", class: "btn btn-gradient px-5" %>
+      <%= link_to "Message", chatrooms_path(profile_id: @artist.id, user_type: :artist), method: :post, class: "btn btn-gradient px-5" %>
     </div>
     <div class="">
       <h4 class="pt-3">About me</h4>

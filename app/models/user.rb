@@ -12,10 +12,15 @@ class User < ApplicationRecord
   has_many :connections_as_user1, class_name: "Connection", foreign_key: :user1_id
   has_many :connections_as_user2, class_name: "Connection", foreign_key: :user2_id
   has_many :messages
+  has_many :chatrooms
   has_many :conversations
   has_many :posts
 
   def connections
     connections_as_user1 + connections_as_user2
+  end
+
+  def chatroom_with(user)
+    chatrooms.find { |chatroom| chatroom.conversations.any? { |conversation| conversation.user == user } }
   end
 end
