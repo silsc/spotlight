@@ -1,6 +1,6 @@
 class Artist < ApplicationRecord
-  GENRES = %w[Jazz Rock Indie Pop Blues Punk Funk Reggae]
-  ROLES = %w[Singer Guitarist Drummer Bassist Keyboardist]
+  GENRES = %w[Jazz Rock Indie Pop Blues Punk Funk Reggae Soul Rap Metal Electronic Classical Folk]
+  ROLES = %w[Singer Guitarist Drummer Bassist Keyboardist Composer Remixer Songwriter Producer DJ]
 
   INFLUENCES = [
     {

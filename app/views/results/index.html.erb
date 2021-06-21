@@ -12,38 +12,56 @@
       <% end %>
 
       <% if @artists %>
-        <h2>Artists</h2>
-          <% @artists.each do |artist| %>
-              <h5><%= artist.name %></h5  >
-              <p><%= artist.location %></p>
-              <p>
-                <% artist.roles.each do |role| %>
-                  <span class="badge badge-pill badge-info p-2"><%= role %></span>
-                <% end %>
-              </p>
-              <p>
-                <% artist.genres.each do |genre| %>
-                  <span class="badge badge-pill badge-light p-2">#<%= genre %></span>
-                <% end %>
-              </p>
-          <% end %>
+        <div class="artist-search">
+          <h2>Artists</h2>
+            <% @artists.each do |artist| %>
+              <div class="card-search">
+                <h5><%= artist.name %></h5>
+                <p><%= artist.location %></p>
+                <p>
+                  <% artist.roles.each do |role| %>
+                    <span class="badge badge-pill badge-info p-2"><%= role %></span>
+                  <% end %>
+                </p>
+                <p>
+                  <% artist.genres.each do |genre| %>
+                    <span class="badge badge-pill badge-light p-2">#<%= genre %></span>
+                  <% end %>
+                </p>
+              </div>
+            <% end %>
+        </div>
+      <% else %>
+        <%= "Sorry, there are no artists matching your search." %>
       <% end %>
 
       <% if @labels %>
-        <h2>Labels</h2>
-          <% @labels.each do |label| %>
-            <h5><%= label.name %></h5>
-          <% end %>
+        <div class="label-search">
+          <h2>Labels</h2>
+            <% @labels.each do |label| %>
+              <div class="card-search">
+                <h5><%= label.name %></h5>
+                <p><%= label.location %></p>
+              </div>
+            <% end %>
+        </div>
+      <% else %>
+        <%= "Sorry, there are no labels matching your search." %>
       <% end %>
-
     </div>
+  </div>
+  <div class="filter-search">
+    <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
+      <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true } %>
+      <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true } %>
+      <%= f.input :location, required: false, placeholder: 'Type the location'%>
+      <%= f.submit 'Submit', class: 'btb btn-gradient p-2 px-3' %>
+    <% end %>
   </div>
 </div>
 
-<%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
-  <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true } %>
-  <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true } %>
-  <%= f.input :location, required: false, placeholder: 'Type the location'%>
-  <%= f.submit 'Submit' %>
-<% end %>
+<div class="d-block full-width">
+  <%= render "shared/footer" %>
+</div>
+
 
