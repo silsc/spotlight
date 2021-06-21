@@ -89,7 +89,7 @@
     </div>
   </div>
   <!-- links card -->
-  <div class="profile-card-links py-5 my-5">
+  <div class="profile-card-links py-5 my-5 position-relative">
     <%# TAB NAVIGATION %>
     <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -205,7 +205,7 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for @artist do |f| %>
-          <%= f.input :youtube_url %>
+          <%= f.input :youtube_url, :label => "YouTube Video ID" %>
           <%= f.input :instagram_url %>
         </div>
         <div class="modal-footer">
