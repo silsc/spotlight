@@ -50,20 +50,18 @@
 </div>
 <!-- Basic info card -->
 <div class="container basic-info d-flex justify-content-between">
-  <div class="profile-card position-relative">
+  <div class="profile-card position-relative px-5">
     <% if @artist.photo.attached? %>
       <%= cl_image_tag @artist.photo.key, alt:"avatar profile", class:"avatar-profile", height:"200", width:"200" %>
     <% else %>
       <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class:"avatar-profile", height: "200", width:"200"%>
     <% end %>
-
     <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#infoModal"></i>
-
     <div class="text-center pb-3">
       <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
       <h4><%= @artist.location %></h4>
     </div>
-    <div class="d-flex justify-content-around pb-2 px-5">
+    <div class="d-flex justify-content-around pb-2">
       <p>
         <% @artist.roles.each do |role| %>
           <span class="badge badge-pill badge-info p-2"><%= role %></span>
@@ -75,11 +73,11 @@
         <% end %>
       </p>
     </div>
-    <div class="d-flex justify-content-around px-5">
+    <div class="d-flex justify-content-around">
       <%= link_to "Connect", "#", class: "btn btn-gradient px-5" %>
       <%= link_to "Message", "#", class: "btn btn-gradient px-5" %>
     </div>
-    <div class="pl-5">
+    <div class="">
       <h4 class="pt-3">About me</h4>
       <p><%= @artist.bio %></p>
       <h4 class="pt-3">My influences</h4>
@@ -92,6 +90,7 @@
   </div>
   <!-- links card -->
   <div class="profile-card-links py-5 my-5">
+    <%# TAB NAVIGATION %>
     <ul class="nav nav-tabs nav-profile" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <a class="nav-link active nav-link-artist" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="true">My links</a>
@@ -103,7 +102,8 @@
         <a class="nav-link nav-link-artist" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
       </li>
     </ul>
-    <div class="tab-content pt-5" id="myTabContent">
+    <div class="tab-content pt-5">
+      <%# LINKS TAB %>
       <div class="tab-pane fade show active" id="links" role="tabpanel" aria-labelledby="links-tab">
         <div class="position-relative">
           <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#linksModal"></i>
@@ -121,44 +121,54 @@
           </div>
         </div>
       </div>
+      <%# SONGS TAB %>
       <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab">
         <div class="position-relative">
           <h3>My latests releases</h3>
-          <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#songsModal"></i>
-            <% @songs.each do |song| %>
-              <div class="flip-card-wrapper mb-3">
-                <div id="flip-card">
-                  <div class="flip-card-front">
-                    <div class="flip-card-info">
-                      <h5><%= song.title %></h5>
-                      <p><%= song.artist_name %></p>
-                      <p class="text-right">released on <%= song.released %></p>
-                    </div>
-                    <% if song.track.attached? %>
+          <button class="upload-song" data-toggle="modal" data-target="#songsModal">+</button>
+          <% @songs.each do |song| %>
+            <div class="flip-card-wrapper mb-3">
+              <div id="flip-card">
+                <div class="flip-card-front">
+                  <div class="flip-card-info">
+                    <h5><%= song.title %></h5>
+                    <p class="indented-paragraph"><%= song.artist_name %></p>
+                    <p class="indented-paragraph text-right">released on <%= song.released %></p>
+                  </div>
+                  <% if song.track.attached? %>
                     <div class="pl-2">
                       <audio controls>
                         <source src="<%= cl_video_path song.track.key %>" type="audio/mpeg">
                         Your browser does not support the audio tag.
                       </audio>
-                      <% end %>
                     </div>
-                  </div>
+                  <% end %>
                 </div>
               </div>
-            <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
+      <%# EVENTS TAB %>
       <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
         <div class="position-relative">
-          <h3>My calendar</h3>
           <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          <div class="container d-block">
+            <h4 class="cal-h p-2">My calendar</h4>
+            <div class="d-flex flex-column">
+              <div class="d-flex justify-content-center">
+                <%= render 'shared/calendar' %>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div id="artist-events"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <!-- Info Modal -->
 <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -178,6 +188,7 @@
           <%= f.input :bio %>
           <%= f.input :influences, collection: Artist::INFLUENCES.map {|influence| influence[:name]}, include_hidden: false, input_html: { multiple: true, max: 4 } %>
           <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
+          <%= f.input :photo, as: :file  %>
         </div>
         <div class="modal-footer">
           <%= f.submit "Update", class: 'btn btn-blue p-2' %>
@@ -215,7 +226,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="songsModalLabel">Edit your songs</h5>
+        <h5 class="modal-title" id="songsModalLabel">Upload your songs</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -223,13 +234,12 @@
       <div class="modal-body">
         <%= simple_form_for [@artist, @song] do |f| %>
           <%= f.input :title %>
-          <%= f.input :artist_name %>
           <%= f.input :released %>
           <%= f.input :song_description %>
           <%= f.input :track, as: :file  %>
         </div>
         <div class="modal-footer">
-          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
+          <%= f.submit "Upload", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>
     </div>
@@ -240,24 +250,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="eventsModalLabel">Edit your events</h5>
+        <h5 class="modal-title" id="eventsModalLabel">Create an Event</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @artist do |f| %>
-          <%= f.input :soundcloud_url %>
-          <%= f.input :website_url %>
-          <%= f.input :youtube_url %>
-          <%= f.input :instagram_url %>
-        </div>
-        <div class="modal-footer">
-          <%= f.submit "Update", class: 'btn btn-blue p-2' %>
-        <% end %>
+        <%= render partial: "events/new", locals: {organizable: @artist} %>
       </div>
     </div>
   </div>
 </div>
-
 <%= render 'shared/footer' %>

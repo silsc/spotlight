@@ -3,7 +3,11 @@ class ArtistsController < ApplicationController
 
   def show
     @song = Song.new
-    @songs = current_user.artist.songs
+    if current_user.artist && current_user.artist.songs
+      @songs = current_user.artist.songs
+    else
+      @songs = []
+    end
   end
 
   def new
@@ -37,7 +41,8 @@ class ArtistsController < ApplicationController
 
   def artist_params
     params[:artist][:influences] = params[:artist][:influences].split(',')
-    params.require(:artist).permit(:name, :age, :location, :bio, :photo, :soundcloud_url, :website_url, :youtube_url, :instagram_url, genres: [], roles: [], influences: [])
+    params.require(:artist).permit(:name, :age, :location, :bio, :photo, :soundcloud_url, :website_url, :youtube_url,
+                                   :instagram_url, genres: [], roles: [], influences: [])
   end
 
   def set_artist

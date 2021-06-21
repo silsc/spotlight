@@ -1,28 +1,34 @@
-<%= render "shared/simpletop" %>
-<div class="container col-6 col-lg-4 my-5" data-controller="selectpure">
-  <h1 class='text-center'>Create your profile</h1>
-  <%= simple_form_for @artist do |f| %>
-    <%= f.input :name %>
-    <%= f.input :age %>
-    <%= f.input :location %>
-    <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
-    <%= f.input :bio %>
+<div class="main d-flex">
+  <div class="d-block full-width">
+    <%= render "shared/simpletop" %>
+  </div>
+  <div class="container col-6 col-lg-4 my-5"  data-controller="selectpure">
+    <h1 class='text-center'>Create your profile</h1>
+    <%= simple_form_for @artist do |f| %>
+      <%= f.input :name %>
+      <%= f.input :age %>
+      <%= f.input :location %>
+      <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
+      <%= f.input :bio %>
 
-    <select-pure name="artist[influences]" multiple id="artist_influences">
-      <% Artist::INFLUENCES.each do |influence| %>
-        <option-pure value="<%= influence[:name] %>"><%= influence[:name] %></option-pure>
-      <% end %>
-    </select-pure>
-    
-    <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
-    <%= f.input :soundcloud_url %>
-    <%= f.input :website_url %>
-    <%= f.input :youtube_url %>
-    <%= f.input :instagram_url %>
-    <%= f.input :photo, as: :file  %>
-    <div class="container text-center">
-      <%= f.submit "Create", class: 'btb btn-gradient py-2' %>
-    </div>
-  <% end %>
+      <select-pure name="artist[influences]" multiple id="artist_influences">
+        <% Artist::INFLUENCES.each do |influence| %>
+          <option-pure value="<%= influence[:name] %>"><%= influence[:name] %></option-pure>
+        <% end %>
+      </select-pure>
+
+      <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
+      <%= f.input :soundcloud_url %>
+      <%= f.input :website_url %>
+      <%= f.input :youtube_url %>
+      <%= f.input :instagram_url %>
+      <%= f.input :photo, as: :file  %>
+      <div class="container text-center">
+        <%= f.submit "Create", class: 'btb btn-gradient py-2' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="d-block full-width">
+    <%= render "shared/footer" %>
+  </div>
 </div>
-<%= render "shared/footer" %>

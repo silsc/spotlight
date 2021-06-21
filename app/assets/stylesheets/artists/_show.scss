@@ -7,7 +7,7 @@
 }
 
 .profile-card {
-  width: 45%;
+  width: 48%;
   height: 804px;
   background: white;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
@@ -15,11 +15,11 @@
   padding-top: 120px;
   p {
     font-weight: 500;
-    color: #6C6C6C
+    color: #6c6c6c;
   }
 }
 .profile-card-links {
-  width: 600px;
+  width: 50%;
   height: 804px;
   overflow: scroll;
   background: white;
@@ -27,7 +27,6 @@
   border-radius: 27px;
   padding-top: 120px;
 }
-
 
 .avatar-profile {
   border-radius: 50%;
@@ -43,7 +42,7 @@
 .nav-profile {
   border-bottom: none;
   justify-content: space-around;
-  a{
+  a {
     text-decoration: none;
     color: darkgrey;
   }
@@ -57,11 +56,12 @@
   h3 {
     padding: 10px 50px;
   }
-  p {
+  p.indented-paragraph {
     padding: 10px 50px;
+  }
 }
-}
-.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
   background: white;
   border-radius: 10px;
 }
@@ -73,8 +73,8 @@
 }
 
 .edit-btn:hover {
-    color: darkgrey;
-  }
+  color: darkgrey;
+}
 
 .edit-btn-links {
   position: absolute;
@@ -83,14 +83,14 @@
 }
 
 .edit-btn-links:hover {
-    color: darkgrey;
-  }
+  color: darkgrey;
+}
 
 /* Flip card */
 .flip-card-wrapper {
   width: 480px;
   height: 200px;
-  background: #DB52F4;
+  background: #db52f4;
   border-radius: 10px;
   position: relative;
   margin: 0 auto;
@@ -99,12 +99,11 @@
 #flip-card {
   width: 100%;
   height: 100%;
-  background: linear-gradient(91.51deg, #5663BC 41.05%, rgba(196, 196, 196, 0) 87.55%);
+  background: linear-gradient(91.51deg, #5663bc 41.05%, rgba(196, 196, 196, 0) 87.55%);
   border-radius: 10px;
   margin: 0 auto;
   position: absolute;
 }
-
 
 .flip-card-info {
   p {
@@ -124,4 +123,23 @@
 .instagram-img {
   object-fit: contain;
   overflow: hidden;
+}
+
+.upload-song {
+  position: absolute;
+  top: calc(10px + 0%);
+  right: 2%;
+  font-size: 140%;
+  padding: 0px 8px;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+  background: $primary00;
+  transition: background 0.3s ease;
+  border: none;
+  box-shadow: 1px 1px 1px rgba(206, 206, 206, 0.781);
+  &:hover {
+    background: $primary20;
+    color: white;
+  }
 }
