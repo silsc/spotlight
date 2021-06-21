@@ -113,8 +113,11 @@
     <span class="pure">
     </span>
 
-    <%= f.input :influences, collection: Artist::INFLUENCES.map {|influence| influence[:name]}, include_hidden: false, input_html: { multiple: true, max: 4 } %>
-
+    <select-pure name="artist[influences]" multiple id="artist_influences">
+      <% Artist::INFLUENCES.each do |influence| %>
+        <option-pure value="<%= influence[:name] %>"><%= influence[:name] %></option-pure>
+      <% end %>
+    </select-pure>
     
     <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
     <%= f.input :soundcloud_url %>

@@ -37,7 +37,7 @@ class ArtistsController < ApplicationController
 
   def artist_params
     params[:artist][:influences] = params[:artist][:influences].split(',')
-    params.require(:artist).permit(:name, :age, :location, :bio, :influences, :photo, :soundcloud_url, :website_url, :youtube_url, :instagram_url, genres: [], roles: [])
+    params.require(:artist).permit(:name, :age, :location, :bio, :photo, :soundcloud_url, :website_url, :youtube_url, :instagram_url, genres: [], roles: [], influences: [])
   end
 
   def set_artist
