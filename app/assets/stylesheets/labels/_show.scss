@@ -1,0 +1,122 @@
+/* Card */
+
+.basic-info {
+  align-items: center;
+  padding: 0px;
+  margin-top: 100px;
+}
+
+.profile-card {
+  width: 48%;
+  height: 804px;
+  background: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 27px;
+  padding-top: 120px;
+  p {
+    font-weight: 500;
+    color: #6c6c6c;
+  }
+}
+.profile-card-links {
+  width: 50%;
+  height: 804px;
+  overflow: scroll;
+  background: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 27px;
+  padding-top: 120px;
+}
+
+.avatar-profile {
+  border-radius: 50%;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.15));
+  position: absolute;
+  top: -100px;
+  left: 165px;
+  object-fit: cover;
+}
+
+/* Profile tabs */
+
+.nav-profile {
+  border-bottom: none;
+  justify-content: space-around;
+  a {
+    text-decoration: none;
+    color: darkgrey;
+  }
+  a:hover {
+    color: black;
+    border: none;
+  }
+}
+
+.tab-content {
+  h3 {
+    padding: 10px 50px;
+  }
+  p.indented-paragraph {
+    padding: 10px 50px;
+  }
+}
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  background: white;
+  border-radius: 10px;
+}
+
+.edit-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.edit-btn:hover {
+  color: darkgrey;
+}
+
+.edit-btn-links {
+  position: absolute;
+  top: calc(10px + 5%);
+  right: 5%;
+}
+
+.edit-btn-links:hover {
+  color: darkgrey;
+}
+
+/* Flip card */
+.flip-card-wrapper {
+  width: 480px;
+  height: 200px;
+  background: #db52f4;
+  border-radius: 10px;
+  position: relative;
+  margin: 0 auto;
+}
+
+#flip-card {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(91.51deg, #5663bc 41.05%, rgba(196, 196, 196, 0) 87.55%);
+  border-radius: 10px;
+  margin: 0 auto;
+  position: absolute;
+}
+
+.flip-card-info {
+  p {
+    color: white;
+    font-weight: 700;
+    margin: 0;
+    padding: 5px 20px;
+  }
+  h5 {
+    color: white;
+    font-weight: 700;
+    margin: 0;
+    padding: 20px 20px;
+  }
+}
+
