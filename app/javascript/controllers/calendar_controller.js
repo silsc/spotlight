@@ -17,7 +17,11 @@ export default class extends Controller {
         let events = JSON.parse(calendarTarget.dataset.groupedEvents)
         events = events[year][month][day]
 
-        outputTarget.innerHTML = events.map(e => e.html).join('')
+        if (events) {
+          outputTarget.innerHTML = events.map(e => e.html).join('')
+        } else {
+          outputTarget.innerHTML = ""
+        }
       }
     })
   }
