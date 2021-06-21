@@ -1,0 +1,28 @@
+.card-events {
+  width: 40%;
+  height: 50%;
+  background: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.822);
+  background-size: cover;
+}
+
+.event-card-items {
+  padding: 12px;
+  display: block;
+  text-align: left;
+  position: relative;
+}
+
+.event-h {
+  color: $primary20;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.event-p {
+  color: rgba(27, 27, 27, 0.932);
+  font-weight: normal;
+  font-size: 12px;
+}
