@@ -74,7 +74,7 @@ artist_biig = Artist.create!(user: user_4, name: 'Biig Piig', age: 21, location:
 artist_biig.photo.attach(io: avatar_biig, filename: 'biig_piig.jpg', content_type: 'image/jpg')
 
 
-avatar_danny = URI.open('https://lh3.googleusercontent.com/proxy/RWii2ivWHZZ2wKK3h4nAUl9XZxFy_LPcdnqkT8iiL82wjDDzhIaKWcLYo-uzCZBsJfQb8sZtnC6tMRiamo-ZsG5LRPWjrAU5lU4vjp26_jana1mCmHzrW2ENrykGAzU')
+avatar_danny = URI.open('https://res.cloudinary.com/soundbetter/image/upload/c_fill,f_auto,g_face:auto,h_533,q_90,w_763/v1607512168/assets/photos/339318/Screenshot_2020-12-09_at_11.04.37.png')
 artist_danny = Artist.create!(user: user, name: 'Danny', age: 31, location: 'Glasgow', bio:'Scottish music lover 🏴󠁧󠁢󠁳󠁣󠁴󠁿, musician and producer living & working in London. Past lives in Amsterdam, Toronto and Brisbane. I also play in Probably Oslo with my friends Alex and Arran 👊', label: label_uni, genres: ['Rock', 'Indie'], roles: ['Drummer', 'Singer'], youtube_url: 'https://www.youtube.com/embed/EoebYwno2Dc', instagram_url: 'https://www.instagram.com/p/CK59blrMi_1/', influences: ['Arctic Monkeys','The Rapture','Nick Cave','The Beatles','Parcels'])
 artist_danny.photo.attach(io: avatar_danny, filename: 'danny.jpg', content_type: 'image/jpg')
 
