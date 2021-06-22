@@ -2,29 +2,9 @@
   <div class="d-block full-width">
     <%= render "shared/simpletop" %>
   </div>
-  <div class="container col-6 col-lg-4 my-5" data-controller="spotify">
+  <div class="container col-6 col-lg-4 my-5">
     <h1 class='text-center' data-spotify-target="title">Create your profile</h1>
-    <%= simple_form_for @artist do |f| %>
-      <%= f.input :name %>
-      <%= f.input :age %>
-      <%= f.input :location %>
-      <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
-      <%= f.input :bio %>
-      <%= f.input :influences, as: :hidden, input_html: {data: {"spotify-target": "hidden"}} %>
-      <div class="d-flex flex-column form-group">
-        <label class="string optional" for="artist_influences">Influences</label>
-        <input type="text" id="autoComplete" data-spotify-target="input" class="form-control">
-        <div class="d-flex mt-2" data-spotify-target="container">
-        </div>
-      </div>
-      <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
-      <%= f.input :youtube_url %>
-      <%= f.input :instagram_url %>
-      <%= f.input :photo, as: :file  %>
-      <div class="container text-center">
-        <%= f.submit "Create", class: 'btb btn-gradient py-2' %>
-      </div>
-    <% end %>
+    <%= render "artists/form", artist: @artist %>
   </div>
   <div class="d-block full-width">
     <%= render "shared/footer" %>
