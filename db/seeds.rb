@@ -37,21 +37,20 @@ user_4 = User.create!(email:'user_four@email.com', password:'password', username
 puts 'user-4 created'
 
 
+puts 'Creating labels'
 label_1 = Label.create!(user: user_2, name: 'Sony', location: 'Brussels', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', website_url: 'www.sony.com')
-puts 'label created'
 label_2 = Label.create!(user: user_3, name: 'Universal', location: 'Brussels', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', website_url: 'www.universal.com')
 puts 'label created'
 
 # artists seeds
 puts 'Creating artists'
-artists = []
 avatar_biig = URI.open('https://www.nme.com/wp-content/uploads/2020/11/biigpiig.jpg')
-artist_biig = Artist.create!(user: user, name: 'Biig Piig', age: 21, location: 'Dublin', label: label_1, genres: ['Rock', 'Punk'], roles: ['Singer'], youtube_url: 'https://www.youtube.com/embed/kfWJHOeWZ6c', instagram_url: 'https://www.instagram.com/p/CPpqCiQhloV/', influences: 'Florence Welch, Oasis, Madonna, Dua Lipa')
+artist_biig = Artist.create!(user: user_4, name: 'Biig Piig', age: 21, location: 'Dublin', label: label_1, genres: ['Rock', 'Punk'], roles: ['Singer'], youtube_url: 'https://www.youtube.com/embed/kfWJHOeWZ6c', instagram_url: 'https://www.instagram.com/p/CPpqCiQhloV/', influences: ['Oasis','Madonna','Dua Lipa'])
 artist_biig.photo.attach(io: avatar_biig, filename: 'biig_piig.jpg', content_type: 'image/jpg')
 
 
 avatar_danny = URI.open('https://lh3.googleusercontent.com/proxy/RWii2ivWHZZ2wKK3h4nAUl9XZxFy_LPcdnqkT8iiL82wjDDzhIaKWcLYo-uzCZBsJfQb8sZtnC6tMRiamo-ZsG5LRPWjrAU5lU4vjp26_jana1mCmHzrW2ENrykGAzU')
-artist_danny = Artist.create!(user: user_2, name: 'Danny', age: 31, location: 'Glasgow', label: label_2, genres: ['Folk', 'Country'], roles: ['Drummer', 'Singer'], youtube_url: 'https://www.youtube.com/embed/EoebYwno2Dc', instagram_url: 'https://www.instagram.com/p/CK59blrMi_1/')
+artist_danny = Artist.create!(user: user, name: 'Danny', age: 31, location: 'Glasgow', label: label_2, genres: ['Folk', 'Country'], roles: ['Drummer', 'Singer'], youtube_url: 'https://www.youtube.com/embed/EoebYwno2Dc', instagram_url: 'https://www.instagram.com/p/CK59blrMi_1/')
 artist_danny.photo.attach(io: avatar_danny, filename: 'danny.jpg', content_type: 'image/jpg')
 
 
