@@ -15,4 +15,8 @@ class Chatroom < ApplicationRecord
   def get_other_user_name
     get_other_user.name
   end
+
+  def get_other_user_photo
+    get_other_user.photo
+  end
 end

@@ -1,22 +1,22 @@
 <div class="container p-0 my-5 back-messages">
-      <div class="d-flex title-chat align-items-center pl-5 py-3">
-        <i class="fas fa-inbox fa-2x icono-inbox"></i>
-        <h3 class="p-4 m-0">Your messages</h3>
+  <div class="d-flex title-chat align-items-center pl-5 py-3">
+    <i class="fas fa-inbox fa-2x icono-inbox"></i>
+    <h3 class="p-4 m-0">Your messages</h3>
+  </div>
+  <div class="d-flex">
+    <div class="chat-messages d-flex flex-column">
+      <% @chatrooms.each do |chatroom|  %>
+      <div class="chat-message p-3">
+        <p><%= chatroom.get_other_user_name %></p>
+        <%= link_to "Open chat", chatroom_path(chatroom) %>
       </div>
-      <div class="d-flex">
-        <div class="chat-messages d-flex flex-column">
-          <% @chatrooms.each do |chatroom|  %>
-          <div class="chat-message p-3">
-            <%= chatroom.id %>
-            <%= link_to "Open chat", chatroom_path(chatroom) %>
-          </div>
-          <% end %>
-        </div>
-        <div class="empty-message-container flex-fill align-self-center">
-          <h6> Start connecting...</h6>
-          <h6>Open one of the chats!!</h6>
-          <i class="far fa-paper-plane fa-3x icon-empty"></i>
-        </div>
-      </div>
+      <% end %>
+    </div>
+    <div class="empty-message-container flex-fill align-self-center">
+      <h6> Start connecting...</h6>
+      <h6>Open one of the chats!!</h6>
+      <i class="far fa-paper-plane fa-3x icon-empty"></i>
+    </div>
+  </div>
 </div>
 <%= render "shared/footer" %>
