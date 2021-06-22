@@ -7,7 +7,14 @@
     <div class="chat-messages d-flex flex-column">
       <% @chatrooms.each do |chatroom|  %>
       <div class="chat-message p-3">
-        <p><%= chatroom.get_other_user_name %></p>
+        <div class="d-flex align-items-center">
+          <% if chatroom.get_other_user_photo.attached? %>
+            <%= cl_image_tag chatroom.get_other_user_photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+          <% else %>
+            <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+          <% end %>
+          <p class="pl-2 mb-0 font-weight-bold"><%= chatroom.get_other_user_name %></p>
+        </div>
         <%= link_to "Open chat", chatroom_path(chatroom) %>
       </div>
       <% end %>
