@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: %i[show edit update]
-
+  before_action :redirect_if_profile_exists, only: %i[new]
   def show
     @song = Song.new
     if current_user.artist && current_user.artist.songs
@@ -65,6 +65,10 @@ class ArtistsController < ApplicationController
     params[:artist][:influences] = params[:artist][:influences]&.split(',')
     params.require(:artist).permit(:name, :age, :location, :bio, :photo, :soundcloud_url, :website_url, :youtube_url,
                                    :instagram_url, genres: [], roles: [], influences: [])
+  end
+
+  def redirect_if_profile_exists
+    redirect_to artist_path(current_user.artist) unless current_user.artist.nil?
   end
 
   def set_artist

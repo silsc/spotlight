@@ -3,18 +3,32 @@
     <i class="fas fa-inbox fa-2x icono-inbox"></i>
     <h3 class="p-4 m-0">Your messages</h3>
   </div>
-  <div class="container d-flex">
+  <div class="d-flex">
     <div class="chat-messages d-flex flex-column">
       <% @chatrooms.each do |chatroom|  %>
       <div class="chat-message p-3">
-        <%= chatroom.id %>
+        <div class="d-flex align-items-center">
+        <% if chatroom.get_other_user_photo.attached? %>
+          <%= cl_image_tag chatroom.get_other_user_photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+        <% else %>
+          <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+        <% end %>
+        <p class="pl-2 mb-0 font-weight-bold"><%= chatroom.get_other_user_name %></p>
+        </div>
         <%= link_to "Open chat", chatroom_path(chatroom) %>
       </div>
       <% end %>
     </div>
     <div class="live-chat">
       <div class="info-message p-2">
-        <h5>Other user name</h5>
+        <div class="d-flex align-items-center">
+          <% if @chatroom.get_other_user_photo.attached? %>
+            <%= cl_image_tag @chatroom.get_other_user_photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+          <% else %>
+            <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+          <% end %>
+          <h5 class="pl-2 mb-0 pb-0"><%= @chatroom.get_other_user_name %></h5>
+        </div>
       </div>
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
         <% @chatroom.messages.each do |message| %>

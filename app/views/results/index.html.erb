@@ -3,55 +3,69 @@
     <div class="col-sm-8">
 
       <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
-        <%= f.input :query,
-          class: "form-control",
-          placeholder: "Search for artists and labels"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= f.input :query, required: false,
+      class: "form-control",
+        placeholder: "Search for artists and labels"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
 
       <% if @artists %>
-        <div class="artist-search">
-          <h2>Artists</h2>
-            <% @artists.each do |artist| %>
-              <div class="card-search">
-                <h5><%= artist.name %></h5>
-                <p><%= artist.location %></p>
-                <p>
-                  <% artist.roles.each do |role| %>
-                    <span class="badge badge-pill badge-info p-2"><%= role %></span>
-                  <% end %>
-                </p>
-                <p>
-                  <% artist.genres.each do |genre| %>
-                    <span class="badge badge-pill badge-light p-2">#<%= genre %></span>
-                  <% end %>
-                </p>
-              </div>
+      <div class="artist-search">
+        <h2>Artists</h2>
+        <% @artists.each do |artist| %>
+        <div class="card-search">
+            <% if artist.photo.attached? %>
+              <%= cl_image_tag artist.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+            <% else %>
+              <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
             <% end %>
+            <div class="card-search-info">
+            <h5><%= artist.name %></h5>
+            <p><%= artist.location %></p>
+            <p>
+              <% artist.roles.each do |role| %>
+              <span class="badge badge-pill badge-info p-2"><%= role %></span>
+              <% end %>
+            </p>
+            <p>
+              <% artist.genres.each do |genre| %>
+              <span class="badge badge-pill badge-light p-2">#<%= genre %></span>
+              <% end %>
+            </p>
+          </div>
         </div>
+        <% end %>
+      </div>
       <% end %>
 
       <% if @labels %>
-        <div class="label-search">
-          <h2>Labels</h2>
-            <% @labels.each do |label| %>
-              <div class="card-search">
-                <h5><%= label.name %></h5>
-                <p><%= label.location %></p>
-              </div>
-            <% end %>
+      <div class="label-search">
+        <h2>Labels</h2>
+        <% @labels.each do |label| %>
+        <div class="card-search">
+          <% if label.photo.attached? %>
+            <%= cl_image_tag label.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+          <% else %>
+            <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+          <% end %>
+          <div class="card-search-info">
+            <h5><%= label.name %></h5>
+            <p><%= label.location %></p>
+          </div>
         </div>
+        <% end %>
+      </div>
       <% end %>
     </div>
   </div>
   <div class="filter-search">
     <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
-      <%= f.input :query, as: :hidden, input_html: {value: @query} %>
-      <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true } %>
-      <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true } %>
-      <%= f.input :location, required: false, placeholder: 'Type the location'%>
-      <%= f.submit 'Submit', class: 'btb btn-gradient p-2 px-3' %>
+    <%= f.input :query, as: :hidden, input_html: {value: @query} %>
+    <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true } %>
+    <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true } %>
+    <%= f.input :location, required: false, placeholder: 'Type the location'%>
+    <%= f.submit 'Submit', class: 'btb btn-gradient p-2 px-3' %>
     <% end %>
   </div>
 </div>
