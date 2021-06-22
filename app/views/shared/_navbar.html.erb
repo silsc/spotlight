@@ -28,8 +28,8 @@
         <% end %>
       </li>
       <li class="nav-item dropdown mr-4">
-      <% if @artist.photo.attached? %>
-        <%= cl_image_tag @artist.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+      <% if current_user.profile_instance.photo.attached? %>
+        <%= cl_image_tag current_user.profile_instance.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
       <% else %>
         <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
       <% end %>
