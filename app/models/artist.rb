@@ -1,7 +1,7 @@
 class Artist < ApplicationRecord
   GENRES = %w[Jazz Rock Indie Pop Blues Punk Funk Reggae Soul Rap Metal Electronic Classical Folk]
   ROLES = %w[Singer Guitarist Drummer Bassist Keyboardist Composer Remixer Songwriter Producer DJ]
-  
+
   INFLUENCES = [
     {
       name: 'Florence + The Machine', image: 'https://dynamicmedia.livenationinternational.com/Media/k/t/n/9cc3e38c-66b0-4160-8859-0feb42352add.jpg'
