@@ -10,6 +10,7 @@ class Chatroom < ApplicationRecord
     else
       user.label
     end
+
   end
 
   def get_other_user_name
