@@ -17,6 +17,15 @@
   color: #d23333fb;
 }
 
-.icons {
+.footer-small-links a {
+  color: $primary00;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+  i {
+    color: $primary00;
+  }
+}
+.footer-small-links i:hover {
   color: white;
 }
