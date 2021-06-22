@@ -10,7 +10,13 @@
       <%= f.input :location %>
       <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
       <%= f.input :bio %>
-      <%= f.input :influences, input_html: {id: "autoComplete", data: {"spotify-target": "input"}} %>
+      <%= f.input :influences, as: :hidden, input_html: {data: {"spotify-target": "hidden"}} %>
+      <div class="d-flex flex-column form-group">
+        <label class="string optional" for="artist_influences">Influences</label>
+        <input type="text" id="autoComplete" data-spotify-target="input" class="form-control">
+        <div class="d-flex mt-2" data-spotify-target="container">
+        </div>
+      </div>
       <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
       <%= f.input :youtube_url %>
       <%= f.input :instagram_url %>

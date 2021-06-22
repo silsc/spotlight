@@ -2,10 +2,15 @@ import { Controller } from "stimulus";
 import autoComplete from "@tarekraafat/autocomplete.js";
 
 export default class extends Controller {
-  static targets = ['input']
+  static targets = ['input', 'container', 'hidden']
+
 
   connect() {
     const input = this.inputTarget
+    const container = this.containerTarget
+    const hidden = this.hiddenTarget
+
+    const influences = []
     const autoCompleteJS = new autoComplete({
       threshold: 3,
       data: {
@@ -21,14 +26,15 @@ export default class extends Controller {
     autoCompleteJS.input.addEventListener("selection", function (event) {
       const feedback = event.detail;
       autoCompleteJS.input.blur();
-      // Prepare User's Selected Value
-      const selection = feedback.selection.value[feedback.selection.key];
-      // Render selected choice to selection div
-      // document.querySelector(".selection").innerHTML = selection;
-      // Replace Input value with the selected value
-      autoCompleteJS.input.value = selection;
-      // Console log autoComplete data feedback
-      console.log(feedback);
+
+      const selection = feedback.selection.value
+      autoCompleteJS.input.value = ''
+
+      influences.push(selection)
+
+      hidden.value = influences
+      container.insertAdjacentHTML('beforeend', `<span class="badge badge-primary mr-2">${selection}</span>`)
     });
   }
 }
+

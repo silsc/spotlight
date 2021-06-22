@@ -44,6 +44,8 @@ class Artist < ApplicationRecord
   validate :valid_genre_list
   validate :valid_role_list
 
+  before_create :pull_spotify_image
+
   # include PgSearch::Model
   # pg_search_scope :artist_search
   # multisearchable against: [:name, :genres, :location, :roles],
@@ -55,12 +57,21 @@ class Artist < ApplicationRecord
     INFLUENCES.map { |influence| influence[:name] }
   end
 
-  def influence_image(name)
-    influence = INFLUENCES.find { |inf| inf[:name] == name }
-    influence[:image]
+  def influence_image(influence)
+    JSON.parse(influence)['image']
   end
 
+
   private
+
+  def pull_spotify_image
+    self.influences = influences.map do |influence|
+      artists = RSpotify::Artist.search(influence)
+      image = artists.first.images.first['url']
+
+      {'name' => influence, 'image' => image}.to_json
+    end
+  end
 
   def valid_genre_list
     diff = genres - GENRES
