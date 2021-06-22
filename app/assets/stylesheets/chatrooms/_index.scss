@@ -11,13 +11,23 @@
 
 .chat-messages {
   width: 40%;
+  min-height: 30vw;
+  border-right: solid 1px $light-gray;
 }
 
 .chat-message {
   border-bottom: solid 1px $light-gray;
-  border-right: solid 1px $light-gray;
 }
 
 .icono-inbox {
   color: $primary20;
+}
+
+.icon-empty {
+  color: $primary20;
+
+}
+
+.empty-message-container {
+  text-align: center;
 }
