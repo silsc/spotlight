@@ -40,11 +40,15 @@ class Artist < ApplicationRecord
   has_many :events, as: :organizable, dependent: :destroy
   has_many :songs, dependent: :destroy
   has_one_attached :photo
+  validates :user, uniqueness: true
+  validates :name, presence: true
 
   validate :valid_genre_list
   validate :valid_role_list
   # scope :filter_by_genre, ->(search_genre) { where("'#{search_genre}' = Any(genres)") }
-  scope :filter_by_genres, ->(search_genres) { where("genres @> ARRAY[?]::varchar[]", search_genres) } # it will match only if all slected genres are present
+  scope :filter_by_genres, lambda { |search_genres|
+                             where("genres @> ARRAY[?]::varchar[]", search_genres)
+                           } # it will match only if all slected genres are present
   # scope :filter_by_role, ->(search_role) { where("'#{search_role}' = Any(roles)") }
   scope :filter_by_roles, ->(search_roles) { where("roles @> ARRAY[?]::varchar[]", search_roles) }
   # scope :filter_by_location, ->(search_location) { where location: search_location }
