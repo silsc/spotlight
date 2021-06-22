@@ -1,17 +1,38 @@
-<h1>#<%= @chatroom %></h1>
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.email.split("@")[0].capitalize %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
+<div class="container p-0 my-5 back-messages">
+  <div class="d-flex title-chat align-items-center pl-5 py-3">
+    <i class="fas fa-inbox fa-2x icono-inbox"></i>
+    <h3 class="p-4 m-0">Your messages</h3>
+  </div>
+  <div class="container d-flex">
+    <div class="chat-messages d-flex flex-column">
+      <% @chatrooms.each do |chatroom|  %>
+      <div class="chat-message p-3">
+        <%= chatroom.id %>
+        <%= link_to "Open chat", chatroom_path(chatroom) %>
+      </div>
+      <% end %>
     </div>
-  <% end %>
+    <div class="live-chat">
+      <div class="info-message p-2">
+        <h5>Other user name</h5>
+      </div>
+      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <% @chatroom.messages.each do |message| %>
+        <div class="message-container" id="message-<%= message.id %>">
+          <i class="author">
+            <span><%= message.user.email.split("@")[0].capitalize %></span>
+            <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+          </i>
+          <p><%= message.content %></p>
+        </div>
+        <% end %>
+      </div>
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: "Write your message" %>
+      <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message from #{@user}" %>
-  <%= f.submit %>
-<% end %>
+<%= render "shared/footer" %>
