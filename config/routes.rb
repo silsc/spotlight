@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
 
   resources :artists do
+    get '/follow', to: 'artists#follow'
+    get '/unfollow', to: 'artists#unfollow'
     resources :songs, only: [:new, :create]
     resources :events, only: [:new, :create]
   end
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  # resources :connections, only: [:index]
+  resources :connections, only: [:index]
 
   
   get '/styleguide', to: 'pages#styleguide'

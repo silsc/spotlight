@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: %i[show edit update]
+  before_action :following_users, only: [ :follow, :unfollow ] 
   before_action :redirect_if_profile_exists, only: %i[new]
   def show
     @song = Song.new
@@ -59,6 +60,16 @@ class ArtistsController < ApplicationController
     end
   end
 
+  def follow
+    current_user.follow(@follow_user)
+    redirect_to artist_path(@id_artist)
+  end
+
+  def unfollow
+    current_user.unfollow(@follow_user)
+    redirect_to artist_path(@id_artist)
+  end
+
   private
 
   def artist_params
@@ -74,5 +85,11 @@ class ArtistsController < ApplicationController
   def set_artist
     @artist = Artist.find(params[:id])
     # authorize @artist
+  end
+
+  def following_users
+    @id_artist = params[:artist_id]
+    @user = Artist.find(@id_artist ).user_id
+    @follow_user = User.find(@user)
   end
 end
