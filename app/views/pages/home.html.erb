@@ -3,9 +3,10 @@
     <!-- Navbar -->
     <div class="navbar navbar-expand-sm navbar-light navbar-landing mb-5 pt-3">
       <div class="d-flex">
-        <a class="navbar-brand" href="#">
-          <%= image_tag "logo.png", class:"rounded-circle", style: 'height:50px;width:auto;'%>
-        </a>
+      <%= link_to root_path, class: "navbar-brand ml-2"  do  %>
+        <%= image_tag "logo.png", class:"rounded-circle", style: 'height:50px;width:auto;'%>
+      <% end %>
+        
         <h1 class="align-self-center pt-2">SpotLight</h1>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
