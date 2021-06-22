@@ -20,12 +20,12 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_type
-    session[:user_type] = 'Artist' if controller_name == 'artists' && action_name == 'new'
-    session[:user_type] = 'Label' if controller_name == 'labels' && action_name == 'new'
+    session[:user_type] = 'artist' if controller_name == 'artists' && action_name == 'new'
+    session[:user_type] = 'label' if controller_name == 'labels' && action_name == 'new'
   end
 
   def after_sign_in_path_for(resource)
-    if current_user.user_type == 'Artist'
+    if current_user.user_type == 'artist'
       stored_location_for(resource) || artist_path(resource.artist)
     else
       stored_location_for(resource) || label_path(resource.label)
