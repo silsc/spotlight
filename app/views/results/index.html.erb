@@ -2,9 +2,8 @@
   <div class="row justify-content-center">
     <div class="col-sm-8">
 
-      <%= form_tag results_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
+      <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
+        <%= f.input :query,
           class: "form-control",
           placeholder: "Search for artists and labels"
         %>
@@ -31,8 +30,6 @@
               </div>
             <% end %>
         </div>
-      <% else %>
-        <%= "Sorry, there are no artists matching your search." %>
       <% end %>
 
       <% if @labels %>
@@ -45,13 +42,12 @@
               </div>
             <% end %>
         </div>
-      <% else %>
-        <%= "Sorry, there are no labels matching your search." %>
       <% end %>
     </div>
   </div>
   <div class="filter-search">
     <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
+      <%= f.input :query, as: :hidden, input_html: {value: @query} %>
       <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true } %>
       <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true } %>
       <%= f.input :location, required: false, placeholder: 'Type the location'%>

@@ -51,7 +51,7 @@ class Artist < ApplicationRecord
                            } # it will match only if all slected genres are present
   # scope :filter_by_role, ->(search_role) { where("'#{search_role}' = Any(roles)") }
   scope :filter_by_roles, ->(search_roles) { where("roles @> ARRAY[?]::varchar[]", search_roles) }
-  # scope :filter_by_location, ->(search_location) { where location: search_location }
+  scope :filter_by_location, ->(search_location) { where location: search_location }
 
   def influences_list
     INFLUENCES.map { |influence| influence[:name] }
