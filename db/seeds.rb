@@ -42,7 +42,7 @@ puts 'label created'
 label_2 = Label.create!(user: user_3, name: 'Universal', location: 'Brussels', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', website_url: 'www.universal.com')
 puts 'label created'
 
-artist_1 = Artist.create!(user: user, name: 'Biig Piig', age: 21, location: 'Dublin', label: label_1, genres: "Rock")
+artist_1 = Artist.create!(user: user, name: 'Biig Piig', age: 21, location: 'Dublin', label: label_1, genres: ["Rock"])
 puts 'artist created'
 artist_2 = Artist.create!(user: user_4, name: 'Silvia', age: 26, location: 'Barcelona', label: label_2, genres: "Rock")
 puts 'artist created'
