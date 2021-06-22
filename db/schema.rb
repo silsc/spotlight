@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_091330) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user1_id"], name: "index_connections_on_user1_id"
+    t.index ["user2_id", "user1_id"], name: "index_connections_on_user2_id_and_user1_id", unique: true
     t.index ["user2_id"], name: "index_connections_on_user2_id"
   end
 

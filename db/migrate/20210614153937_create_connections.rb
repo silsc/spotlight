@@ -8,5 +8,6 @@ class CreateConnections < ActiveRecord::Migration[6.0]
 
     add_index :connections, :user1_id
     add_index :connections, :user2_id
+    add_index :connections, [:user2_id, :user1_id], unique: true
   end
 end
