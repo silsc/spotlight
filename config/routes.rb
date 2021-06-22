@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   
   get '/styleguide', to: 'pages#styleguide'
   get '/redirect', to: 'pages#redirect'
+  get '/spotify', to: 'pages#spotify'
 
 end
