@@ -1,0 +1,33 @@
+.back-messages {
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 27px;
+  min-height: 32vw;
+}
+
+.title-chat {
+  border-bottom: solid 1px $light-gray;
+}
+
+.chat-messages {
+  width: 40%;
+  min-height: 30vw;
+  border-right: solid 1px $light-gray;
+}
+
+.chat-message {
+  border-bottom: solid 1px $light-gray;
+}
+
+.icono-inbox {
+  color: $primary20;
+}
+
+.icon-empty {
+  color: $primary20;
+
+}
+
+.empty-message-container {
+  text-align: center;
+}

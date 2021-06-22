@@ -11,10 +11,10 @@ class User < ApplicationRecord
 
   has_many :connections_as_user1, class_name: "Connection", foreign_key: :user1_id
   has_many :connections_as_user2, class_name: "Connection", foreign_key: :user2_id
-  has_many :messages
-  has_many :chatrooms
-  has_many :conversations
-  has_many :posts
+  has_many :messages, dependent: :destroy
+  has_many :chatrooms, dependent: :destroy
+  has_many :conversations, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   def connections
     connections_as_user1 + connections_as_user2
