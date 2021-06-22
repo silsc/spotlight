@@ -11,6 +11,7 @@
 
 .chat-messages {
   width: 40%;
+  min-height: 30vw;
 }
 
 .chat-message {
@@ -20,4 +21,13 @@
 
 .icono-inbox {
   color: $primary20;
+}
+
+.icon-empty {
+  color: $primary20;
+
+}
+
+.empty-message-container {
+  text-align: center;
 }
