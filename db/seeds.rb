@@ -27,11 +27,11 @@ puts "Creating artist influences"
 
 puts "Creating users, artist and label"
 
-user = User.create!(email:'user_one@email.com', password:'password', username: 'user1', user_type: :label)
+user = User.create!(email:'user_one@email.com', password:'password', username: 'user1', user_type: :artist)
 puts 'user created'
 user_2 = User.create!(email:'user_otwo@email.com', password:'password', username: 'user2', user_type: :label)
 puts 'user-2 created'
-user_3 = User.create!(email:'user_three@email.com', password:'password', username: 'user3', user_type: :artist)
+user_3 = User.create!(email:'user_three@email.com', password:'password', username: 'user3', user_type: :label)
 puts 'user-3 created'
 user_4 = User.create!(email:'user_four@email.com', password:'password', username: 'user4', user_type: :artist)
 puts 'user-4 created'
@@ -42,9 +42,9 @@ puts 'label created'
 label_2 = Label.create!(user: user_3, name: 'Universal', location: 'Brussels', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', website_url: 'www.universal.com')
 puts 'label created'
 
-artist_1 = Artist.create!(user: user, name: 'Biig Piig', age: 21, location: 'Dublin', label: label_1, genres: ["Rock"])
+artist_1 = Artist.create!(user: user, name: 'Biig Piig', age: 21, location: 'Dublin', label: label_1, genres: ['Rock', 'Punk'], roles: ['Singer'], youtube_url: 'kfWJHOeWZ6c', instagram_url: 'https://www.instagram.com/p/CPpqCiQhloV/')
 puts 'artist created'
-artist_2 = Artist.create!(user: user_4, name: 'Silvia', age: 26, location: 'Barcelona', label: label_2, genres: "Rock")
+artist_2 = Artist.create!(user: user_4, name: 'Silvia', age: 26, location: 'Barcelona', label: label_2, genres: ['Folk', 'Country'], roles: ['Drummer', 'Singer'])
 puts 'artist created'
 
 puts "Creating chatrooms and conversations"
