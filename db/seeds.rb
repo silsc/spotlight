@@ -27,11 +27,11 @@ puts "Creating artist influences"
 
 puts "Creating users, artist and label"
 
-user = User.create!(email:'user_one@email.com', password:'password', username: 'user1', user_type: :label)
+user = User.create!(email:'user_one@email.com', password:'password', username: 'user1', user_type: :artist)
 puts 'user created'
 user_2 = User.create!(email:'user_otwo@email.com', password:'password', username: 'user2', user_type: :label)
 puts 'user-2 created'
-user_3 = User.create!(email:'user_three@email.com', password:'password', username: 'user3', user_type: :artist)
+user_3 = User.create!(email:'user_three@email.com', password:'password', username: 'user3', user_type: :label)
 puts 'user-3 created'
 user_4 = User.create!(email:'user_four@email.com', password:'password', username: 'user4', user_type: :artist)
 puts 'user-4 created'
