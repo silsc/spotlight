@@ -4,8 +4,7 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    raise
-    if params[:user_type] == :artist
+    if params[:user_type] == "artist"
       @profile = Artist.find(params[:profile_id])
     else
       @profile = Label.find(params[:profile_id])
