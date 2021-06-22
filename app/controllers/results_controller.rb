@@ -11,8 +11,7 @@ class ResultsController < ApplicationController
       @labels = Label.where('name ilike ?', "%#{@query}%") if @query
       @artists = @artists.filter_by_genres(@search_genres) if @search_genres
       @artists = @artists.filter_by_roles(@search_roles) if @search_roles
-      @artists = @artists.filter_by_location(@search_location) if @search_location
+      @artists = @artists.filter_by_location(@search_location) if @search_location.present?
     end
   end
-
 end
