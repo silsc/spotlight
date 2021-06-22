@@ -135,6 +135,7 @@
                     <h5><%= song.title %></h5>
                     <p class="indented-paragraph"><%= song.artist_name %></p>
                     <p class="indented-paragraph text-right">released on <%= song.released %></p>
+                    <%= link_to "Delete", song_path(@artist), method: :delete %>
                   </div>
                   <% if song.track.attached? %>
                     <div class="pl-2">
