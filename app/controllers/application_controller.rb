@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if current_user.user_type == 'artist'
+    if resource.user_type == 'artist'
       stored_location_for(resource) || artist_path(resource.artist)
     else
       stored_location_for(resource) || label_path(resource.label)
