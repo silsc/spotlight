@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+  # resources :connections, only: [:index]
+
   
   get '/styleguide', to: 'pages#styleguide'
   get '/redirect', to: 'pages#redirect'

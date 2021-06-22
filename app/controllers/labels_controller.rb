@@ -1,6 +1,7 @@
 class LabelsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
   before_action :set_label, only: %i[show edit update]
+  before_action :redirect_if_profile_exists, only: %i[new]
 
   def new
     @label = Label.new
@@ -58,6 +59,10 @@ class LabelsController < ApplicationController
 
   def label_params
     params.require(:label).permit(:name, :location, :bio, :photo, :website_url)
+  end
+
+  def redirect_if_profile_exists
+    redirect_to label_path(current_user.label) unless current_user.label.nil?
   end
 
   def set_label
