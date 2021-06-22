@@ -34,27 +34,29 @@
   justify-content: center;
 }
 
-// .card-search img {
-//   height: 100%;
-//   width: 120px;
-//   object-fit: cover;
-// }
 
-// .card-search h2 {
-//   font-size: 16px;
-//   font-weight: bold;
-//   margin: 0;
-// }
+.card-search img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
 
-// .card-search p {
-//   font-size: 12px;
-//   line-height: 1.4;
-//   opacity: .7;
-//   margin-bottom: 0;
-//   margin-top: 8px;
-// }
+.card-movies h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
 
-// .card-search .card-movie-infos {
-//   padding: 16px;
-// }
+.card-movies p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-movies .card-movie-infos {
+  padding: 16px;
+}
+
 
