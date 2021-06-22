@@ -23,4 +23,8 @@ class User < ApplicationRecord
   def chatroom_with(user)
     chatrooms.find { |chatroom| chatroom.conversations.any? { |conversation| conversation.user == user } }
   end
+
+  def profile_instance
+    label? ? label : artist
+  end
 end
