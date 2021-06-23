@@ -10,7 +10,8 @@ export default class extends Controller {
     const container = this.containerTarget
     const hidden = this.hiddenTarget
 
-    const influences = []
+    const influences = JSON.parse(hidden.dataset.influences);
+    console.log(influences)
     const autoCompleteJS = new autoComplete({
       threshold: 3,
       data: {

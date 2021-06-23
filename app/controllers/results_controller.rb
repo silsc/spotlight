@@ -2,6 +2,7 @@ class ResultsController < ApplicationController
 
   def index
     @artists = Artist.all
+    @labels = Label.all
     if params[:filter].present?
       @query = params[:filter][:query]
       @search_genres = params[:filter][:genres]
