@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :results, only: [:index]
+  
   resources :labels, only: [:show, :new, :create, :edit, :update] do
+    get '/follow', to: 'labels#follow'
+    get '/unfollow', to: 'labels#unfollow'
     resources :events, only: [:new, :create]
   end
 

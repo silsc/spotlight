@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   def connections
-    connections_as_user1 + connections_as_euser2
+    connections_as_user1 + connections_as_user2
   end
 
   def chatroom_with(user)

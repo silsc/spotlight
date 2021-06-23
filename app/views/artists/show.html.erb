@@ -26,9 +26,7 @@
       </p>
     </div>
     <div class="d-flex justify-content-around">
-    
-      <% if current_user.id != @artist.user_id %>
-          
+      <% unless current_user.id == @artist.user_id %>
         <% if current_user.following?(@artist.user_id) %>
           <%= link_to "Connected", artist_unfollow_path(@artist), class: "btn btn-gradient px-5" %>
         <% else %>

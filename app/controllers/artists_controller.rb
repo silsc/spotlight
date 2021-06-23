@@ -1,7 +1,8 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: %i[show edit update]
-  before_action :following_users, only: [ :follow, :unfollow ] 
+  before_action :following_users, only: %i[follow unfollow]
   before_action :redirect_if_profile_exists, only: %i[new]
+
   def show
     @song = Song.new
     if current_user.artist && current_user.artist.songs
@@ -89,7 +90,7 @@ class ArtistsController < ApplicationController
 
   def following_users
     @id_artist = params[:artist_id]
-    @user = Artist.find(@id_artist ).user_id
+    @user = Artist.find(@id_artist).user_id
     @follow_user = User.find(@user)
   end
 end
