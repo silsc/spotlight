@@ -47,7 +47,7 @@ class Artist < ApplicationRecord
   validate :valid_role_list
 
   before_create :pull_spotify_image
-  before_update :pull_spotify_image
+  before_update :pull_spotify_image, :if => Proc.new { |model| model.influences_changed? }
   after_create :set_user_type
 
   # scope :filter_by_genre, ->(search_genre) { where("'#{search_genre}' = Any(genres)") }
