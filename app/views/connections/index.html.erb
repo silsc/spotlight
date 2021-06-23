@@ -6,17 +6,19 @@
       <% @profiles = Artist.all.first(3) + Label.all.first(2)  %>
       <% @profiles.each do |profile| %>
         <%# based on location?  %>
-        <% if current_user.following?(profile.user) %>
-          <div class="col m-3">
-            <%= profile.name %>
-            <%= link_to "Unconnect", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
-          </div>
-        <% else %>
-          <div class="col m-3">
-            <%= profile.name %>
-            <%= link_to "Connect", connections_path({user_id: profile.user.id}), method: :post, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
-          </div>
-        <% end %>
+        <div class="card-connect mt-3">
+          <% if current_user.following?(profile.user) %>
+            <div class="connect-card-items m-3">
+              <%= profile.name %>
+              <%= link_to "Unconnect", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
+            </div>
+          <% else %>
+            <div class="connect-card-items m-3">
+              <%= profile.name %>
+              <%= link_to "Connect", connections_path({user_id: profile.user.id}), method: :post, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     <% end %>
   </div>
