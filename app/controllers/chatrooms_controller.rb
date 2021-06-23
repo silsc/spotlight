@@ -1,6 +1,7 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = current_user.chatrooms
+    @chatrooms = current_user.my_chatrooms
+    # raise
   end
 
   def create

@@ -10,12 +10,12 @@
       <div class="chat-message p-4">
         <%= link_to chatroom_path(chatroom) do%>
           <div class="d-flex align-items-center">
-            <% if chatroom.get_other_user_photo.attached? %>
-              <%= cl_image_tag chatroom.get_other_user_photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+            <% if chatroom.get_others_users(current_user).first.profile_instance.photo.attached? %>
+              <%= cl_image_tag chatroom.get_others_users(current_user).first.profile_instance.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
             <% else %>
               <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
             <% end %>
-            <p class="pl-2 mb-0 font-weight-bold"><%= chatroom.get_other_user_name %></p>
+            <p class="pl-2 mb-0 font-weight-bold"><%= chatroom.get_others_users(current_user).first.profile_instance.name %></p>
             </div>
         <% end %>
       </div>
@@ -24,12 +24,12 @@
     <div class="live-chat flex-fill">
       <div class="info-message p-4" style="border-bottom: solid 1px #CDCDCD;">
         <div class="d-flex align-items-center">
-          <% if @chatroom.get_other_user_photo.attached? %>
-            <%= cl_image_tag @chatroom.get_other_user_photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+          <% if @chatroom.get_others_users(current_user).first.profile_instance.photo.attached? %>
+            <%= cl_image_tag @chatroom.get_others_users(current_user).first.profile_instance.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
           <% else %>
             <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
           <% end %>
-          <h5 class="pl-2 mb-0 pb-0"><%= @chatroom.get_other_user_name %></h5>
+          <h5 class="pl-2 mb-0 pb-0"><%= @chatroom.get_others_users(current_user).first.profile_instance.name %></h5>
         </div>
       </div>
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
