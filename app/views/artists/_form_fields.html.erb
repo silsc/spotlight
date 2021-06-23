@@ -4,11 +4,14 @@
   <%= f.input :location %>
   <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
   <%= f.input :bio %>
-  <%= f.input :influences, as: :hidden, input_html: {data: {"spotify-target": "hidden"}} %>
+  <%= f.input :influences, as: :hidden, input_html: {data: {"spotify-target": "hidden", influences: @artist.influences_name_list }, value: @artist.influences_name_list.join(',') } %>
   <div class="d-flex flex-column form-group">
     <label class="string optional" for="artist_influences">Influences</label>
-    <input type="text" id="autoComplete" data-spotify-target="input" class="form-control">
+    <input type="text" id="autoComplete" data-spotify-target="input" class="form-control w-100">
     <div class="d-flex mt-2" data-spotify-target="container">
+      <% @artist.influences_name_list.each do |influence| %>
+        <span class="badge badge-primary mr-2"><%= influence %></span>
+      <% end %>
     </div>
   </div>
   <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>

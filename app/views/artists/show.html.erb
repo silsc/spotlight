@@ -93,7 +93,7 @@
                     <h5><%= song.title %></h5>
                     <p class="indented-paragraph"><%= song.artist_name %></p>
                     <p class="indented-paragraph text-right">released on <%= song.released %></p>
-                    <%= link_to "Delete", song_path(@artist), method: :delete %>
+                    <%= link_to "Delete", '#' %>
                   </div>
                   <% if song.track.attached? %>
                     <div class="pl-2">
@@ -191,8 +191,8 @@
         </div>
         <div class="modal-footer">
           <%= f.submit "Upload", class: 'btn btn-blue p-2' %>
-        <% end %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
