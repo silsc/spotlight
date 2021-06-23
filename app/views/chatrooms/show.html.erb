@@ -22,7 +22,7 @@
       <% end %>
     </div>
     <div class="live-chat flex-fill">
-      <div class="info-message p-4" style="border-bottom: solid 1px gray;">
+      <div class="info-message p-4" style="border-bottom: solid 1px #CDCDCD;">
         <div class="d-flex align-items-center">
           <% if @chatroom.get_other_user_photo.attached? %>
             <%= cl_image_tag @chatroom.get_other_user_photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
