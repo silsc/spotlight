@@ -81,19 +81,17 @@
         </div>
       </div>
       <%# SONGS TAB %>
-      <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab">
+      <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab" data-controller='flipcard'>
         <div class="position-relative">
           <h3>My latests releases</h3>
           <button class="upload-song" data-toggle="modal" data-target="#songsModal">+</button>
           <% @songs.each do |song| %>
             <div class="flip-card-wrapper mb-3">
-              <div id="flip-card">
-                <div class="flip-card-front">
+              <div id="flip-card" class='flipable-card' data-action='click->flipcard#flip'>
+                <div class="card__face card__face--front">
                   <div class="flip-card-info">
                     <h5><%= song.title %></h5>
-                    <p class="indented-paragraph"><%= song.artist_name %></p>
-                    <p class="indented-paragraph text-right">released on <%= song.released %></p>
-                    <%= link_to "Delete", '#' %>
+                    <p>released on <%= song.released %></p>
                   </div>
                   <% if song.track.attached? %>
                     <div class="pl-2">
@@ -103,6 +101,9 @@
                       </audio>
                     </div>
                   <% end %>
+                </div>
+                <div class='card__face card__face--back'>
+                  <p class="song-description"><%= song.song_description %></p>
                 </div>
               </div>
             </div>
