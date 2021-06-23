@@ -31,9 +31,7 @@
 }
 
 
-.card-search img {
-  height: 100%;
-  width: 120px;
+.avatar-search {
   object-fit: cover;
 }
 
@@ -64,6 +62,35 @@
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+/* Search bar */
+.search-form-control {
+  position: relative;
+  width: 30em;
+  margin-top: 16px;
+  .btn-search {
+  position: absolute;
+  top: 0.5em;
+  bottom: 0.5em;
+  right: 0.5em;
+  padding-top: 0.5em;
+  border-radius: 32px;
+  border: none;
+}
+}
+
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+  border-radius: 32px;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid $gradient-dark;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 
