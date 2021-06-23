@@ -15,7 +15,7 @@ class LabelsController < ApplicationController
     # authorize @label
 
     if @label.save!
-      redirect_to label_path(@label)
+      redirect_to connections_path
     else
       render :new
     end
