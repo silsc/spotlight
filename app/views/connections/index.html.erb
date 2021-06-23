@@ -3,7 +3,7 @@
   <%# <%= Artist.all.name%>
   <div class="row d-block m-3">
     <% unless current_user == @user %>
-      <% @profiles = Artist.all.first(3) + Label.all.first(2)  %>
+      <% @profiles = Artist.all.sample(3) + Label.all.sample(3)  %>
       <% @profiles.each do |profile| %>
         <%# based on location?  %>
         <div class="card-connect mt-3">
