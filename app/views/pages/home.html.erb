@@ -3,10 +3,9 @@
     <!-- Navbar -->
     <div class="navbar navbar-expand-sm navbar-light navbar-landing mb-5 pt-3">
       <div class="d-flex">
-      <%= link_to root_path, class: "navbar-brand ml-2"  do  %>
-        <%= image_tag "logo.png", class:"rounded-circle", style: 'height:50px;width:auto;'%>
-      <% end %>
-        
+        <%= link_to root_path, class: "navbar-brand ml-2"  do  %>
+          <%= image_tag "logo.png", class:"rounded-circle", style: 'height:50px;width:auto;'%>
+        <% end %>
         <h1 class="align-self-center pt-2">SpotLight</h1>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,12 +13,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active mr-4">
-            <%= link_to "Log in", new_user_session_path, class: "btn btn-blue" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Sign up", redirect_path, class: "btn btn-blue" %>
-          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item active mr-4">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: " btn btn-blue"   %>
+            </li>
+          <% else %>
+            <li class="nav-item active mr-4">
+              <%= link_to "Log in", new_user_session_path, class: "btn btn-blue" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Sign up", redirect_path, class: "btn btn-blue" %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

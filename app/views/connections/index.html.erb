@@ -1,0 +1,30 @@
+<div class="container text-center pt-3">
+  <h2 class="pt-3 text-center"> Connect with </h2>
+  <%# <%= Artist.all.name%>
+  <div class="row d-block m-3">
+    <% unless current_user == @user %>
+      <% @profiles = Artist.all.first(3) + Label.all.first(2)  %>
+      <% @profiles.each do |profile| %>
+        <%# based on location?  %>
+        <% if current_user.following?(profile.user) %>
+          <div class="col m-3">
+            <%= profile.name %>
+            <%= link_to "Unconnect", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
+          </div>
+        <% else %>
+          <div class="col m-3">
+            <%= profile.name %>
+            <%= link_to "Connect", connections_path({user_id: profile.user.id}), method: :post, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="container">
+    <% if current_user.label?  %>
+      <%= link_to "Skip", label_path(current_user.profile_instance), class: "btn btn-blue py-2" %> <%# skip to profile page%>
+    <% else %>
+      <%= link_to "Skip", artist_path(current_user.profile_instance), class: "btn btn-blue py-2" %>
+    <% end %>
+  </div>
+</div>
