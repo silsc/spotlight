@@ -44,7 +44,7 @@ class ArtistsController < ApplicationController
     @artist.user = current_user
     # authorize @artist
     if @artist.save!
-      redirect_to artist_path(@artist)
+      redirect_to connections_path
     else
       render :new
     end
