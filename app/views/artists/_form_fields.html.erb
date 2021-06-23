@@ -2,7 +2,7 @@
   <%= f.input :name %>
   <%= f.input :age %>
   <%= f.input :location %>
-  <%= f.input :roles, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true } %>
+  <%= f.input :roles, as: :select, collection: Artist::ROLES, include_hidden: false, input_html: { multiple: true }  %>
   <%= f.input :bio %>
   <%= f.input :influences, as: :hidden, input_html: {data: {"spotify-target": "hidden", influences: @artist.influences_name_list }, value: @artist.influences_name_list.join(',') } %>
   <div class="d-flex flex-column form-group">
@@ -18,4 +18,4 @@
   <%= f.input :youtube_url %>
   <%= f.input :instagram_url %>
   <%= f.input :photo, as: :file  %>
- </div>
+</div>
