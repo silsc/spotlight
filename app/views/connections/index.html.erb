@@ -10,7 +10,7 @@
           <% if current_user.following?(profile.user) %>
             <div class="connect-card-items m-3">
               <%= profile.name %>
-              <%= link_to "Unconnect", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
+              <%= link_to "Remove", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
             </div>
           <% else %>
             <div class="connect-card-items m-3">
