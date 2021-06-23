@@ -75,29 +75,31 @@
       <div class="artist-search">
         <h2>Artists</h2>
         <% @artists.each do |artist| %>
-        <div class="card-search d-flex justify-content-between p-2">
-          <div class="card-search-avatar pt-4 pr-5 pl-3">
-          <% if artist.photo.attached? %>
-          <%= cl_image_tag artist.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-search"%>
-          <% else %>
-          <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-search"%>
+          <%= link_to artist_path(artist) do%>
+          <div class="card-search d-flex justify-content-between p-2">
+            <div class="card-search-avatar pt-4 pr-5 pl-3">
+            <% if artist.photo.attached? %>
+            <%= cl_image_tag artist.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-search"%>
+            <% else %>
+            <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-search"%>
+            <% end %>
+            </div>
+            <div class="card-search-info">
+              <h5><%= artist.name %></h5>
+              <p><%= artist.location %></p>
+              <p>
+                <% artist.roles.each do |role| %>
+                <span class="badge badge-pill badge-info p-2"><%= role %></span>
+                <% end %>
+              </p>
+              <p>
+                <% artist.genres.each do |genre| %>
+                <span class="badge badge-pill badge-light p-2">#<%= genre %></span>
+                <% end %>
+              </p>
+            </div>
+          </div>
           <% end %>
-          </div>
-          <div class="card-search-info">
-            <h5><%= artist.name %></h5>
-            <p><%= artist.location %></p>
-            <p>
-              <% artist.roles.each do |role| %>
-              <span class="badge badge-pill badge-info p-2"><%= role %></span>
-              <% end %>
-            </p>
-            <p>
-              <% artist.genres.each do |genre| %>
-              <span class="badge badge-pill badge-light p-2">#<%= genre %></span>
-              <% end %>
-            </p>
-          </div>
-        </div>
         <% end %>
       </div>
       <% end %>
@@ -106,6 +108,7 @@
       <div class="label-search">
         <h2>Labels</h2>
         <% @labels.each do |label| %>
+        <%= link_to label_path(label) do%>
         <div class="card-search d-flex justify-content-between p-2">
           <div class="card-search-avatar pt-4 pr-5 pl-3">
             <% if label.photo.attached? %>
@@ -119,6 +122,7 @@
             <p><%= label.location %></p>
           </div>
         </div>
+        <% end %>
         <% end %>
       </div>
       <% end %>
