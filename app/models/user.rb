@@ -20,6 +20,10 @@ class User < ApplicationRecord
   has_many :conversations, dependent: :destroy
   has_many :posts, dependent: :destroy
 
+  def my_chatrooms
+    chatrooms + conversations.map { |conversation| conversation.chatroom }
+  end
+
   def follow(user)
     connections_as_user1.create!(user1: user)
   end

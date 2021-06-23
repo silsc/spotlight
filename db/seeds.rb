@@ -74,10 +74,6 @@ artist_biig = Artist.create!(user: user_4, name: 'Biig Piig', age: 21, location:
 artist_biig.photo.attach(io: avatar_biig, filename: 'biig_piig.jpg', content_type: 'image/jpg')
 
 
-avatar_danny = URI.open('https://res.cloudinary.com/soundbetter/image/upload/c_fill,f_auto,g_face:auto,h_533,q_90,w_763/v1607512168/assets/photos/339318/Screenshot_2020-12-09_at_11.04.37.png')
-artist_danny = Artist.create!(user: user, name: 'Danny', age: 31, location: 'Glasgow', bio:'Scottish music lover 🏴󠁧󠁢󠁳󠁣󠁴󠁿, musician and producer living & working in London. Past lives in Amsterdam, Toronto and Brisbane. I also play in Probably Oslo with my friends Alex and Arran 👊', label: label_uni, genres: ['Rock', 'Indie'], roles: ['Drummer', 'Singer'], youtube_url: 'https://www.youtube.com/embed/EoebYwno2Dc', instagram_url: 'https://www.instagram.com/p/CK59blrMi_1/', influences: ['Arctic Monkeys','The Rapture','Nick Cave','The Beatles','Parcels'])
-artist_danny.photo.attach(io: avatar_danny, filename: 'danny.jpg', content_type: 'image/jpg')
-
 avatar_connie = URI.open('https://cdn2.thelineofbestfit.com/images/made/images/remote/https_cdn2.thelineofbestfit.com/media/2014/Connie_Constance_press_shot1_1290_1060.jpg')
 artist_connie = Artist.create!(user: user_5, name: 'Connie Constance', age: 26, location: 'Watford', label: label_uni, genres: ['Soul'], roles: ['Singer'], youtube_url: 'https://www.youtube.com/embed/vTSYDB4CuwY', instagram_url: 'https://www.instagram.com/p/CP3X-1gs5N9/', influences: ['Amy Winehouse','Florence + The Machine','Aretha Franklin','Joy Crookes'])
 artist_connie.photo.attach(io: avatar_connie, filename: 'connie.jpg', content_type: 'image/jpg')
@@ -89,6 +85,10 @@ artist_conan.photo.attach(io: avatar_conan, filename: 'conan.jpg', content_type:
 avatar_yonaka = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ3RoSpdmL89XUxgvKl4qZHwrJYNBUhIZ9Zw&usqp=CAU')
 artist_yonaka = Artist.create!(user: user_7, name: 'Yonaka', location: 'Amsterdam', label: label_uni, genres: ['Rock', 'Indie'], roles: ['Singer', 'Bassist', 'Guitarist'], youtube_url: 'https://www.youtube.com/embed/csVhNAEmacE', instagram_url: 'https://www.instagram.com/p/CQbkGhcH4X1/')
 artist_yonaka.photo.attach(io: avatar_yonaka, filename: 'yonaka.jpg', content_type: 'image/jpg')
+
+avatar_danny = URI.open('https://res.cloudinary.com/soundbetter/image/upload/c_fill,f_auto,g_face:auto,h_533,q_90,w_763/v1607512168/assets/photos/339318/Screenshot_2020-12-09_at_11.04.37.png')
+artist_danny = Artist.create!(user: user, name: 'Danny', age: 31, location: 'Glasgow', bio:'Scottish music lover 🏴󠁧󠁢󠁳󠁣󠁴󠁿, musician and producer living & working in London. Past lives in Amsterdam, Toronto and Brisbane. I also play in Probably Oslo with my friends Alex and Arran 👊', label: label_uni, genres: ['Rock', 'Indie'], roles: ['Drummer', 'Singer'], youtube_url: 'https://www.youtube.com/embed/EoebYwno2Dc', instagram_url: 'https://www.instagram.com/p/CK59blrMi_1/', influences: ['Arctic Monkeys','The Rapture','Nick Cave','The Beatles','Parcels'])
+artist_danny.photo.attach(io: avatar_danny, filename: 'danny.jpg', content_type: 'image/jpg')
 
 avatar_ze = URI.open('https://i1.sndcdn.com/avatars-1loSeJ6XF8M7z8CJ-VzNOlQ-t240x240.jpg')
 artist_ze = Artist.create!(user: user_8, name: 'Zé Trigueiros', location: 'Lisbon', genres: ['Blues', 'Indie'], roles: ['Singer', 'Drummer'], youtube_url: 'https://www.youtube.com/embed/8toEj6QbGU0', instagram_url: 'https://www.instagram.com/p/CN1kob7Mj0O/')
