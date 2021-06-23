@@ -58,18 +58,18 @@ class LabelsController < ApplicationController
 
   def follow
     current_user.follow(@follow_user)
-    redirect_to artist_path(@id_label)
+    redirect_to label_path(@id_label)
   end
 
   def unfollow
     current_user.unfollow(@follow_user)
-    redirect_to artist_path(@id_label)
+    redirect_to label_path(@id_label)
   end
 
   private
 
   def label_params
-    params.require(:label).permit(:name, :location, :bio, :photo, :website_url)
+    params.require(:label).permit(:name, :location, :bio, :photo, :website_url, :user_type)
   end
 
   def redirect_if_profile_exists
