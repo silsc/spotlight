@@ -15,7 +15,7 @@
             <% else %>
               <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
             <% end %>
-            <p class="pl-2 mb-0 font-weight-bold"><%= chatroom.get_other_user_name %></p>
+            <p class="pl-2 mb-0 font-weight-bold"><%= chatroom.get_others_users(current_user).first.profile_instance.name %></p>
             </div>
         <% end %>
       </div>
