@@ -9,15 +9,17 @@
 </div>
 
 <div class="container m-0 pl-0">
-  <div class="d-flex">
-     <div class="filter-search mt-5">
-      <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
-      <%= f.input :query, as: :hidden, input_html: {value: @query} %>
-      <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true } %>
-      <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true } %>
-      <%= f.input :location, required: false, placeholder: 'Type the location'%>
-      <%= f.submit 'Submit', class: 'btb btn-gradient p-2 px-3' %>
-      <% end %>
+  <div class="d-flex justify-content-between">
+    <div>
+       <div class="filter-search my-5 p-3">
+        <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
+        <%= f.input :query, as: :hidden, input_html: {value: @query} %>
+        <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true } %>
+        <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true } %>
+        <%= f.input :location, required: false, placeholder: 'Type the location'%>
+        <%= f.submit 'Submit', class: 'btb btn-gradient p-2 px-3' %>
+        <% end %>
+      </div>
     </div>
     <div class="col-sm-9 mt-5">
       <% if @artists %>
@@ -26,9 +28,9 @@
         <% @artists.each do |artist| %>
         <div class="card-search">
           <% if artist.photo.attached? %>
-          <%= cl_image_tag artist.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+          <%= cl_image_tag artist.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-search"%>
           <% else %>
-          <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+          <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-search"%>
           <% end %>
           <div class="card-search-info">
             <h5><%= artist.name %></h5>
