@@ -44,4 +44,12 @@ class User < ApplicationRecord
   def profile_instance
     label? ? label : artist
   end
+
+  def profile_path
+    if label?
+      Rails.application.routes.url_helpers.label_path(label)
+    else
+      Rails.application.routes.url_helpers.artist_path(artist)
+    end
+  end
 end
