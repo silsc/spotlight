@@ -1,6 +1,7 @@
 class LabelsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
   before_action :set_label, only: %i[show edit update]
+  before_action :following_users, only: %i[follow unfollow]
   before_action :redirect_if_profile_exists, only: %i[new]
 
   def new
@@ -55,6 +56,16 @@ class LabelsController < ApplicationController
     end
   end
 
+  def follow
+    current_user.follow(@follow_user)
+    redirect_to artist_path(@id_label)
+  end
+
+  def unfollow
+    current_user.unfollow(@follow_user)
+    redirect_to artist_path(@id_label)
+  end
+
   private
 
   def label_params
@@ -68,5 +79,11 @@ class LabelsController < ApplicationController
   def set_label
     @label = Label.find(params[:id])
     # authorize @label
+  end
+
+  def following_users
+    @id_label = params[:label_id]
+    @user = Label.find(@id_label).user_id
+    @follow_user = User.find(@user)
   end
 end
