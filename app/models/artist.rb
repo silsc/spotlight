@@ -47,6 +47,7 @@ class Artist < ApplicationRecord
   validate :valid_role_list
 
   before_create :pull_spotify_image
+  before_update :pull_spotify_image
   after_create :set_user_type
 
   # scope :filter_by_genre, ->(search_genre) { where("'#{search_genre}' = Any(genres)") }
@@ -62,6 +63,10 @@ class Artist < ApplicationRecord
 
   def influence_image(influence)
     JSON.parse(influence)['image']
+  end
+
+  def influences_name_list
+    influences.map { |influence| JSON.parse(influence)['name'] }
   end
 
 
