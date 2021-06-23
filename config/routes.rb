@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  resources :connections, only: [:index]
+  resources :connections, only: [:index, :create, :destroy]
 
   
   get '/styleguide', to: 'pages#styleguide'

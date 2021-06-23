@@ -5,6 +5,6 @@ class Connection < ApplicationRecord
   validates :user1_id, presence: true
   validates :user2_id, presence: true
 
-  # def connection_suggestion
-  # end
+  def connection_suggestion
+  end
 end

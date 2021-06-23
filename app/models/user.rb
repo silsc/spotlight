@@ -29,8 +29,12 @@ class User < ApplicationRecord
   end
 
   def following?(user)
-    @user = User.find(user)
+    @user = User.find(user.id)
     followees.include?(@user)
+  end
+
+  def following_connection(user)
+    connections_as_user1.find_by(user1: user)
   end
 
   def connections
