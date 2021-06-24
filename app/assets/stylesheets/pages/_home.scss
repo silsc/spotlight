@@ -140,7 +140,7 @@
 
 .footer {
   background: linear-gradient(180deg, rgba(219, 82, 244, 0.6) 0%, rgba(108, 124, 235, 0.3) 100%);
-  height: 270px;
+  height: 23vw;
   color: white;
   position: absolute;
   top: 1700px;
@@ -156,14 +156,13 @@
 }
 
 .footer-links a {
-  color: white;
-  opacity: 0.15;
+  color: $primary00;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
-  opacity: 1;
+  color: white;
 }
 .footer .fa-heart {
   color: #d23333;
@@ -172,3 +171,40 @@
 .footer-nav {
   border-right: 3px solid white;
 }
+
+
+.btn-gradient {
+  background: linear-gradient(253.58deg, #db52f4 1.55%, #6c7ceb 66.84%);
+  position: relative;
+  padding: 13px 17px;
+  font-weight: 600;
+  z-index: 10;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  border: none;
+}
+
+  .btn-gradient:after {
+    background: linear-gradient(253.58deg, #db52f4 1.55%, #6c7ceb 66.84%);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -10;
+    transition: opacity 0.5s;
+    border-radius: 4px;
+    color: white;
+  }
+
+.btn-gradient:hover:after {
+  opacity: 1;
+  color: white;
+}
+
