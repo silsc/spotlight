@@ -29,10 +29,6 @@
   color: $primary20;
 }
 
-.empty-message-container {
-  width: 100%;
-}
-
 .info-message {
   border-bottom: solid 1px $medium-gray;
   h5 {
@@ -41,12 +37,14 @@
 }
 
 #messages {
-  min-height: 15em;
+  min-height: 10em;
+  p {
+    color: $primary60;
+  }
 }
 
 .message-form-control {
   position: relative;
-  margin-top: 16px;
   margin-right: 0;
   width: 91%;
   .btn-message {
@@ -66,7 +64,8 @@
   border: 1px solid #E7E7E7;
   border-radius: 32px;
   margin-left: 1.5em;
-  padding: 0.9em 0 0 1.5em;
+  margin-bottom: 1.5em;
+  padding: 0 0 0 1.5em;
 }
 
 .message-form-control .form-control:focus {
