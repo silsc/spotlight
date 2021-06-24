@@ -8,7 +8,11 @@
     <% else %>
       <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class:"avatar-profile", height: "200", width:"200"%>
     <% end %>
-    <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#infoModal"></i>
+    <% if current_user == @artist.user %>
+      <%= link_to artist_path do %>
+        <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#infoModal"></i>
+      <% end %>
+    <% end %>
     <div class="text-center pb-3">
       <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
       <h4><%= @artist.location %></h4>
