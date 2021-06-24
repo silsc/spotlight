@@ -50,16 +50,24 @@ user_10 = User.create!(email:'deadoceans@gmail.com', password:'password', userna
 puts 'user-10 created'
 user_11 = User.create!(email:'eleven@gmail.com', password:'password', username: 'user11', user_type: :label)
 puts 'user-11 created'
-user_12 = User.create!(email:'twelve@gmail.com', password:'password', username: 'user12', user_type: :label)
+user_12 = User.create!(email:'twelve@gmail.com', password:'password', username: 'user12', user_type: :artist)
 puts 'user-12 created'
 user_13 = User.create!(email:'13@email.com', password:'password', username: 'user13', user_type: :artist)
 puts 'user-13 created'
-user_14 = User.create!(email:'14@gmail.com', password:'password', username: 'user14', user_type: :label)
+user_14 = User.create!(email:'14@gmail.com', password:'password', username: 'user14', user_type: :artist)
 puts 'user-14 created'
-user_15 = User.create!(email:'15@gmail.com', password:'password', username: 'user15', user_type: :label)
+user_15 = User.create!(email:'15@gmail.com', password:'password', username: 'user15', user_type: :artist)
 puts 'user-15 created'
-user_16 = User.create!(email:'16@gmail.com', password:'password', username: 'user16', user_type: :label)
+user_16 = User.create!(email:'16@gmail.com', password:'password', username: 'user16', user_type: :artist)
 puts 'user-16 created'
+user_17 = User.create!(email:'17@email.com', password:'password', username: 'user17', user_type: :artist)
+puts 'user-17 created'
+user_18 = User.create!(email:'18@gmail.com', password:'password', username: 'user18', user_type: :artist)
+puts 'user-18 created'
+user_19 = User.create!(email:'19@gmail.com', password:'password', username: 'user19', user_type: :artist)
+puts 'user-19 created'
+user_20 = User.create!(email:'20@gmail.com', password:'password', username: 'user20', user_type: :artist)
+puts 'user-20 created'
 
 
 # labels seeds
@@ -103,7 +111,7 @@ artist_yonaka = Artist.create!(user: user_7, name: 'Yonaka', location: 'Amsterda
 artist_yonaka.photo.attach(io: avatar_yonaka, filename: 'yonaka.jpg', content_type: 'image/jpg')
 
 avatar_ze = URI.open('https://i1.sndcdn.com/avatars-1loSeJ6XF8M7z8CJ-VzNOlQ-t240x240.jpg')
-artist_ze = Artist.create!(user: user_8, name: 'Zé Trigueiros', location: 'Lisbon', genres: ['Blues', 'Indie'], roles: ['Singer', 'Drummer'], youtube_url: 'https://www.youtube.com/embed/8toEj6QbGU0', instagram_url: 'https://www.instagram.com/p/CN1kob7Mj0O/')
+artist_ze = Artist.create!(user: user_8, name: 'Zé Trigueiros', location: 'Lisbon', genres: ['Pop', 'Indie'], roles: ['Singer', 'Drummer'], youtube_url: 'https://www.youtube.com/embed/8toEj6QbGU0', instagram_url: 'https://www.instagram.com/p/CN1kob7Mj0O/')
 artist_ze.photo.attach(io: avatar_ze, filename: 'ze.jpg', content_type: 'image/jpg')
 
 avatar_shung = URI.open('https://static.miraheze.org/maiasongcontestwiki/thumb/e/ed/Shungudzo.jpg/300px-Shungudzo.jpg')
@@ -115,10 +123,36 @@ artist_milli = Artist.create!(user: user_12, name: 'Milli', location: 'Mancheste
 artist_milli.photo.attach(io: avatar_milli, filename: 'milli.jpg', content_type: 'image/jpg')
 
 avatar_dirt = URI.open('https://i.scdn.co/image/cfff96db6920a8812558b4c5bfc520dd07232988')
-artist_dirt = Artist.create!(user: user_13, name: 'dirt', location: 'Melbourne', genres: ['Folk', 'Indie'], roles: ['Singer', 'Songwriter'], youtube_url: 'https://www.youtube.com/embed/dT0V2TfuqcU', instagram_url: 'https://www.instagram.com/p/CHKcSuUhy5I/')
+artist_dirt = Artist.create!(user: user_13, name: 'Dirt Hand', location: 'Melbourne', genres: ['Pop', 'Indie'], roles: ['Singer', 'Songwriter'], youtube_url: 'https://www.youtube.com/embed/dT0V2TfuqcU', instagram_url: 'https://www.instagram.com/p/CHKcSuUhy5I/')
 artist_dirt.photo.attach(io: avatar_dirt, filename: 'dirt.jpg', content_type: 'image/jpg')
 
-# finish the seeds
+avatar_nancy = URI.open('https://diy-magazine.s3.amazonaws.com/d/diy/Artists/N/NANCY/Screenshot-2020-11-10-at-14.05.56.png')
+artist_nancy = Artist.create!(user: user_14, name: 'Nancy', location: 'Talin', genres: ['Punk', 'Indie'], roles: ['Singer', 'DJ'])
+artist_nancy.photo.attach(io: avatar_nancy, filename: 'nancy.jpg', content_type: 'image/jpg')
+
+avatar_mallu = URI.open('https://zh.rbsdirect.com.br/imagesrc/23313491.jpg')
+artist_mallu = Artist.create!(user: user_15, name: 'Mallu Magalhães', location: 'São Paulo', genres: ['Indie', 'Folk'], roles: ['Singer', 'Songwriter'])
+artist_mallu.photo.attach(io: avatar_mallu, filename: 'mallu.jpg', content_type: 'image/jpg')
+
+avatar_alice = URI.open('https://www.binaural.es/wp-content/uploads/2019/01/alice-750x460.jpg')
+artist_alice = Artist.create!(user: user_16, name: 'Alice Phoebe Lou', location: 'Cape Town', genres: ['Jazz', 'Folk'], roles: ['Singer', 'Guitarist', 'Songwriter'])
+artist_alice.photo.attach(io: avatar_alice, filename: 'alice.jpg', content_type: 'image/jpg')
+
+avatar_maro = URI.open('https://cdnimages01.azureedge.net/renascenca/maro_cantora58392fe2_base.png')
+artist_maro = Artist.create!(user: user_17, name: 'Maro', location: 'Lisbon', genres: ['Pop', 'Indie'], roles: ['Keyboardist'])
+artist_maro.photo.attach(io: avatar_maro, filename: 'maro.jpg', content_type: 'image/jpg')
+
+avatar_tane = URI.open('https://format-com-cld-res.cloudinary.com/image/private/s--x0s3yQT---/c_limit,g_center,h_65535,w_2500/fl_keep_iptc.progressive,q_95/v1/49c2e432426519c4f4b668b79b24f486/T8.jpg')
+artist_tane = Artist.create!(user: user_18, name: 'Tanerélle', location: 'Atlanta', genres: ['Rap'], roles: ['Singer', 'Producer', 'Remixer'])
+artist_tane.photo.attach(io: avatar_tane, filename: 'tana.jpg', content_type: 'image/jpg')
+
+avatar_altin = URI.open('https://www.binaural.es/wp-content/uploads/2019/10/altin.jpg')
+artist_altin = Artist.create!(user: user_19, name: 'Altın Gün', location: 'Amsterdam', genres: ['Funk', 'Rock', 'Electronic'], roles: ['Singer', 'Remixer'])
+artist_altin.photo.attach(io: avatar_altin, filename: 'altin.jpg', content_type: 'image/jpg')
+
+avatar_letrux = URI.open('https://images.virgula.com.br/2021/02/letrux-livro.jpg')
+artist_letrux = Artist.create!(user: user_20, name: 'Letrux', location: 'Rio de Janeiro', genres: ['Pop', 'Indie'], roles: ['Singer'])
+artist_letrux.photo.attach(io: avatar_letrux, filename: 'letrux.jpg', content_type: 'image/jpg')
 
 avatar_danny = URI.open('https://res.cloudinary.com/soundbetter/image/upload/c_fill,f_auto,g_face:auto,h_533,q_90,w_763/v1607512168/assets/photos/339318/Screenshot_2020-12-09_at_11.04.37.png')
 artist_danny = Artist.create!(user: user, name: 'Danny', age: 31, location: 'Glasgow', bio:'Scottish music lover 🏴󠁧󠁢󠁳󠁣󠁴󠁿, musician and producer living & working in London. Past lives in Amsterdam, Toronto and Brisbane. I also play in Probably Oslo with my friends Alex and Arran 👊', label: label_uni, genres: ['Rock', 'Indie'], roles: ['Drummer', 'Singer'], youtube_url: 'https://www.youtube.com/embed/EoebYwno2Dc', instagram_url: 'https://www.instagram.com/p/CK59blrMi_1/', influences: ['Arctic Monkeys','The Rapture','Nick Cave','The Beatles','Parcels'])
