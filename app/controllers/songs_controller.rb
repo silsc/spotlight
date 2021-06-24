@@ -1,11 +1,11 @@
 class SongsController < ApplicationController
-
   def create
     @artist = Artist.find(params[:artist_id])
     @song = Song.new(songs_params)
     @song.artist = @artist
     @song.save
-    redirect_to artist_path(@artist)
+
+    redirect_to artist_path(@artist, tab: 'songs')
   end
 
   private
