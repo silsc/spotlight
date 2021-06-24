@@ -31,13 +31,13 @@
     </div>
     <div class="d-flex justify-content-around">
       <% unless current_user == @artist.user %>
+        <%= link_to "Message", chatrooms_path(profile_id: @artist.id, user_type: :artist), method: :post, class: "btn btn-gradient px-5" %>
         <% if current_user.following?(@artist.user) %>
           <%= link_to "Connected", artist_unfollow_path(@artist), class: "btn btn-blue px-5" %>
         <% else %>
           <%= link_to "Connect", artist_follow_path(@artist), class: "btn btn-gradient px-5" %>
         <% end %>
       <% end %>
-      <%= link_to "Message", chatrooms_path(profile_id: @artist.id, user_type: :artist), method: :post, class: "btn btn-gradient px-5" %>
     </div>
     <div class="">
       <h4 class="pt-3">About me</h4>
