@@ -19,13 +19,13 @@
     </div>
     <div class="d-flex justify-content-around">
       <% unless current_user == @label.user %>
+        <%= link_to "Message", chatrooms_path(profile_id: @label.id, user_type: :label), method: :post, class: "btn btn-gradient px-5" %>
         <% if current_user.following?(@label.user) %>
           <%= link_to "Connected", label_unfollow_path(@label), class: "btn btn-blue px-5" %>
         <% else %>
           <%= link_to "Connect", label_follow_path(@label), class: "btn btn-gradient px-5" %>
         <% end %>
       <% end %>
-      <%= link_to "Message", chatrooms_path(profile_id: @label.id, user_type: :label), method: :post, class: "btn btn-gradient px-5" %>
     </div>
     <div class="">
       <h4 class="pt-3">About us</h4>
