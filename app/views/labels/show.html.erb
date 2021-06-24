@@ -8,20 +8,24 @@
     <% else %>
       <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class:"avatar-profile", height: "200", width:"200"%>
     <% end %>
-    <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#exampleModalCenter"></i>
+    <% if current_user == @label.user%>
+      <%= link_to "javascript:;" do %>
+        <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#exampleModalCenter"></i>
+      <% end %>
+    <% end %>
     <div class="text-center pb-3">
       <h2><%= @label.name %></h2>
       <h4><%= @label.location %></h4>
     </div>
     <div class="d-flex justify-content-around">
       <% unless current_user == @label.user %>
+        <%= link_to "Message", chatrooms_path(profile_id: @label.id, user_type: :label), method: :post, class: "btn btn-gradient px-5" %>
         <% if current_user.following?(@label.user) %>
           <%= link_to "Connected", label_unfollow_path(@label), class: "btn btn-blue px-5" %>
         <% else %>
           <%= link_to "Connect", label_follow_path(@label), class: "btn btn-gradient px-5" %>
         <% end %>
       <% end %>
-      <%= link_to "Message", chatrooms_path(profile_id: @label.id, user_type: :label), method: :post, class: "btn btn-gradient px-5" %>
     </div>
     <div class="">
       <h4 class="pt-3">About us</h4>
@@ -45,14 +49,22 @@
       <%# artistlist TAB %>
       <div class="tab-pane fade show active px-5" id="artistlist" role="tabpanel" aria-labelledby="artistlist-tab">
         <div class="position-relative">
-          <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#artistlistModal"></i>
+          <% if current_user == @label.user %>
+            <%= link_to "javascript:;" do %>
+              <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#artistlistModal"></i>
+            <% end %>
+          <% end %>
         </div>
         <h4>Our artists</h4>
       </div>
       <%# links TAB %>
       <div class="tab-pane fade px-5" id="labellinks" role="tabpanel" aria-labelledby="labellinks-tab">
         <div class="position-relative">
-          <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#labellinksModal"></i>
+          <% if current_user == @label.user %>
+            <%= link_to "javascript:;" do %>
+              <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#labellinksModal"></i>
+            <% end %>
+          <% end %>
         </div>
         <h4>Official website</h4>
         <% unless @label.website_url.nil? %>
@@ -62,7 +74,11 @@
       <%# EVENTS TAB %>
       <div class="tab-pane fade  px-5" id="events" role="tabpanel" aria-labelledby="events-tab">
         <div class="position-relative">
-          <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
+          <% if current_user == @label.user %>
+            <%= link_to "javascript:;" do %>
+              <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
+            <% end %>
+          <% end %>
         </div>
         <div class="container d-block">
           <h4 class="cal-h">Our calendar</h4>

@@ -8,7 +8,11 @@
     <% else %>
       <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class:"avatar-profile", height: "200", width:"200"%>
     <% end %>
-    <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#infoModal"></i>
+    <% if current_user == @artist.user %>
+      <%= link_to "javascript:;" do %>
+        <i class="far fa-edit fa-2x edit-btn" data-toggle="modal" data-target="#infoModal"></i>
+      <% end %>
+    <% end %>
     <div class="text-center pb-3">
       <h2><%= @artist.name %> <%= @artist.age.nil? ? "" : "(#{@artist.age})" %></h2>
       <h4><%= @artist.location %></h4>
@@ -27,15 +31,15 @@
     </div>
     <div class="d-flex justify-content-around">
       <% unless current_user == @artist.user %>
+        <%= link_to "Message", chatrooms_path(profile_id: @artist.id, user_type: :artist), method: :post, class: "btn btn-gradient px-5" %>
         <% if current_user.following?(@artist.user) %>
           <%= link_to "Connected", artist_unfollow_path(@artist), class: "btn btn-blue px-5" %>
         <% else %>
           <%= link_to "Connect", artist_follow_path(@artist), class: "btn btn-gradient px-5" %>
         <% end %>
       <% end %>
-      <%= link_to "Message", chatrooms_path(profile_id: @artist.id, user_type: :artist), method: :post, class: "btn btn-gradient px-5" %>
     </div>
-    <div class="">
+    <div class="info-text-profile">
       <h4 class="pt-3">About me</h4>
       <p><%= @artist.bio %></p>
       <h4 class="pt-3">My influences</h4>
@@ -60,31 +64,43 @@
         <a class="nav-link nav-link-artist" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
       </li>
     </ul>
-    <div class="tab-content pt-5">
+    <div class="tab-content">
       <%# LINKS TAB %>
       <div class="tab-pane fade show active" id="links" role="tabpanel" aria-labelledby="links-tab">
-        <div class="position-relative">
-          <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#linksModal"></i>
-        </div>
-        <h4 class="p-4">YouTube</h4>
-        <div class="container d-flex justify-content-around">
-          <iframe width="370" height="200" src="<%= @artist.youtube_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="container d-block">
-          <h4 class="insta-h p-2 mt-5">Instagram</h4>
+        <div class="p-4">
+          <div class="position-relative">
+            <% if current_user == @artist.user %>
+              <%= link_to "javascript:;" do %>
+                <i class="far fa-edit add-btn-links" data-toggle="modal" data-target="#linksModal"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <h4 class="mb-4">YouTube</h4>
           <div class="container d-flex justify-content-around">
-            <blockquote class="instagram-media" data-instgrm-version="7" >
-              <a href="<%= @artist.instagram_url %>"></a>
-            </blockquote>
-            <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+            <iframe width="370" height="200" src="<%= @artist.youtube_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="container d-block">
+            <h4 class="insta-h p-2 mt-5">Instagram</h4>
+            <div class="container d-flex justify-content-around">
+              <blockquote class="instagram-media" data-instgrm-version="7" >
+                <a href="<%= @artist.instagram_url %>"></a>
+              </blockquote>
+              <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+            </div>
           </div>
         </div>
       </div>
       <%# SONGS TAB %>
       <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab" data-controller='flipcard'>
+        <div class="p-4">
         <div class="position-relative">
-          <h3>My latests releases</h3>
-          <button class="upload-song" data-toggle="modal" data-target="#songsModal">+</button>
+          <% if current_user == @artist.user %>
+            <%= link_to "javascript:;" do %>
+              <i class="far fa-plus-square fa-2x add-btn-links" data-toggle="modal" data-target="#songsModal"></i>
+            <% end %>
+          <% end %>
+        </div>
+          <h4 class="mb-5">My latests releases</h4>
           <% @songs.each do |song| %>
             <div class="flip-card-wrapper mb-3">
               <div id="flip-card" class='flipable-card' data-action='click->flipcard#flip'>
@@ -112,19 +128,25 @@
       </div>
       <%# EVENTS TAB %>
       <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
-        <div class="position-relative">
-          <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
-          <div class="container d-block">
-            <h4 class="cal-h p-2">My calendar</h4>
-            <div class="d-flex flex-column">
-              <div class="d-flex justify-content-center">
-                <%= render 'shared/calendar' %>
-              </div>
-              <div class="d-flex justify-content-center">
-                <div id="artist-events"></div>
+        <div class="p-4">
+          <div class="position-relative">
+            <% if current_user == @artist.user %>
+              <%= link_to "javascript:;" do %>
+                <i class="far fa-edit add-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <h4 class="cal-h mb-5">My calendar</h4>
+            <div class="container d-block">
+              <div class="d-flex flex-column">
+                <div class="d-flex justify-content-center">
+                  <%= render 'shared/calendar' %>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <div id="artist-events"></div>
+                </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -188,7 +210,7 @@
           <%= f.input :title %>
           <%= f.input :released %>
           <%= f.input :song_description %>
-          <%= f.input :track, as: :file  %>
+          <%= f.input :track, as: :file%>
         </div>
         <div class="modal-footer">
           <%= f.submit "Upload", class: 'btn btn-blue p-2' %>
@@ -214,3 +236,4 @@
   </div>
 </div>
 <%= render 'shared/footer' %>
+

@@ -97,17 +97,15 @@
 }
 
 .btn-gradient {
-  color: rgba(255, 255, 255, 0.986);
+  color: white;
   padding: 13px 17px; /* it has to be bigger than the other buttons because we removed the border*/
   font-weight: 600;
   border-radius: 4px;
-  background: $gradient-dark;
+  background: linear-gradient(253.58deg, #6c7ceb 1.55%, #db52f4 66.84%);
   transition: background 0.3s ease;
   border: none;
 }
-
 .btn-gradient:hover {
-  background: $gradient-light;
   color: white;
 }
 

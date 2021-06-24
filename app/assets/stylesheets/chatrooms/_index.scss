@@ -17,8 +17,8 @@
 
 .chat-message {
   border-bottom: solid 1px $medium-gray;
-  a {
-    color: $primary20;
+  p {
+    color: $primary60;
   }
   a:hover {
     text-decoration: none;
@@ -31,7 +31,6 @@
 
 .icon-empty {
   color: $primary20;
-
 }
 
 .empty-message-container {
