@@ -3,14 +3,14 @@
   <%# <%= Artist.all.name%>
   <div class="row d-block m-3">
     <% unless current_user == @user %>
-      <% @profiles = Artist.all.sample(3) + Label.all.sample(3)  %>
+      <% @profiles = Artist.all.first(3) + Label.all.first(3)  %>
       <% @profiles.each do |profile| %>
         <%# based on location?  %>
         <div class="card-connect mt-3">
           <% if current_user.following?(profile.user) %>
             <div class="connect-card-items m-3">
               <%= profile.name %>
-              <%= link_to "Remove", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
+              <%= link_to "Remove", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-blue px-5" %>  <%# connect switch to connected %>
             </div>
           <% else %>
             <div class="connect-card-items m-3">
