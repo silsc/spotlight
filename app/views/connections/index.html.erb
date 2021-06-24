@@ -11,7 +11,7 @@
           <% if current_user.following?(profile.user) %>
             <div class="connect-card-items d-flex m-3">
               <div class="d-flex">
-                <div class="card-suggestion-avatar pl-3">
+                <div class="card-suggestion-avatar pl-3 mr-5">
                 <% if profile.photo.attached? %>
                   <%= cl_image_tag profile.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-suggestion"%>
                 <% else %>
@@ -24,7 +24,7 @@
                 </div>
               </div>
               <div>
-              <%= link_to "Remove", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-gradient px-5 mt-5" %>  <%# connect switch to connected %>
+              <%= link_to "Remove", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-blue px-5 mt-5" %>  <%# connect switch to connected %>
               </div>
             </div>
           <% else %>
