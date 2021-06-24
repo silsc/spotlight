@@ -22,9 +22,9 @@ class Chatroom < ApplicationRecord
     get_other_user.photo
   end
 
+  # users -> users who got contacted
+  # user -> user who created the chatroom
   def get_others_users(current_user)
-    # raise
-    chatroom_users = users.to_a + [user]
-    chatroom_users.reject { |person| person == current_user }
+    users.to_a + [user] - [current_user]
   end
 end
