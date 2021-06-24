@@ -1,20 +1,17 @@
 <!-- Navbar -->
 <div class="navbar navbar-expand-sm navbar-light navbar-main">
   <div class="d-flex">
-  <%= link_to root_path, class: "navbar-brand ml-2" do %>
-    <%= image_tag "logo.png", class:"rounded-circle", style: 'height:50px;width:auto;'%>
-  <% end %>
-   <h1 class="align-self-center pt-2">SpotLight</h1>
+    <%= link_to root_path, class: "navbar-brand ml-2" do %>
+      <%= image_tag "logo.png", class:"rounded-circle", style: 'height:50px;width:auto;'%>
+    <% end %>
+    <h1 class="align-self-center pt-2">SpotLight</h1>
   </div>
-
-
   <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
     <div class="search-form-control form-group">
       <%= f.input :query, required: false, class: "form-control string required", placeholder: "Search for artists and labels", label: false %>
       <%= submit_tag "Search", class: "btn-search btn-blue "%>
     </div>
   <% end %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -36,12 +33,12 @@
         <% end %>
       </li>
       <li class="nav-item dropdown mr-4">
-      <% if current_user.profile_instance.photo.attached? %>
-        <%= cl_image_tag current_user.profile_instance.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
-      <% else %>
-        <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
-      <% end %>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <% if current_user.profile_instance.photo.attached? %>
+          <%= cl_image_tag current_user.profile_instance.photo.key, alt:"avatar profile", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+        <% else %>
+          <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,  height:"40", width:"40"%>
+        <% end %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "My profile", current_user.profile_path , class: "dropdown-item mt-2" %>
           <%= link_to "Settings", "#" , class: "dropdown-item my-2" %>
           <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item logout-item" do %>
@@ -55,81 +52,82 @@
     </ul>
   </div>
 </div>
-
 <!-- Search -->
 <div class="container m-0 pl-0">
   <div class="d-flex justify-content-between">
     <div>
-       <div class="filter-search my-5 p-3">
+      <div class="filter-search my-5 p-3">
         <%= simple_form_for(:filter, method: :get, url: results_path) do |f| %>
-        <%= f.input :query, as: :hidden, input_html: {value: @query} %>
-        <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true } %>
-        <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true } %>
-        <%= f.input :location, required: false, placeholder: 'Type the location'%>
-        <%= f.submit 'Submit', class: 'btb btn-gradient p-2 px-3' %>
+          <%= f.input :query, as: :hidden, input_html: {value: @query} %>
+          <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true } %>
+          <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true } %>
+          <%= f.input :location, required: false, placeholder: 'Type the location'%>
+          <%= f.submit 'Submit', class: 'btb btn-gradient p-2 px-3' %>
         <% end %>
       </div>
     </div>
     <div class="col-sm-9 mt-5">
-      <% if @artists %>
-      <div class="artist-search">
-        <h2>Artists</h2>
-        <% @artists.each do |artist| %>
-          <%= link_to artist_path(artist) do%>
-          <div class="card-search d-flex justify-content-between p-2">
-            <div class="card-search-avatar pt-4 pr-5 pl-3">
-            <% if artist.photo.attached? %>
-            <%= cl_image_tag artist.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-search"%>
-            <% else %>
-            <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-search"%>
+      <% if @artists.empty? %>
+        <p class="text-center">Sorry, but there are no Artists that match your search.</p>
+      <% else %>
+        <div class="artist-search">
+          <h2>Artists</h2>
+          <% @artists.each do |artist| %>
+            <%= link_to artist_path(artist) do%>
+              <div class="card-search d-flex justify-content-between p-2">
+                <div class="card-search-avatar pt-4 pr-5 pl-3">
+                  <% if artist.photo.attached? %>
+                    <%= cl_image_tag artist.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-search"%>
+                  <% else %>
+                    <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-search"%>
+                  <% end %>
+                </div>
+                <div class="card-search-info">
+                  <h5><%= artist.name %></h5>
+                  <p><%= artist.location %></p>
+                  <p>
+                    <% artist.roles.each do |role| %>
+                      <span class="badge badge-pill badge-info p-2"><%= role %></span>
+                    <% end %>
+                  </p>
+                  <p>
+                    <% artist.genres.each do |genre| %>
+                      <span class="badge badge-pill badge-light p-2">#<%= genre %></span>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
             <% end %>
-            </div>
-            <div class="card-search-info">
-              <h5><%= artist.name %></h5>
-              <p><%= artist.location %></p>
-              <p>
-                <% artist.roles.each do |role| %>
-                <span class="badge badge-pill badge-info p-2"><%= role %></span>
-                <% end %>
-              </p>
-              <p>
-                <% artist.genres.each do |genre| %>
-                <span class="badge badge-pill badge-light p-2">#<%= genre %></span>
-                <% end %>
-              </p>
-            </div>
-          </div>
           <% end %>
-        <% end %>
-      </div>
-      <% end %>
-
-      <% if @labels %>
-      <div class="label-search">
-        <h2>Labels</h2>
-        <% @labels.each do |label| %>
-        <%= link_to label_path(label) do%>
-        <div class="card-search d-flex justify-content-between p-2">
-          <div class="card-search-avatar pt-4 pr-5 pl-3">
-            <% if label.photo.attached? %>
-              <%= cl_image_tag label.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-search"%>
-            <% else %>
-              <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png",class: "avatar-large rounded-circle avatar-search"%>
-            <% end %>
-          </div>
-          <div class="card-search-info pt-5">
-            <h5><%= label.name %></h5>
-            <p><%= label.location %></p>
-          </div>
         </div>
-        <% end %>
-        <% end %>
-      </div>
+      <% end %>
+      <% if @labels.empty? %>
+        <p class="text-center">Sorry, but there are no Labels that match your search.</p>
+      <% else %>
+        <div class="label-search">
+          <h2>Labels</h2>
+          <% @labels.each do |label| %>
+            <%= link_to label_path(label) do%>
+              <div class="card-search d-flex justify-content-between p-2">
+                <div class="card-search-avatar pt-4 pr-5 pl-3">
+                  <% if label.photo.attached? %>
+                    <%= cl_image_tag label.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-search"%>
+                  <% else %>
+                    <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png",class: "avatar-large rounded-circle avatar-search"%>
+                  <% end %>
+                </div>
+                <div class="card-search-info pt-5">
+                  <h5><%= label.name %></h5>
+                  <p><%= label.location %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
-
 <!-- Footer -->
 <div class="d-block full-width">
   <%= render "shared/footer" %>
