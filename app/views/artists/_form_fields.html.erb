@@ -1,9 +1,9 @@
 <div data-controller="spotify">
-  <%= f.input :name, label:'Your superstar name' %>
-  <%= f.input :age %>
+  <%= f.input :name, label:"What's your superstar name?" %>
+  <%= f.input :age, label:'How many circles around the sun?' %>
   <%= f.input :location, label:'Where do your story begins?' %>
-  <%= f.input :roles, collection: Artist::ROLES, label: 'Your superpowers', include_hidden: false, input_html: { multiple: true } %>
-  <%= f.input :bio, label: 'Who are you as an artist?' %>
+  <%= f.input :roles, collection: Artist::ROLES, label:'What are your superpowers?', include_hidden: false, input_html: { multiple: true } %>
+  <%= f.input :bio, label:'What would your friends say about you as an artist?' %>
   <%= f.input :influences, as: :hidden, input_html: {data: {"spotify-target": "hidden", influences: @artist.influences_name_list }, value: @artist.influences_name_list.join(',') } %>
   <div class="d-flex flex-column form-group">
     <label class="string optional" for="artist_influences">Influences</label>
@@ -14,8 +14,8 @@
       <% end %>
     </div>
   </div>
-  <%= f.input :genres, collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
-  <%= f.input :youtube_url %>
-  <%= f.input :instagram_url %>
-  <%= f.input :photo, as: :file  %>
+  <%= f.input :genres, label:"What's your jam?", collection: Artist::GENRES, include_hidden: false, input_html: { multiple: true } %>
+  <%= f.input :youtube_url, label:'Drop your proudest YouTube video url in here' %>
+  <%= f.input :instagram_url, label: 'How about your Instagram? Add the url below'%>
+  <%= f.input :photo, label:'Finally, time to upload your best photo', as: :file  %>
 </div>
