@@ -34,6 +34,25 @@
   }
 }
 
+.img-fluid.big-logo{
+  position: relative;
+  left: 48px;
+  animation: dance 4s linear infinite;
+}
+
+@keyframes dance {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+}
+
+
 // About us
 
 .about-container {
@@ -106,6 +125,7 @@
   height: 30%;
   margin-left: 100px;
   margin-bottom: 16px;
+  object-fit: contain;
 }
 
 .main {
