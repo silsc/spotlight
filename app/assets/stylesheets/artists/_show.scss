@@ -107,6 +107,15 @@
   cursor: pointer;
 }
 
+i {
+  color: $medium-gray;
+  &:hover {
+    color: $gray;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
 /* Flip card */
 // .flip-card-wrapper {
 //   width: 480px;

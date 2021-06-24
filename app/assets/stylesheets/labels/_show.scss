@@ -86,6 +86,15 @@
   color: darkgrey;
 }
 
+i {
+  color: $medium-gray;
+  &:hover {
+    color: $gray;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
 /* Flip card */
 // .flip-card-wrapper {
 //   width: 480px;
@@ -119,4 +128,3 @@
 //     padding: 20px 20px;
 //   }
 // }
-
