@@ -46,8 +46,20 @@ user_8 = User.create!(email:'user_eight@gmail.com', password:'password', usernam
 puts 'user-8 created'
 user_9 = User.create!(email:'user_nine@email.com', password:'password', username: 'user9', user_type: :artist)
 puts 'user-9 created'
-user_10 = User.create!(email:'user_ten@gmail.com', password:'password', username: 'user10', user_type: :label)
+user_10 = User.create!(email:'deadoceans@gmail.com', password:'password', username: 'user10', user_type: :label)
 puts 'user-10 created'
+user_11 = User.create!(email:'eleven@gmail.com', password:'password', username: 'user11', user_type: :label)
+puts 'user-11 created'
+user_12 = User.create!(email:'twelve@gmail.com', password:'password', username: 'user12', user_type: :label)
+puts 'user-12 created'
+user_13 = User.create!(email:'13@email.com', password:'password', username: 'user13', user_type: :artist)
+puts 'user-13 created'
+user_14 = User.create!(email:'14@gmail.com', password:'password', username: 'user14', user_type: :label)
+puts 'user-14 created'
+user_15 = User.create!(email:'15@gmail.com', password:'password', username: 'user15', user_type: :label)
+puts 'user-15 created'
+user_16 = User.create!(email:'16@gmail.com', password:'password', username: 'user16', user_type: :label)
+puts 'user-16 created'
 
 
 # labels seeds
@@ -63,6 +75,10 @@ label_uni.photo.attach(io: avatar_uni, filename: 'uni.jpg', content_type: 'image
 avatar_dead = URI.open('https://yt3.ggpht.com/ytc/AAUvwnhoWtRyalZy1dbORu2gXcLa5sgfonXCxOHHZvS3=s900-c-k-c0x00ffffff-no-rj')
 label_dead = Label.create!(user: user_10, name: 'Dead Oceans', location: 'Paris', bio: 'Dead Oceans is home to a staggering mix of artists that span genre, age, and sense of place. Dead Oceans’ troubador-twisting foundations endure in Phoebe Bridgers, Kevin Morby, Bill Fay and Fenne Lily; artists like Japanese Breakfast, Mitski, and Khruangbin bring fiery imaginations and breathtaking, intergalatic visions; Shame, Destroyer and Durand Jones & the Indications each rattle and hum in incomparable ways; and long-beloved artists like Slowdive and Bright Eyes have found a home here as well, returning to music with deep wells and exciting new ideas.', website_url: 'www.deadoceans.com')
 label_dead.photo.attach(io: avatar_dead, filename: 'dead.jpg', content_type: 'image/jpg')
+
+avatar_down = URI.open('https://mir-s3-cdn-cf.behance.net/project_modules/disp/edbb1e24242421.563319dd7683d.png')
+label_down = Label.create!(user: user_11, name: 'Downtown', location: 'Amsterdam', bio: 'Since 2006, Downtown Records has always been a Label that defined itself - on releasing the most unique, cutting edge and culturally moving music of the time.  Downtown’s celebrated roster includes Gnarls Barkley, Cold War Kids, Justice, Major Lazer, Mos Def, Santigold, Brett Dennen, David Gray, Electric Guest, Miike Snow, Nick Murphy/Chet Faker, Tommy Genesis, Houses and Melanie Faye,  among many others. Downtown has received seven Grammy Awards nominations and 12 Cannes Lyons awards.')
+label_down.photo.attach(io: avatar_down, filename: 'down.jpg', content_type: 'image/jpg')
 
 
 puts 'labels created'
@@ -86,10 +102,6 @@ avatar_yonaka = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9Gc
 artist_yonaka = Artist.create!(user: user_7, name: 'Yonaka', location: 'Amsterdam', label: label_uni, genres: ['Rock', 'Indie'], roles: ['Singer', 'Bassist', 'Guitarist'], youtube_url: 'https://www.youtube.com/embed/csVhNAEmacE', instagram_url: 'https://www.instagram.com/p/CQbkGhcH4X1/')
 artist_yonaka.photo.attach(io: avatar_yonaka, filename: 'yonaka.jpg', content_type: 'image/jpg')
 
-avatar_danny = URI.open('https://res.cloudinary.com/soundbetter/image/upload/c_fill,f_auto,g_face:auto,h_533,q_90,w_763/v1607512168/assets/photos/339318/Screenshot_2020-12-09_at_11.04.37.png')
-artist_danny = Artist.create!(user: user, name: 'Danny', age: 31, location: 'Glasgow', bio:'Scottish music lover 🏴󠁧󠁢󠁳󠁣󠁴󠁿, musician and producer living & working in London. Past lives in Amsterdam, Toronto and Brisbane. I also play in Probably Oslo with my friends Alex and Arran 👊', label: label_uni, genres: ['Rock', 'Indie'], roles: ['Drummer', 'Singer'], youtube_url: 'https://www.youtube.com/embed/EoebYwno2Dc', instagram_url: 'https://www.instagram.com/p/CK59blrMi_1/', influences: ['Arctic Monkeys','The Rapture','Nick Cave','The Beatles','Parcels'])
-artist_danny.photo.attach(io: avatar_danny, filename: 'danny.jpg', content_type: 'image/jpg')
-
 avatar_ze = URI.open('https://i1.sndcdn.com/avatars-1loSeJ6XF8M7z8CJ-VzNOlQ-t240x240.jpg')
 artist_ze = Artist.create!(user: user_8, name: 'Zé Trigueiros', location: 'Lisbon', genres: ['Blues', 'Indie'], roles: ['Singer', 'Drummer'], youtube_url: 'https://www.youtube.com/embed/8toEj6QbGU0', instagram_url: 'https://www.instagram.com/p/CN1kob7Mj0O/')
 artist_ze.photo.attach(io: avatar_ze, filename: 'ze.jpg', content_type: 'image/jpg')
@@ -97,6 +109,20 @@ artist_ze.photo.attach(io: avatar_ze, filename: 'ze.jpg', content_type: 'image/j
 avatar_shung = URI.open('https://static.miraheze.org/maiasongcontestwiki/thumb/e/ed/Shungudzo.jpg/300px-Shungudzo.jpg')
 artist_shung = Artist.create!(user: user_9, name: 'Shungudzo', location: 'Hawaii', genres: ['Pop', 'Indie'], roles: ['Singer', 'Songwriter'], youtube_url: 'https://www.youtube.com/embed/eKd_iNZeqS8', instagram_url: 'https://www.instagram.com/p/CQbbFJWHlVZ/')
 artist_shung.photo.attach(io: avatar_shung, filename: 'shung.jpg', content_type: 'image/jpg')
+
+avatar_milli = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1619192660/rqy8htlgdo9v0fvujs14.jpg')
+artist_milli = Artist.create!(user: user_12, name: 'Milli', location: 'Manchester', genres: ['Rap'], roles: ['Producer', 'Songwriter'], instagram_url: 'https://www.instagram.com/p/CLEVfwjBa8YCe4SgjN39keEkeW6IRJN0BRg-Dw0/')
+artist_milli.photo.attach(io: avatar_milli, filename: 'milli.jpg', content_type: 'image/jpg')
+
+avatar_dirt = URI.open('https://i.scdn.co/image/cfff96db6920a8812558b4c5bfc520dd07232988')
+artist_dirt = Artist.create!(user: user_13, name: 'dirt', location: 'Melbourne', genres: ['Folk', 'Indie'], roles: ['Singer', 'Songwriter'], youtube_url: 'https://www.youtube.com/embed/dT0V2TfuqcU', instagram_url: 'https://www.instagram.com/p/CHKcSuUhy5I/')
+artist_dirt.photo.attach(io: avatar_dirt, filename: 'dirt.jpg', content_type: 'image/jpg')
+
+# finish the seeds
+
+avatar_danny = URI.open('https://res.cloudinary.com/soundbetter/image/upload/c_fill,f_auto,g_face:auto,h_533,q_90,w_763/v1607512168/assets/photos/339318/Screenshot_2020-12-09_at_11.04.37.png')
+artist_danny = Artist.create!(user: user, name: 'Danny', age: 31, location: 'Glasgow', bio:'Scottish music lover 🏴󠁧󠁢󠁳󠁣󠁴󠁿, musician and producer living & working in London. Past lives in Amsterdam, Toronto and Brisbane. I also play in Probably Oslo with my friends Alex and Arran 👊', label: label_uni, genres: ['Rock', 'Indie'], roles: ['Drummer', 'Singer'], youtube_url: 'https://www.youtube.com/embed/EoebYwno2Dc', instagram_url: 'https://www.instagram.com/p/CK59blrMi_1/', influences: ['Arctic Monkeys','The Rapture','Nick Cave','The Beatles','Parcels'])
+artist_danny.photo.attach(io: avatar_danny, filename: 'danny.jpg', content_type: 'image/jpg')
 
 
 puts 'artists created'
