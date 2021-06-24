@@ -90,6 +90,15 @@
   border-bottom-right-radius: 10px;
 }
 
+.clear-link {
+  padding-left: 40px;
+  color: $primary20;
+  &:hover {
+    text-decoration: none;
+    color: $primary60;
+  }
+}
+
 /* Search bar */
 .search-form-control {
   position: relative;
