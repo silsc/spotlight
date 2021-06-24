@@ -64,10 +64,9 @@
         <%= simple_form_for(:filter, method: :get, url: results_path, data: {"filters-target": "form"}) do |f| %>
         <%= f.input :query, as: :hidden, input_html: {value: @query} %>
         <%= f.input :genres, as: :check_boxes, collection: Artist::GENRES, required: false, include_hidden: false, input_html: { multiple: true, data: {action: "change->filters#filter", 'filters-target': 'checkbox'} } %>
-        <%= link_to "remove filters", results_path %>
         <%= f.input :roles, as: :check_boxes, collection: Artist::ROLES, required: false, include_hidden: false, input_html: { multiple: true, data: {action: "change->filters#filter", 'filters-target': 'checkbox'} } %>
         <%= f.input :location, required: false, placeholder: 'Type the location'%>
-        <%= f.submit 'Submit', class: 'btb btn-gradient p-2 px-3' %>
+        <%= f.submit 'Submit', class: 'btb btn-gradient p-2 px-3' %> <%= link_to "Clear", results_path, class: "clear-link" %>
         <% end %>
       </div>
     </div>
