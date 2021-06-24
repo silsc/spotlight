@@ -17,7 +17,24 @@
     font-weight: 500;
     color: #6c6c6c;
   }
+  h2 {
+    color: $primary60;
+  }
 }
+
+.info-text-profile {
+  h4 {
+    color: $primary20;
+  }
+}
+
+.tab-pane {
+  h4 {
+    color: $primary60;
+    padding-left: 1em;
+  }
+}
+
 .profile-card-links {
   width: 50%;
   height: 804px;
@@ -102,6 +119,13 @@
   right: 5%;
 }
 
+.add-btn-links {
+  position: absolute;
+  top: calc(10px + 5%);
+  right: 5%;
+  color: $primary20;
+}
+
 .edit-btn-links:hover {
   color: darkgrey;
   cursor: pointer;
@@ -173,3 +197,4 @@ i {
     color: white;
   }
 }
+
