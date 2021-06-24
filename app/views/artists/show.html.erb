@@ -68,7 +68,11 @@
       <%# LINKS TAB %>
       <div class="tab-pane fade show active" id="links" role="tabpanel" aria-labelledby="links-tab">
         <div class="position-relative">
-          <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#linksModal"></i>
+          <% if current_user == @artist.user %>
+            <%= link_to artist_path do %>
+              <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#linksModal"></i>
+            <% end %>
+          <% end %>
         </div>
         <h4 class="p-4">YouTube</h4>
         <div class="container d-flex justify-content-around">
@@ -88,7 +92,11 @@
       <div class="tab-pane fade" id="songs" role="tabpanel" aria-labelledby="songs-tab" data-controller='flipcard'>
         <div class="position-relative">
           <h3>My latests releases</h3>
-          <button class="upload-song" data-toggle="modal" data-target="#songsModal">+</button>
+          <% if current_user == @artist.user %>
+            <%= link_to artist_path do %>
+              <button class="upload-song" data-toggle="modal" data-target="#songsModal">+</button>
+            <% end %>
+          <% end %>
           <% @songs.each do |song| %>
             <div class="flip-card-wrapper mb-3">
               <div id="flip-card" class='flipable-card' data-action='click->flipcard#flip'>
@@ -117,7 +125,11 @@
       <%# EVENTS TAB %>
       <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
         <div class="position-relative">
-          <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
+          <% if current_user == @artist.user %>
+            <%= link_to artist_path do %>
+              <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
+            <% end %>
+          <% end %>
           <div class="container d-block">
             <h4 class="cal-h p-2">My calendar</h4>
             <div class="d-flex flex-column">
