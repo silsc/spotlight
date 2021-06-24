@@ -45,9 +45,9 @@
         <a class="nav-link nav-link-artist" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
       </li>
     </ul>
-    <div class="tab-content pt-5">
+    <div class="tab-content">
       <%# artistlist TAB %>
-      <div class="tab-pane fade show active px-5" id="artistlist" role="tabpanel" aria-labelledby="artistlist-tab">
+      <div class="tab-pane fade show active p-4" id="artistlist" role="tabpanel" aria-labelledby="artistlist-tab">
         <div class="position-relative">
           <% if current_user == @label.user %>
             <%= link_to "javascript:;" do %>
@@ -58,33 +58,31 @@
         <h4>Our artists</h4>
       </div>
       <%# links TAB %>
-      <div class="tab-pane fade px-5" id="labellinks" role="tabpanel" aria-labelledby="labellinks-tab">
+      <div class="tab-pane fade p-4" id="labellinks" role="tabpanel" aria-labelledby="labellinks-tab">
         <div class="position-relative">
           <% if current_user == @label.user %>
             <%= link_to "javascript:;" do %>
-              <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#labellinksModal"></i>
+              <i class="far fa-edit add-btn-links" data-toggle="modal" data-target="#labellinksModal"></i>
             <% end %>
           <% end %>
         </div>
         <h4>Official website</h4>
         <% unless @label.website_url.nil? %>
-          <p> <%= @label.website_url %></p>
+          <%= link_to "Visit our page", url_for("https://#{@label.website_url}"), target: "_blank", class:"btn btn-blue m-4"  %>
         <% end %>
       </div>
       <%# EVENTS TAB %>
-      <div class="tab-pane fade  px-5" id="events" role="tabpanel" aria-labelledby="events-tab">
+      <div class="tab-pane fade p-4" id="events" role="tabpanel" aria-labelledby="events-tab">
         <div class="position-relative">
           <% if current_user == @label.user %>
             <%= link_to "javascript:;" do %>
-              <i class="far fa-edit edit-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
+              <i class="far fa-edit add-btn-links" data-toggle="modal" data-target="#eventsModal"></i>
             <% end %>
           <% end %>
         </div>
-        <div class="container d-block">
-          <h4 class="cal-h">Our calendar</h4>
+          <h4 class="cal-h mb-5">Our calendar</h4>
           <div class="d-flex justify-content-center mt-4">
             <%= render 'shared/calendar' %>
-          </div>
         </div>
       </div>
     </div>
@@ -154,7 +152,7 @@
     </div>
   </div>
 </div>
-<%# Events modal %>
+<!-- Events Modal -->
 <div class="modal fade" id="eventsModal" tabindex="-1" aria-labelledby="eventsModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -171,3 +169,4 @@
   </div>
 </div>
 <%= render 'shared/footer' %>
+
