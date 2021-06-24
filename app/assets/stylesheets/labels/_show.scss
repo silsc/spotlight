@@ -95,6 +95,14 @@ i {
   }
 }
 
+.add-btn-links {
+  position: absolute;
+  top: calc(10px + 5%);
+  right: 5%;
+  color: $primary20;
+}
+
+
 /* Flip card */
 // .flip-card-wrapper {
 //   width: 480px;
