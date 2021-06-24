@@ -9,6 +9,12 @@
   h2 {
     color: $primary60;
   }
+  a {
+    color: #167ffb;
+  }
+  a:hover {
+  text-decoration: none;
+  }
 }
 
 .label-search {
