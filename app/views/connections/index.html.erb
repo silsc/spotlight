@@ -17,6 +17,7 @@
                 <% else %>
                   <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-suggestion"%>
                 <% end %>
+
                 </div>
                 <div class="info-suggestions mt-3">
                   <h5><%= profile.name %></h5>
@@ -24,26 +25,27 @@
                 </div>
               </div>
               <div>
+
               <%= link_to "Remove", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-blue px-5 mt-5" %>  <%# connect switch to connected %>
               </div>
             </div>
           <% else %>
             <div class="connect-card-items d-flex m-3">
               <div class="d-flex">
-              <div class="card-suggestion-avatar pl-3 mr-5">
-              <% if profile.photo.attached? %>
-                <%= cl_image_tag profile.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-suggestion"%>
-              <% else %>
-                <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-suggestion"%>
-              <% end %>
+                <div class="card-suggestion-avatar pl-3 mr-5">
+                  <% if profile.photo.attached? %>
+                    <%= cl_image_tag profile.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-suggestion"%>
+                  <% else %>
+                    <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-suggestion"%>
+                  <% end %>
+                </div>
+                <div class="info-suggestions mt-3">
+                  <h5><%= profile.name %></h5>
+                  <p><%= profile.location %></p>
+                </div>
               </div>
-              <div class="info-suggestions mt-3">
-                <h5><%= profile.name %></h5>
-                <p><%= profile.location %></p>
-              </div>
-            </div>
               <div>
-              <%= link_to "Connect", connections_path({user_id: profile.user.id}), method: :post, class: "btn btn-gradient px-5 mt-5" %>  <%# connect switch to connected %>
+                <%= link_to "Connect", connections_path({user_id: profile.user.id}), method: :post, class: "btn btn-gradient px-5 mt-5" %>  <%# connect switch to connected %>
               </div>
             </div>
           <% end %>
@@ -59,5 +61,4 @@
     <% end %>
   </div>
 </div>
-
 <%= render 'shared/footer' %>
