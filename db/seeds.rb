@@ -28,7 +28,7 @@ puts "Creating artist influences"
 puts "Creating users, artist and label"
 
 # user seeds
-user = User.create!(email:'user_one@email.com', password:'password', username: 'user1', user_type: :artist)
+user = User.create!(email:'danny@email.com', password:'password', username: 'user1', user_type: :artist)
 puts 'user created'
 user_2 = User.create!(email:'user_otwo@email.com', password:'password', username: 'user2', user_type: :label)
 puts 'user-2 created'
