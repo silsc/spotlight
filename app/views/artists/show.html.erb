@@ -28,7 +28,7 @@
     <div class="d-flex justify-content-around">
       <% unless current_user == @artist.user %>
         <% if current_user.following?(@artist.user) %>
-          <%= link_to "Connected", artist_unfollow_path(@artist), class: "btn btn-gradient px-5" %>
+          <%= link_to "Connected", artist_unfollow_path(@artist), class: "btn btn-blue px-5" %>
         <% else %>
           <%= link_to "Connect", artist_follow_path(@artist), class: "btn btn-gradient px-5" %>
         <% end %>
@@ -192,7 +192,7 @@
         </div>
         <div class="modal-footer">
           <%= f.submit "Upload", class: 'btn btn-blue p-2' %>
-      </div>
+        </div>
       <% end %>
     </div>
   </div>
