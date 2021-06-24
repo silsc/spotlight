@@ -1,28 +1,57 @@
-<div class="container text-center pt-3">
-  <h2 class="pt-3 text-center"> Connect with </h2>
+<div class="container container-suggestions text-center pt-3">
+  <h2 class="pt-3 text-center"> Start your journey </h2>
+  <h2 class="pt-3 mb-5 text-center"> connecting with </h2>
   <%# <%= Artist.all.name%>
   <div class="row d-block m-3">
     <% unless current_user == @user %>
       <% @profiles = Artist.all.sample(3) + Label.all.sample(3)  %>
       <% @profiles.each do |profile| %>
         <%# based on location?  %>
-        <div class="card-connect mt-3">
+        <div class="card-suggestion mt-3">
           <% if current_user.following?(profile.user) %>
-            <div class="connect-card-items m-3">
-              <%= profile.name %>
-              <%= link_to "Remove", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
+            <div class="connect-card-items d-flex m-3">
+              <div class="d-flex">
+                <div class="card-suggestion-avatar pl-3">
+                <% if profile.photo.attached? %>
+                  <%= cl_image_tag profile.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-suggestion"%>
+                <% else %>
+                  <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-suggestion"%>
+                <% end %>
+                </div>
+                <div class="info-suggestions mt-3">
+                  <h5><%= profile.name %></h5>
+                  <p><%= profile.location %></p>
+                </div>
+              </div>
+              <div>
+              <%= link_to "Remove", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-gradient px-5 mt-5" %>  <%# connect switch to connected %>
+              </div>
             </div>
           <% else %>
-            <div class="connect-card-items m-3">
-              <%= profile.name %>
-              <%= link_to "Connect", connections_path({user_id: profile.user.id}), method: :post, class: "btn btn-gradient px-5" %>  <%# connect switch to connected %>
+            <div class="connect-card-items d-flex m-3">
+              <div class="d-flex">
+              <div class="card-suggestion-avatar pl-3 mr-5">
+              <% if profile.photo.attached? %>
+                <%= cl_image_tag profile.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-suggestion"%>
+              <% else %>
+                <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-suggestion"%>
+              <% end %>
+              </div>
+              <div class="info-suggestions mt-3">
+                <h5><%= profile.name %></h5>
+                <p><%= profile.location %></p>
+              </div>
+            </div>
+              <div>
+              <%= link_to "Connect", connections_path({user_id: profile.user.id}), method: :post, class: "btn btn-gradient px-5 mt-5" %>  <%# connect switch to connected %>
+              </div>
             </div>
           <% end %>
         </div>
       <% end %>
     <% end %>
   </div>
-  <div class="container">
+  <div class="container my-5">
     <% if current_user.label?  %>
       <%= link_to "Skip to Profile", label_path(current_user.profile_instance), class: "btn btn-blue py-2" %> <%# skip to profile page%>
     <% else %>
@@ -30,3 +59,5 @@
     <% end %>
   </div>
 </div>
+
+<%= render 'shared/footer' %>
