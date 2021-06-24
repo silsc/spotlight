@@ -9,6 +9,12 @@
   h2 {
     color: $primary60;
   }
+  a {
+    color: $primary60;
+  }
+  a:hover {
+  text-decoration: none;
+  }
 }
 
 .label-search {
@@ -20,6 +26,12 @@
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   h2 {
     color: $primary60;
+  }
+  a {
+    color: $primary60;
+  }
+  a:hover {
+  text-decoration: none;
   }
 }
 
