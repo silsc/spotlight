@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <%= render 'shared/navbar' %>
 <!-- Basic info card -->
-<div class="container basic-info d-flex justify-content-between">
+<div class="container basic-info d-flex justify-content-between" data-controller="tabs">
   <div class="profile-card position-relative px-5">
     <% if @artist.photo.attached? %>
       <%= cl_image_tag @artist.photo.key, alt:"avatar profile", class:"avatar-profile", height:"200", width:"200" %>

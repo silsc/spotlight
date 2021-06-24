@@ -1,0 +1,2 @@
+document.querySelector('.event-errors').innerText = "<%= URI.decode(@event.errors.full_messages.first) %>"
+document.querySelector('.event-errors').classList.add('d-block')
