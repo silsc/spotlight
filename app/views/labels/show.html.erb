@@ -16,7 +16,7 @@
     <div class="d-flex justify-content-around">
       <% unless current_user == @label.user %>
         <% if current_user.following?(@label.user) %>
-          <%= link_to "Connected", label_unfollow_path(@label), class: "btn btn-gradient px-5" %>
+          <%= link_to "Connected", label_unfollow_path(@label), class: "btn btn-blue px-5" %>
         <% else %>
           <%= link_to "Connect", label_follow_path(@label), class: "btn btn-gradient px-5" %>
         <% end %>
