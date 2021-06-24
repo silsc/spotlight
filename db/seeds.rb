@@ -68,6 +68,10 @@ user_19 = User.create!(email:'19@gmail.com', password:'password', username: 'use
 puts 'user-19 created'
 user_20 = User.create!(email:'20@gmail.com', password:'password', username: 'user20', user_type: :artist)
 puts 'user-20 created'
+user_21 = User.create!(email:'21@gmail.com', password:'password', username: 'user10', user_type: :label)
+puts 'user-10 created'
+user_22 = User.create!(email:'22@gmail.com', password:'password', username: 'user11', user_type: :label)
+puts 'user-11 created'
 
 
 # labels seeds
@@ -85,9 +89,16 @@ label_dead = Label.create!(user: user_10, name: 'Dead Oceans', location: 'Paris'
 label_dead.photo.attach(io: avatar_dead, filename: 'dead.jpg', content_type: 'image/jpg')
 
 avatar_down = URI.open('https://mir-s3-cdn-cf.behance.net/project_modules/disp/edbb1e24242421.563319dd7683d.png')
-label_down = Label.create!(user: user_11, name: 'Downtown', location: 'Amsterdam', bio: 'Since 2006, Downtown Records has always been a Label that defined itself - on releasing the most unique, cutting edge and culturally moving music of the time.  Downtown’s celebrated roster includes Gnarls Barkley, Cold War Kids, Justice, Major Lazer, Mos Def, Santigold, Brett Dennen, David Gray, Electric Guest, Miike Snow, Nick Murphy/Chet Faker, Tommy Genesis, Houses and Melanie Faye,  among many others. Downtown has received seven Grammy Awards nominations and 12 Cannes Lyons awards.')
+label_down = Label.create!(user: user_11, name: 'Downtown', location: 'Amsterdam')
 label_down.photo.attach(io: avatar_down, filename: 'down.jpg', content_type: 'image/jpg')
 
+avatar_trade = URI.open('https://pbs.twimg.com/profile_images/1122091846619021312/r44MwTPE_400x400.png')
+label_trade = Label.create!(user: user_21, name: 'Rough Trade', location: 'London')
+label_trade.photo.attach(io: avatar_trade, filename: 'trade.jpg', content_type: 'image/jpg')
+
+avatar_capitol = URI.open('https://www.musicbusinessworldwide.com/files/2020/12/Capitol-1-e1609256361633.jpg')
+label_capitol = Label.create!(user: user_22, name: 'Capitol Records', location: 'Hollywood')
+label_capitol.photo.attach(io: avatar_capitol, filename: 'capitol.jpg', content_type: 'image/jpg')
 
 puts 'labels created'
 
