@@ -1,7 +1,7 @@
 <div data-controller="spotify">
   <%= f.input :name, label:"What's your superstar name?" %>
   <%= f.input :age, label:'How many circles around the sun?' %>
-  <%= f.input :location, label:'Where do your story begins?' %>
+  <%= f.input :location, label:'Where does your story begin?' %>
   <%= f.input :roles, collection: Artist::ROLES, label:'What are your superpowers?', include_hidden: false, input_html: { multiple: true } %>
   <%= f.input :bio, label:'What would your friends say about you as an artist?' %>
   <%= f.input :influences, as: :hidden, input_html: {data: {"spotify-target": "hidden", influences: @artist.influences_name_list }, value: @artist.influences_name_list.join(',') } %>
