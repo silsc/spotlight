@@ -20,6 +20,10 @@
   }
 }
 
+.artist-search::-webkit-scrollbar {
+  display: none;
+}
+
 .label-search {
   background-color: white;
   border-radius: 20px;
@@ -39,6 +43,11 @@
   text-decoration: none;
   }
 }
+
+.label-search::-webkit-scrollbar {
+  display: none;
+}
+
 
 .card-search {
   overflow: hidden;
