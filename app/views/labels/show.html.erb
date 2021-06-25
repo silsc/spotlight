@@ -80,9 +80,9 @@
             <% end %>
           <% end %>
         </div>
-          <h4 class="cal-h mb-5">Our calendar</h4>
-          <div class="d-flex justify-content-center mt-4">
-            <%= render 'shared/calendar' %>
+        <h4 class="cal-h mb-5">Our calendar</h4>
+        <div class="d-flex justify-content-center mt-4">
+          <%= render 'shared/calendar' %>
         </div>
       </div>
     </div>
@@ -105,6 +105,7 @@
           <%= f.input :location %>
           <%= f.input :bio %>
           <%= f.input :website_url %>
+          <%= f.input :photo, as: :file  %>
           <%= f.submit "Update", class: 'btn btn-blue p-2' %>
         <% end %>
       </div>
@@ -169,4 +170,3 @@
   </div>
 </div>
 <%= render 'shared/footer' %>
-
