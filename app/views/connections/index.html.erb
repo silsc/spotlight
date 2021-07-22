@@ -2,22 +2,21 @@
   <h2 class="pt-3 text-center"> Start your journey </h2>
   <h2 class="pt-3 mb-5 text-center"> connecting with </h2>
   <%# <%= Artist.all.name%>
-  <div class="row d-block m-3">
+  <div class="row m-3">
     <% unless current_user == @user %>
       <% @profiles = Artist.all.first(3) + Label.all.first(3)  %>
       <% @profiles.each do |profile| %>
         <%# based on location?  %>
         <div class="card-suggestion mt-3">
           <% if current_user.following?(profile.user) %>
-            <div class="connect-card-items d-flex m-3">
-              <div class="d-flex">
+            <div class="connect-card-items m-3">
+              <div class="connect-card-infos">
                 <div class="card-suggestion-avatar pl-3 mr-5">
-                <% if profile.photo.attached? %>
-                  <%= cl_image_tag profile.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-suggestion"%>
-                <% else %>
-                  <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-suggestion"%>
-                <% end %>
-
+                  <% if profile.photo.attached? %>
+                    <%= cl_image_tag profile.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-suggestion"%>
+                  <% else %>
+                    <%= image_tag "https://miro.medium.com/max/200/1*W35QUSvGpcLuxPo3SRTH4w.png", class: "avatar-large rounded-circle avatar-suggestion"%>
+                  <% end %>
                 </div>
                 <div class="info-suggestions mt-3">
                   <h5><%= profile.name %></h5>
@@ -25,13 +24,12 @@
                 </div>
               </div>
               <div>
-
-              <%= link_to "Remove", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-blue px-5 mt-5" %>  <%# connect switch to connected %>
+                <%= link_to "Remove", connection_path(current_user.following_connection(profile.user)), method: :delete, class: "btn btn-blue px-5 mt-5" %>  <%# connect switch to connected %>
               </div>
             </div>
           <% else %>
-            <div class="connect-card-items d-flex m-3">
-              <div class="d-flex">
+            <div class="connect-card-items m-3">
+              <div class="connect-card-infos">
                 <div class="card-suggestion-avatar pl-3 mr-5">
                   <% if profile.photo.attached? %>
                     <%= cl_image_tag profile.photo.key, alt:"avatar profile", class: "avatar-large rounded-circle avatar-suggestion"%>
