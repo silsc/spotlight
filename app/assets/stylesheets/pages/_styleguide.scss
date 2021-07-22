@@ -1,7 +1,7 @@
 /* Navbar */
 .navbar-main {
   justify-content: space-between;
-  height: 90px;
+  height: 9rem;
   background: $gradient-light;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .navbar-main .navbar-brand img {
-  width: 40px;
+  width: 4rem;
 }
 
 .fa-lg {
@@ -18,8 +18,8 @@
 }
 
 .dropdown-menu {
-  border-radius: 10px;
-  width: 233px;
+  border-radius: 1rem;
+  width: 2.4rem;
   .dropdown-item {
     text-align: center;
   }
@@ -27,7 +27,7 @@
 
 .logout-item {
   border-top: 1px solid #c4c4c4;
-  padding-left: 50px;
+  padding-left: 5rem;
   .logout-icon {
     color: #6170d4;
   }
@@ -83,8 +83,10 @@
 /* Button */
 .btn-blue {
   color: rgba(255, 255, 255, 0.986);
-  padding: 12px 16px;
+  padding: 1.2rem 1.6rem;
+  font-size: 1.2rem;
   font-weight: 600;
+  text-transform: uppercase;
   border-radius: 4px;
   background: #6c7ceb;
   transition: background 0.3s ease;
@@ -98,8 +100,10 @@
 
 .btn-gradient {
   color: white;
-  padding: 13px 17px; /* it has to be bigger than the other buttons because we removed the border*/
+  padding: 1.3rem 1.7rem; /* it has to be bigger than the other buttons because we removed the border*/
+  font-size: 1.2rem;
   font-weight: 600;
+  text-transform: uppercase;
   border-radius: 4px;
   background: linear-gradient(253.58deg, #6c7ceb 1.55%, #db52f4 66.84%);
   transition: background 0.3s ease;
@@ -111,8 +115,10 @@
 
 .btn-white {
   color: black;
-  padding: 12px 16px;
+  padding: 1.2rem 1.6rem;
+  font-size: 1.2rem;
   font-weight: 500;
+  text-transform: uppercase;
   border-radius: 4px;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -127,11 +133,11 @@
 
 /* Song Card */
 .song-card {
-  width: 480px;
-  height: 160px;
+  width: 4.8rem;
+  height: 1.6rem;
   background: white;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
   color: white;
 
   background: url("https://source.unsplash.com/random/200x200");
@@ -141,13 +147,13 @@
 .flip-card {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 2rem;
   cursor: pointer;
   text-align: center;
 
   background-color: transparent;
-  width: 480px;
-  height: 160px;
+  width: 4.8rem;
+  height: 1.6rem;
 
   -webkit-transition: transform 0.6s;
   transform-style: preserve-3d;
@@ -193,7 +199,7 @@
 
 .tab-content {
   h3 {
-    padding: 10px 50px;
+    padding: 1rem 5rem;
   }
 }
 
@@ -204,7 +210,7 @@
   text-align: center;
   right: 0;
   left: 0;
-  top: 10px;
+  top: 1rem;
   color: #20263f;
 }
 
@@ -221,5 +227,5 @@
 // }
 
 .song-card:hover {
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.5);
 }
