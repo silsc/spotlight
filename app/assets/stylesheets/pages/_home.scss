@@ -6,38 +6,52 @@
 .colored-landing {
   background: $gradient-light;
   color: white;
-  padding-bottom: 72px;
-  border-radius: 0px 0px 0px 299px;
+  padding-bottom: 5vw;
+  border-radius: 0 0 0 20vw;
   width: 100%;
-}
-
-.small-heading {
-  font-size: 48px;
-  padding-bottom: 5%;
-  h2 {
-    margin-left: 100px;
-    font-weight: lighter;
-  }
-  .special-heading {
-    margin-left: 180px;
-  }
 }
 
 .big-heading {
   text-align: center;
   color: #ffffff;
-  font-size: 64px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 5vw;
   h1 {
-    font-size: 64px;
+    font-size: 4.5vw;
+    font-weight: 400;
+  }
+  span {
     font-weight: 700;
+  }
+  .get-started {
+    font-size: 1.5vw;
   }
 }
 
-.img-fluid.big-logo{
+.small-heading {
   position: relative;
-  left: 56px;
+  .small-heading-text {
+    position: absolute;
+    bottom: -9%;
+    right: -25%;
+    h2 {
+      text-align: right;
+      font-size: 3vw;
+      margin-left: 8vw;
+      font-weight: lighter;
+    }
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
+.img-fluid.big-logo {
+  position: relative;
+  left: 5vw;
   animation: dance 4s linear infinite;
+  height: 40vw;
+  width: auto;
 }
 
 @keyframes dance {
@@ -56,14 +70,14 @@
 // About us
 
 .about-container {
-  margin-top: 100px;
+  margin-top: 5vw;
   width: 100%;
 }
 
 .about-title {
   color: #2b325e;
-  margin-top: 32px;
-  margin-left: 80px;
+  margin-top: 3vw;
+  margin-left: 5vw;
 }
 
 .about-us {
