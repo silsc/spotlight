@@ -2,7 +2,7 @@
   <h2 class="pt-3 text-center"> Start your journey </h2>
   <h2 class="pt-3 mb-5 text-center"> connecting with </h2>
   <%# <%= Artist.all.name%>
-  <div class="row m-3">
+  <div class="row row-suggestions m-3">
     <% unless current_user == @user %>
       <% @profiles = Artist.all.first(3) + Label.all.first(3)  %>
       <% @profiles.each do |profile| %>
