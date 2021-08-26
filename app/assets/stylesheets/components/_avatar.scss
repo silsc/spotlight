@@ -16,24 +16,3 @@
   border-radius: 50%;
   object-fit: cover;
 }
-
-//redirect avatar
-
-.singer-redirect {
-  img {
-    width: 56%;
-    border-radius: 16px;
-    object-fit: cover;
-    filter: grayscale(100%);
-    position: relative;
-    left: 40px;
-    transition: 0.5s;
-  }
-}
-
-.singer-redirect:hover {
-  img {
-    filter: none;
-  }
-}
-

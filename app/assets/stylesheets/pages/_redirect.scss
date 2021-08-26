@@ -1,0 +1,71 @@
+.redirect-container {
+  -webkit-animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -ms-animation: fadein 2s;
+  -o-animation: fadein 2s;
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.singer-redirect {
+  img {
+    width: 56%;
+    border-radius: 16px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    position: relative;
+    left: 40px;
+    transition: 0.5s;
+    transition: opacity 2s ease-in;
+  }
+}
+
+.singer-redirect:hover {
+  img {
+    filter: none;
+  }
+}
